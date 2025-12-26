@@ -1,4 +1,7 @@
-import Image from "next/image";
+app\page.tsx
+This diff contains a change in line endings from 'LF' to 'CRLF'.
+
+@@ -2,64 +2,14 @@ import Image from "next/image";
 
 export default function Home() {
   return (
@@ -61,5 +64,14 @@ export default function Home() {
         </div>
       </main>
     </div>
+    <main className="min-h-screen bg-zinc-50 text-zinc-900 flex flex-col items-center justify-center">
+      <h1 className="text-4xl font-bold mb-4">
+        Hola Eventos
+      </h1>
+      <p className="text-lg max-w-xl text-center">
+        Organización y producción de eventos, marketing publicitario,
+        gestión de redes sociales y decoración para que tu marca brille.
+      </p>
+    </main>
   );
 }
