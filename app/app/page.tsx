@@ -39,7 +39,7 @@ export default function Home() {
       <section id="video-gallery" className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold">porque tus sueños son nuestra realidad</h2>
+            <h2 className="text-4xl font-bold">Porque tus sueños son nuestra realidad</h2>
             <p className="mx-auto mt-4 max-w-2xl text-gray-600">asesoramiento personalizado</p>
           </div>
           {/* Main Video */}
