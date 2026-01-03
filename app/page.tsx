@@ -24,7 +24,7 @@ export default function Home() {
           <img
             src="https://misquince.es/fotos/cropped-banner-carlos.jpg"
             alt="Decoración de un elegante evento con mesas preparadas"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-contain object-center"
             data-ai-hint="elegant event decoration"
           />
           {/* Overlay */}
