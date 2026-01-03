@@ -44,7 +44,7 @@ export default function Home() {
             Alquiler y organización de eventos en Madrid
           </h1>
           <p className="mt-3 text-sm sm:text-base md:text-lg text-gray-100">
-            Material, decoración y asesoramiento profesional para que tu evento salga perfecto.
+           
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flºuex-row sm:justify-center">
             <Link href="#products">
