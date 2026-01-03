@@ -18,19 +18,26 @@ export default function Home() {
   return (
     <main className="flex-1">
       {/* Hero Section */}
-      <section className="relative w-full h-[45vh] sm:h-[55vh] md:h-[70vh] flex items-center justify-center text-center text-white">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src="https://misquince.es/fotos/cropped-banner-carlos.jpg"
-            alt="Decoración de un elegante evento con mesas preparadas"
-            className="w-full h-full object-contain object-center"
-            data-ai-hint="elegant event decoration"
-          />
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/40" />
-        </div>
+     <section className="relative w-full h-[55vh] sm:h-[65vh] md:h-[75vh] text-center text-white">
+  {/* Imagen de fondo, arriba y centrada */}
+  <div className="absolute inset-0">
+    <img
+      src="https://misquince.es/fotos/cropped-banner-carlos.jpg"
+      alt="Decoración de un elegante evento con mesas preparadas"
+      className="w-full h-full object-cover object-center"
+      data-ai-hint="elegant event decoration"
+    />
+    <div className="absolute inset-0 bg-black/40" />
+  </div>
 
+  {/* Contenido encima del banner */}
+  <div className="relative z-10 px-4 pt-4 max-w-2xl mx-auto">
+    <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight">
+      Alquiler y organización de eventos en Madrid
+    </h1>
+    {/* Aquí puedes quitar el párrafo y el botón WhatsApp si no los quieres */}
+  </div>
+</section>
         {/* Content */}
         <div className="relative z-10 px-4 max-w-2xl">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight">
