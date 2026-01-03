@@ -17,37 +17,40 @@ export default function Home() {
 
   return (
     <main className="flex-1">
-      {/* Hero Section ajustado a móvil */}
-      <section className="relative w-full h-[70vh] sm:h-[60vh] md:h-[65vh] text-center text-white">
-        {/* Imagen de fondo */}
+      {/* Hero Section totalmente responsive */}
+      <section className="relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[75vh] text-center text-white flex items-center">
+        {/* Imagen de fondo responsive */}
         <div className="absolute inset-0">
           <img
             src="https://misquince.es/fotos/cropped-banner-carlos.jpg"
             alt="Decoración de un elegante evento con mesas preparadas"
             className="w-full h-full object-cover object-center"
           />
+          {/* Capa oscura para que se lea el texto */}
           <div className="absolute inset-0 bg-black/40" />
         </div>
 
-        {/* Contenido centrado dentro del banner */}
-        <div className="relative z-10 flex h-full flex-col items-center justify-center px-4">
-          <h1 className="max-w-3xl text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight">
+        {/* Contenido centrado */}
+        <div className="relative z-10 flex w-full flex-col items-center justify-center px-4 py-10">
+          <h1 className="max-w-3xl text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
             Alquiler y organización de eventos en Madrid
           </h1>
           <p className="mt-4 max-w-xl text-sm sm:text-base md:text-lg text-gray-100">
             Mobiliario, decoración y asesoramiento profesional para que tu evento sea un éxito.
           </p>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center">
-            <Link href="#products">
-              <button className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-6 text-sm font-medium text-white transition-colors hover:bg-primary/90">
+
+          <div className="mt-6 flex w-full max-w-md flex-col gap-3 sm:flex-row sm:justify-center">
+            <Link href="#products" className="w-full sm:w-auto">
+              <button className="inline-flex w-full sm:w-auto h-11 items-center justify-center rounded-md bg-primary px-6 text-sm font-medium text-white transition-colors hover:bg-primary/90">
                 Ver material destacado
               </button>
             </Link>
+
             <a
               href="https://wa.me/34123456789?text=Hola!%20Me%20gustaría%20pedir%20presupuesto%20para%20un%20evento."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-11 items-center justify-center rounded-md border border-gray-300 bg-white/95 px-6 text-sm font-medium text-gray-900 transition-colors hover:bg-white"
+              className="inline-flex w-full sm:w-auto h-11 items-center justify-center rounded-md border border-gray-300 bg-white/95 px-6 text-sm font-medium text-gray-900 transition-colors hover:bg-white"
             >
               Pedir presupuesto por WhatsApp
             </a>
@@ -187,4 +190,3 @@ export default function Home() {
     </main>
   );
 }
-
