@@ -146,7 +146,46 @@ export default function Home() {
             {featuredProducts.map((item) => (
               <div
                 key={item.name}
-                className="group overflow-hidden rounded-lg border bg-white sh
+                className="group overflow-hidden rounded-lg border bg-white shadow-sm"
+              >
+                <Link href={item.seeMoreLink || '#'}>
+                  <div className="relative h-64 w-full">
+                    <img
+                      src={item.image.src}
+                      alt={item.name}
+                      className={`h-full w-full ${
+                        item.id === 'estufa-gas' ? 'object-contain' : 'object-cover'
+                      } transition-transform duration-300 group-hover:scale-105`}
+                      data-ai-hint={item.image.hint}
+                    />
+                  </div>
+                </Link>
+                <div className="p-4">
+                  <div className="mb-2 flex items-center justify-center text-sm text-primary font-semibold">
+                    <MessageSquare className="mr-2 h-4 w-4" />
+                    ¿Necesitas asesoramiento?
+                  </div>
+                  <h3 className="text-lg font-semibold text-center">{item.name}</h3>
 
-
-
+                  <button
+                    onClick={() => addItem(item)}
+                    className="mt-4 w-full rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+                  >
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-12 text-center">
+            <Link href="/products">
+              <button className="inline-flex h-11 items-center justify-center rounded-md border border-gray-300 bg-white px-8 text-sm font-medium transition-colors hover:bg-gray-100">
+                Ver Catálogo Completo {'->'}
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
+  </main>
+);
+}
