@@ -46,7 +46,7 @@ export default function Home() {
           <p className="mt-3 text-sm sm:text-base md:text-lg text-gray-100">
             Material, decoración y asesoramiento profesional para que tu evento salga perfecto.
           </p>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center">
+          <div className="mt-6 flex flex-col gap-3 sm:flºuex-row sm:justify-center">
             <Link href="#products">
               <button className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-6 text-sm font-medium text-white transition-colors hover:bg-primary/90">
                 Ver material destacado
@@ -58,7 +58,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="inline-flex h-11 items-center justify-center rounded-md border border-gray-300 bg-white/95 px-6 text-sm font-medium text-gray-900 transition-colors hover:bg-white"
             >
-              Hablar por WhatsApp
+              
             </a>
           </div>
         </div>
