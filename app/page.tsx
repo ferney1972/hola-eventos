@@ -64,7 +64,4 @@ export default function Home() {
           </div>
 
           {/* Vídeo principal */}
-          <div className="mb-8 overflow-hidden rounded-lg border shadow-lg">
-            <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
-              <video
-                src="https://videos.pexels.com/video-files/3209828/3209828-hd_1920_1080_25fps.
+          <div className="mb-8 overflow-hidden rounded-lg border shadow-
