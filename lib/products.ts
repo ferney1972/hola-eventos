@@ -1,3 +1,13 @@
+export type Product = {
+  id: string;
+  name: string;
+  image: {
+    src: string;
+    hint: string;
+  };
+  seeMoreLink: string;
+};
+
 export const products: Product[] = [
   {
     id: "estufa-gas",
@@ -35,4 +45,5 @@ export const products: Product[] = [
     },
     seeMoreLink: "/products/tarimas-escenario",
   },
-];  // aquí se cierra el array y ya no va nada más
+];
+
