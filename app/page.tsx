@@ -17,9 +17,9 @@ export default function Home() {
 
   return (
     <main className="flex-1">
-      {/* Hero Section - Optimizada para móviles */}
-      <section className="relative w-full min-h-[50vh] sm:min-h-[60vh] md:min-h-[70vh] lg:min-h-[75vh] text-center text-white flex items-center">
-        {/* Imagen de fondo con optimización móvil */}
+      {/* Hero Section - Ocupa toda la pantalla del móvil */}
+      <section className="relative w-full min-h-[100vh] sm:min-h-[70vh] md:min-h-[75vh] text-center text-white flex items-center">
+        {/* Imagen de fondo que ocupa toda la pantalla */}
         <div className="absolute inset-0">
           <img
             src="https://misquince.es/fotos/cropped-banner-carlos.jpg"
@@ -28,45 +28,75 @@ export default function Home() {
             loading="eager"
             decoding="async"
           />
-          {/* Capa oscura con mejor contraste para móvil */}
-          <div className="absolute inset-0 bg-black/50 md:bg-black/40" />
+          {/* Capa oscura para mejor contraste */}
+          <div className="absolute inset-0 bg-black/60 md:bg-black/50" />
         </div>
 
-        {/* Contenido optimizado para móviles */}
-        <div className="relative z-10 flex w-full flex-col items-center justify-center px-4 sm:px-6 py-8 sm:py-12 md:py-16">
-          <div className="w-full max-w-6xl mx-auto">
-            <h1 className="text-2xl xs:text-2.5xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-snug sm:leading-tight px-2">
+        {/* Contenido centrado que ocupa toda la altura */}
+        <div className="relative z-10 flex w-full flex-col items-center justify-center px-4 py-8 sm:py-12 md:py-16 h-full">
+          <div className="w-full max-w-6xl mx-auto my-auto">
+            {/* Título principal */}
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight sm:leading-tight md:leading-tight mb-4 sm:mb-6 px-2">
               Alquiler y organización de eventos en Madrid
             </h1>
-            <p className="mt-3 sm:mt-4 max-w-xl mx-auto text-sm xs:text-base sm:text-lg md:text-xl text-gray-100 px-4">
-              Mobiliario, decoración y asesoramiento profesional para que tu evento sea un éxito.
-            </p>
+            
+            {/* Subtítulo */}
+            <div className="mb-6 sm:mb-8">
+              <p className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-bold text-primary-light mb-2">
+                ORGANIZACIÓN DE EVENTOS
+              </p>
+            </div>
 
-            {/* Botones optimizados para touch en móvil */}
-            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center w-full px-2">
-              <Link 
-                href="#products" 
-                className="w-full sm:w-auto block sm:inline-block"
-              >
-                <button className="w-full sm:w-auto min-h-[44px] px-6 py-3 sm:py-2.5 rounded-md bg-primary text-white font-medium text-sm sm:text-base transition-colors hover:bg-primary/90 active:bg-primary/80 focus:outline-none focus:ring-2 focus:ring-primary/50">
-                  Ver material destacado
-                </button>
-              </Link>
+            {/* Descripción */}
+            <div className="max-w-2xl mx-auto mb-6 sm:mb-8">
+              <p className="text-base xs:text-lg sm:text-xl md:text-2xl text-gray-100 mb-4">
+                Mobiliario, decoración y asesoramiento profesional para que tu evento sea un éxito
+              </p>
+              <p className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-bold text-yellow-300 italic">
+                "O LO TENGO, TE LO CONSIGO"
+              </p>
+              <p className="text-sm xs:text-base sm:text-lg text-gray-200 mt-2">
+                No te preocupes si no lo tenemos, nosotros te lo conseguimos
+              </p>
+            </div>
 
+            {/* Botón WhatsApp destacado */}
+            <div className="mt-6 sm:mt-8">
               <a
                 href="https://wa.me/34123456789?text=Hola!%20Me%20gustaría%20pedir%20presupuesto%20para%20un%20evento."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto block sm:inline-block"
+                className="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold rounded-full px-8 py-4 sm:px-10 sm:py-5 text-lg sm:text-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               >
-                <button className="w-full sm:w-auto min-h-[44px] px-6 py-3 sm:py-2.5 rounded-md border border-gray-300 bg-white/95 text-gray-900 font-medium text-sm sm:text-base transition-colors hover:bg-white active:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-300">
-                  <span className="hidden sm:inline">Pedir presupuesto por </span>WhatsApp
-                </button>
+                <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.507 14.307l-.009.075c-2.199-1.096-2.429-1.242-2.713-.816-.197.295-.771.964-.944 1.162-.175.195-.349.21-.646.075-.3-.15-1.263-.465-2.403-1.485-.888-.795-1.484-1.77-1.66-2.07-.293-.506.32-.578.878-1.634.1-.21.049-.375-.025-.524-.075-.15-.672-1.62-.922-2.206-.24-.584-.487-.51-.672-.51-.576-.05-.997-.05-1.368.344-1.614 1.774-1.207 3.604.174 5.55 2.714 3.552 4.16 4.206 6.8 5.114.714.227 1.365.195 1.88.121.574-.091 1.754-.721 2.004-1.426.255-.705.255-1.29.18-1.425-.074-.135-.27-.21-.57-.345z"/>
+                  <path d="M20.52 3.449C12.15-2 1.029-.828 1.029 10.445c0 1.958.581 4.146 1.688 6.348L1 23l6.592-1.756c1.955.79 3.72 1.175 5.408 1.175h.005c9.376 0 13.001-7.72 13.001-13.002 0-2.899-1.155-5.343-3.485-7.968zM12.005 21.38c-1.511 0-3.038-.375-4.842-1.156l-.346-.162-3.344.893.893-3.344-.168-.339c-1.477-2.435-1.622-4.537-1.622-6.289-.001-7.169 6.868-10.125 11.429-10.125 3.036 0 5.885 1.116 8.02 3.141 2.137 2.028 3.315 4.722 3.315 7.599-.001 7.148-5.555 10.122-11.439 10.122z"/>
+                </svg>
+                WhatsApp
               </a>
+            </div>
+
+            {/* Botón secundario */}
+            <div className="mt-6">
+              <Link href="#products">
+                <button className="inline-flex h-12 sm:h-14 items-center justify-center rounded-md bg-primary px-8 sm:px-10 text-base sm:text-lg font-medium text-white transition-colors hover:bg-primary/90 active:bg-primary/80">
+                  Ver material destacado
+                </button>
+              </Link>
             </div>
           </div>
         </div>
+
+        {/* Indicador de scroll para móviles */}
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </div>
       </section>
+
+      {/* Separador visual */}
+      <div className="w-full h-1 bg-gradient-to-r from-primary via-yellow-500 to-primary" />
 
       {/* Video Section */}
       <section id="video-gallery" className="py-12 sm:py-16 md:py-20 lg:py-24">
