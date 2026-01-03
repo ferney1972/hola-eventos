@@ -17,8 +17,8 @@ export default function Home() {
 
   return (
     <main className="flex-1">
-      {/* Hero Section */}
-      <section className="relative w-full h-[55vh] sm:h-[65vh] md:h-[75vh] text-center text-white">
+      {/* Hero Section a pantalla completa */}
+      <section className="relative w-full h-screen text-center text-white">
         {/* Imagen de fondo */}
         <div className="absolute inset-0">
           <img
@@ -30,37 +30,29 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/40" />
         </div>
 
-        {/* Contenido encima del banner */}
-        <div className="relative z-10 px-4 pt-4 max-w-2xl mx-auto">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight">
+        {/* Contenido centrado sobre el banner */}
+        <div className="relative z-10 flex h-full flex-col items-center justify-center px-4">
+          <h1 className="max-w-3xl text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
             Alquiler y organización de eventos en Madrid
           </h1>
-          {/* Aquí puedes añadir texto o botón si quieres */}
-        </div>
-      </section>
-
-      {/* Content bajo el hero */}
-      <section className="relative z-10 px-4 max-w-2xl mx-auto py-8">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight">
-          Alquiler y organización de eventos en Madrid
-        </h2>
-        <p className="mt-3 text-sm sm:text-base md:text-lg text-gray-700">
-          Todo lo que necesitas para que tu evento sea un éxito: mobiliario, decoración y asesoramiento profesional.
-        </p>
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-start">
-          <Link href="#products">
-            <button className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-6 text-sm font-medium text-white transition-colors hover:bg-primary/90">
-              Ver material destacado
-            </button>
-          </Link>
-          <a
-            href="https://wa.me/34123456789?text=Hola!%20Me%20gustaría%20pedir%20presupuesto%20para%20un%20evento."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-11 items-center justify-center rounded-md border border-gray-300 bg-white/95 px-6 text-sm font-medium text-gray-900 transition-colors hover:bg-white"
-          >
-            Pedir presupuesto por WhatsApp
-          </a>
+          <p className="mt-4 max-w-xl text-sm sm:text-base md:text-lg text-gray-100">
+            Mobiliario, decoración y asesoramiento profesional para que tu evento sea un éxito.
+          </p>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center">
+            <Link href="#products">
+              <button className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-6 text-sm font-medium text-white transition-colors hover:bg-primary/90">
+                Ver material destacado
+              </button>
+            </Link>
+            <a
+              href="https://wa.me/34123456789?text=Hola!%20Me%20gustaría%20pedir%20presupuesto%20para%20un%20evento."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-11 items-center justify-center rounded-md border border-gray-300 bg-white/95 px-6 text-sm font-medium text-gray-900 transition-colors hover:bg-white"
+            >
+              Pedir presupuesto por WhatsApp
+            </a>
+          </div>
         </div>
       </section>
 
@@ -72,7 +64,7 @@ export default function Home() {
             <p className="mx-auto mt-4 max-w-2xl text-gray-600">Asesoramiento personalizado</p>
           </div>
 
-          {/* Main Video */}
+          {/* Vídeo principal */}
           <div className="mb-8 overflow-hidden rounded-lg border shadow-lg">
             <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
               <video
@@ -88,7 +80,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Video Thumbnails */}
+          {/* Miniaturas de vídeo */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
             {[
               'https://videos.pexels.com/video-files/5969502/5969502-sd_640_360_25fps.mp4',
@@ -101,7 +93,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How it works */}
+      {/* Cómo funciona */}
       <section id="how-it-works" className="bg-gray-50 py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center">
@@ -147,7 +139,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Products Section */}
+      {/* Productos destacados */}
       <section id="products" className="bg-gray-50 py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
