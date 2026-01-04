@@ -156,7 +156,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AGENTES ESPECIALIZADOS */}
+      {/* AGENTES ESPECIALIZADOS (SECCIÓN NORMAL, SI LA QUIERES MANTENER) */}
       <section className="bg-black py-16">
         <div className="container mx-auto px-4">
           <h2 className="mb-8 text-center text-3xl font-bold text-white">
@@ -165,7 +165,7 @@ export default function Home() {
 
           <div className="flex flex-col items-center gap-8 md:flex-row md:justify-center">
             {/* Agente Decoración (chica) */}
-            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg-white/10 text-center shadow-lg">
+            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg_white/10 text-center shadow-lg">
               <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border-white">
                 <img
                   src="https://misquince.es/fotos/decoracion.png"
@@ -180,7 +180,7 @@ export default function Home() {
                 Especialista en decoración y ambientación de eventos.
               </p>
               <a
-                href="https://wa.me/+34649330612?text=Hola,%20me%20gustaría%20hablar%20con%20decoración%20sobre%20mi%20evento."
+                href="https://wa.me/34600000001?text=Hola,%20me%20gustaría%20hablar%20con%20decoración%20sobre%20mi%20evento."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-3 inline-flex items-center justify-center rounded-full border border-green-500 px-4 py-1.5 text-xs font-medium text-green-400 hover:bg-green-500 hover:text-white"
@@ -208,14 +208,14 @@ export default function Home() {
                 href="https://wa.me/34600000002?text=Hola,%20me%20gustaría%20hablar%20sobre%20sonido%20y%20vídeo%20para%20mi%20evento."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 inline-flex items_center justify-center rounded-full border border-green-500 px-4 py-1.5 text-xs font-medium text-green-400 hover:bg-green-500 hover:text-white"
+                className="mt-3 inline-flex items-center justify-center rounded-full border border-green-500 px-4 py-1.5 text-xs font-medium text-green-400 hover:bg-green-500 hover:text-white"
               >
                 WhatsApp
               </a>
             </div>
 
             {/* Agente Mobiliario (chico) */}
-            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg-white/10 text-center shadow-lg">
+            <div className="flex h-64 w-64 flex-col items-center justify-center rounded_full bg-white/10 text-center shadow-lg">
               <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border-white">
                 <img
                   src="https://misquince.es/fotos/mobiliario.jpg"
@@ -223,7 +223,7 @@ export default function Home() {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <p className="text-sm font-semibold uppercase tracking-wide text-white">
+              <p className="text-sm font-semibold uppercase tracking-wide text_white">
                 Mobiliario
               </p>
               <p className="mt-1 px-4 text-xs text-gray-200">
@@ -379,7 +379,80 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      {/* WIDGET FLOTANTE AGENTES */}
+      <div className="fixed bottom-4 right-4 z-50">
+        <div className="flex flex-col items-end gap-3">
+          {/* Botón flotante principal (logo Hola Eventos) */}
+          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-lg border border-gray-300">
+            <span className="text-xs font-bold text-black text-center">
+              Hola<br />Eventos
+            </span>
+          </div>
+
+          {/* Panel con los 3 agentes, siempre visible */}
+          <div className="rounded-3xl bg-black/90 p-3 shadow-2xl border border-white/20">
+            <div className="flex flex-col gap-3">
+              {/* Decoración */}
+              <a
+                href="https://wa.me/34600000001?text=Hola,%20me%20gustaría%20hablar%20con%20decoración%20sobre%20mi%20evento."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 rounded-full bg-white/10 px-2 py-1 hover:bg-white/20"
+              >
+                <div className="h-8 w-8 overflow-hidden rounded-full border border-white">
+                  <img
+                    src="https://misquince.es/fotos/decoracion.png"
+                    alt="Agente decoración"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <span className="text-xs font-semibold text-white">
+                  Decoración
+                </span>
+              </a>
+
+              {/* Sonido y vídeo */}
+              <a
+                href="https://wa.me/34600000002?text=Hola,%20me%20gustaría%20hablar%20sobre%20sonido%20y%20vídeo%20para%20mi%20evento."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 rounded-full bg-white/10 px-2 py-1 hover:bg-white/20"
+              >
+                <div className="h-8 w-8 overflow-hidden rounded-full border border-white">
+                  <img
+                    src="https://misquince.es/fotos/sonido%20y%20video.jpg"
+                    alt="Agente sonido y vídeo"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <span className="text-xs font-semibold text-white">
+                  Sonido y vídeo
+                </span>
+              </a>
+
+              {/* Mobiliario */}
+              <a
+                href="https://wa.me/34600000003?text=Hola,%20me%20gustaría%20hablar%20sobre%20mobiliario%20para%20mi%20evento."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 rounded-full bg-white/10 px-2 py-1 hover:bg-white/20"
+              >
+                <div className="h-8 w-8 overflow-hidden rounded-full border border-white">
+                  <img
+                    src="https://misquince.es/fotos/mobiliario.jpg"
+                    alt="Agente mobiliario"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <span className="text-xs font-semibold text-white">
+                  Mobiliario
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
-
