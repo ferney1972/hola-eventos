@@ -200,25 +200,19 @@ export default function Home() {
                     />
                   </div>
                   <div className="p-4">
-                    <div className="mb-2 flex items-center justify-center text-sm text-primary font-semibold">
-                      <MessageSquare className="mr-2 h-4 w-4" />
+                    <div className="mb-2 flex items-center justify-center text-sm text-black font-semibold">
+                      <MessageSquare className="mr-2 h-4 w-4 text-black" />
                       ¿Necesitas asesoramiento?
                     </div>
                     <h3 className="text-lg font-semibold text-center text-black">
                       {item.name}
                     </h3>
 
-                    {item.price !== undefined && (
-                      <p className="mt-1 text-center text-sm text-gray-700">
-                        Desde {item.price.toFixed(2)} € unidad
-                      </p>
-                    )}
-
-                    {/* Selector cantidad + / - */}
+                    {/* Selector cantidad + / - en negro */}
                     <div className="mt-3 flex items-center justify-center gap-3">
                       <button
                         onClick={decrease}
-                        className="h-8 w-8 rounded-full border border-gray-300 flex items-center justify-center text-lg leading-none"
+                        className="h-8 w-8 rounded-full border border-black flex items-center justify-center text-lg leading-none text-black"
                       >
                         −
                       </button>
@@ -227,7 +221,7 @@ export default function Home() {
                       </span>
                       <button
                         onClick={increase}
-                        className="h-8 w-8 rounded-full border border-gray-300 flex items-center justify-center text-lg leading-none"
+                        className="h-8 w-8 rounded-full border border-black flex items-center justify-center text-lg leading-none text-black"
                       >
                         +
                       </button>
@@ -278,12 +272,6 @@ export default function Home() {
             {selectedProduct.description && (
               <p className="text-sm text-gray-700 mb-3">
                 {selectedProduct.description}
-              </p>
-            )}
-
-            {selectedProduct.price !== undefined && (
-              <p className="font-semibold text-black mb-4">
-                Desde {selectedProduct.price.toFixed(2)} € unidad
               </p>
             )}
 
