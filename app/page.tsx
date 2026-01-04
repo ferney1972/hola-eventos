@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { VideoThumbnail } from '@/components/video-thumbnail';
 import { MessageSquare } from 'lucide-react';
 import { products } from '@/lib/products';
@@ -10,16 +10,58 @@ import { useCart } from '@/context/CartContext';
 export default function Home() {
   const { addItem } = useCart();
 
+  const [formData, setFormData] = useState({
+    nombre: '',
+    apellido: '',
+    telefono: '',
+    email: '',
+    lugar: '',
+    provincia: '',
+    asistentes: '',
+    observaciones: '',
+  });
+  const [formEnviado, setFormEnviado] = useState(false);
+
   const featuredProductIds = ['estufa-gas', 'silla-blanca-resina', 'sillas-plegables', 'tarimas-escenario'];
   const featuredProducts = products
     .filter((p) => featuredProductIds.includes(p.id))
     .sort((a, b) => featuredProductIds.indexOf(a.id) - featuredProductIds.indexOf(b.id));
 
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const { nombre, apellido, telefono, email, lugar, provincia, asistentes, observaciones } = formData;
+
+    const bodyLines = [
+      `Nombre: ${nombre}`,
+      `Apellido: ${apellido}`,
+      `Teléfono: ${telefono}`,
+      `Email: ${email}`,
+      `Lugar del evento: ${lugar}`,
+      `Provincia: ${provincia}`,
+      `Cantidad de asistentes: ${asistentes}`,
+      `Observaciones: ${observaciones}`,
+    ];
+
+    const mailto = `mailto:produccionsanchezparra@gmail.com?subject=Solicitud%20de%20presupuesto&body=${encodeURIComponent(
+      bodyLines.join('\n')
+    )}`;
+
+    window.location.href = mailto;
+    setFormEnviado(true);
+  };
+
   return (
     <main className="flex-1 bg-black">
       {/* HERO */}
       <section className="relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[75vh] text-center text-white flex flex-col">
-        {/* Banner con foco 40% para ver hombre y chica */}
         <div className="relative w-full h-[220px] sm:h-[260px] md:h-[300px] overflow-hidden bg-black">
           <img
             src="https://misquince.es/fotos/cropped-banner-carlos.jpg"
@@ -47,7 +89,6 @@ export default function Home() {
               </button>
             </Link>
 
-            {/* BOTÓN WHATSAPP VERDE +34640651851 */}
             <a
               href="https://wa.me/34640651851?text=Hola!%20Me%20gustaría%20pedir%20presupuesto%20para%20un%20evento."
               target="_blank"
@@ -95,7 +136,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CÓMO FUNCIONA */}
+      {/* CÓMO FUNCIONA + FORMULARIO */}
       <section id="how-it-works" className="bg-gray-50 py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center">
@@ -104,6 +145,7 @@ export default function Home() {
               Organizar tu evento nunca fue tan fácil. Sigue estos simples pasos.
             </p>
           </div>
+
           <div className="relative mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
             <div
               className="absolute top-1/2 left-0 hidden h-px w-full -translate-y-1/2 bg-gray-300 md:block"
@@ -127,18 +169,154 @@ export default function Home() {
               },
             ].map((step) => (
               <div key={step.title} className="relative z-10 text-center">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-white text-2xl font-bold text-primary">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-blue-500 bg-white text-2xl font-bold text-blue-500">
                   {step.number}
                 </div>
-                {/* títulos en negro */}
                 <h3 className="mt-6 text-xl font-bold text-black">{step.title}</h3>
                 <p className="mt-2 text-gray-600">{step.desc}</p>
-                {/* “¿Necesitas asesoramiento?” en negro */}
                 {step.number === '3' && (
                   <p className="mt-2 font-semibold text-black">¿Necesitas asesoramiento?</p>
                 )}
               </div>
             ))}
+          </div>
+
+          {/* Formulario Revisar y Solicitar */}
+          <div className="mt-16 max-w-2xl mx-auto bg-white rounded-lg shadow-md p-6">
+            {!formEnviado ? (
+              <>
+                <h3 className="text-2xl font-bold text-black mb-4">
+                  Revisar y solicitar presupuesto
+                </h3>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-black mb-1">
+                        Nombre *
+                      </label>
+                      <input
+                        type="text"
+                        name="nombre"
+                        required
+                        value={formData.nombre}
+                        onChange={handleChange}
+                        className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-black mb-1">
+                        Apellido
+                      </label>
+                      <input
+                        type="text"
+                        name="apellido"
+                        value={formData.apellido}
+                        onChange={handleChange}
+                        className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-black mb-1">
+                        Teléfono de contacto *
+                      </label>
+                      <input
+                        type="tel"
+                        name="telefono"
+                        required
+                        value={formData.telefono}
+                        onChange={handleChange}
+                        className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-black mb-1">
+                        Email *
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-black mb-1">
+                        Lugar del evento
+                      </label>
+                      <input
+                        type="text"
+                        name="lugar"
+                        value={formData.lugar}
+                        onChange={handleChange}
+                        className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-black mb-1">
+                        Provincia
+                      </label>
+                      <input
+                        type="text"
+                        name="provincia"
+                        value={formData.provincia}
+                        onChange={handleChange}
+                        className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-black mb-1">
+                      Cantidad de asistentes
+                    </label>
+                    <input
+                      type="number"
+                      name="asistentes"
+                      value={formData.asistentes}
+                      onChange={handleChange}
+                      className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-black mb-1">
+                      Observaciones
+                    </label>
+                    <textarea
+                      name="observaciones"
+                      rows={4}
+                      value={formData.observaciones}
+                      onChange={handleChange}
+                      className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="mt-2 inline-flex h-11 w-full items-center justify-center rounded-md bg-blue-600 text-sm font-semibold text-white hover:bg-blue-700 transition-colors"
+                  >
+                    Revisar y solicitar
+                  </button>
+                </form>
+              </>
+            ) : (
+              <div className="text-center py-8">
+                <h3 className="text-2xl font-bold text-black mb-2">
+                  Gracias por contactar con nosotros
+                </h3>
+                <p className="text-gray-600">
+                  Hemos recibido tu solicitud y nos pondremos en contacto contigo lo antes posible.
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -192,3 +370,4 @@ export default function Home() {
     </main>
   );
 }
+
