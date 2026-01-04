@@ -5,8 +5,8 @@ import { ShoppingCart } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
 export function HeaderClient() {
-  const { articulos } = useCart(); // ← antes: items
-  const count = articulos.reduce(
+  const { items } = useCart(); // antes: articulos
+  const count = items.reduce(
     (acc, item) => acc + (item.quantity || 0),
     0
   );
@@ -32,3 +32,4 @@ export function HeaderClient() {
     </header>
   );
 }
+
