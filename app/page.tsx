@@ -156,6 +156,92 @@ export default function Home() {
         </div>
       </section>
 
+      {/* AGENTES ESPECIALIZADOS */}
+      <section className="bg-black py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="mb-8 text-center text-3xl font-bold text-white">
+            Habla con nuestros especialistas
+          </h2>
+
+          <div className="flex flex-col items-center gap-8 md:flex-row md:justify-center">
+            {/* Agente Decoración (chica) */}
+            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg-white/10 text-center shadow-lg">
+              <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border-white">
+                <img
+                  src="https://misquince.es/fotos/decoracion.png"
+                  alt="Agente de decoración"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <p className="text-sm font-semibold uppercase tracking-wide text-white">
+                Decoración
+              </p>
+              <p className="mt-1 px-4 text-xs text-gray-200">
+                Especialista en decoración y ambientación de eventos.
+              </p>
+              <a
+                href="https://wa.me/+34649330612?text=Hola,%20me%20gustaría%20hablar%20con%20decoración%20sobre%20mi%20evento."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center justify-center rounded-full border border-green-500 px-4 py-1.5 text-xs font-medium text-green-400 hover:bg-green-500 hover:text-white"
+              >
+                WhatsApp
+              </a>
+            </div>
+
+            {/* Agente Sonido y Vídeo (chico) */}
+            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg-white/10 text-center shadow-lg">
+              <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border-white">
+                <img
+                  src="https://misquince.es/fotos/sonido%20y%20video.jpg"
+                  alt="Agente de sonido y vídeo"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <p className="text-sm font-semibold uppercase tracking-wide text-white">
+                Sonido y vídeo
+              </p>
+              <p className="mt-1 px-4 text-xs text-gray-200">
+                Técnico en sonido, iluminación y proyección.
+              </p>
+              <a
+                href="https://wa.me/34600000002?text=Hola,%20me%20gustaría%20hablar%20sobre%20sonido%20y%20vídeo%20para%20mi%20evento."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items_center justify-center rounded-full border border-green-500 px-4 py-1.5 text-xs font-medium text-green-400 hover:bg-green-500 hover:text-white"
+              >
+                WhatsApp
+              </a>
+            </div>
+
+            {/* Agente Mobiliario (chico) */}
+            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg-white/10 text-center shadow-lg">
+              <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border-white">
+                <img
+                  src="https://misquince.es/fotos/mobiliario.jpg"
+                  alt="Agente de mobiliario"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <p className="text-sm font-semibold uppercase tracking-wide text-white">
+                Mobiliario
+              </p>
+              <p className="mt-1 px-4 text-xs text-gray-200">
+                Especialista en sillas, mesas, tarimas y estructuras.
+              </p>
+              <a
+                href="https://wa.me/34600000003?text=Hola,%20me%20gustaría%20hablar%20sobre%20mobiliario%20para%20mi%20evento."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center justify-center rounded-full border border-green-500 px-4 py-1.5 text-xs font-medium text-green-400 hover:bg-green-500 hover:text-white"
+              >
+                WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* PRODUCTOS DESTACADOS */}
       <section id="products" className="bg-gray-50 py-16 md:py-24">
         <div className="container mx-auto px-4">
@@ -250,7 +336,7 @@ export default function Home() {
 
       {/* MODAL DETALLE PRODUCTO */}
       {selectedProduct && (
-        <div className="fixed inset-0 z-50 flex items-center justify_center bg-black/60">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
           <div className="max-w-md w-full rounded-lg bg-white p-6">
             <button
               onClick={() => setSelectedProduct(null)}
