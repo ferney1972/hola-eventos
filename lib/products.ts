@@ -23,7 +23,7 @@ export const products: Product[] = [
     id: "silla-blanca-resina",
     name: "Silla blanca de resina",
     image: {
-      src: "https://misquince.es/fotos/silla-blanca-resina.jpg",
+      src: "https://misquince.es/fotos/Silla blanca de resina.jpg",
     },
     price: 1.8,
     description:
@@ -33,7 +33,7 @@ export const products: Product[] = [
     id: "sillas-plegables",
     name: "Silla plegable",
     image: {
-      src: "https://misquince.es/fotos/silla-plegable.jpg",
+      src: "https://misquince.es/fotos/sillas negras.PNG",
     },
     price: 1.5,
     description:
@@ -43,7 +43,7 @@ export const products: Product[] = [
     id: "tarimas-escenario",
     name: "Tarimas para escenario",
     image: {
-      src: "https://misquince.es/fotos/tarimas-escenario.jpg",
+      src: "https://misquince.es/fotos/Alquiler de escenario.png",
     },
     price: 40,
     description:
