@@ -29,7 +29,7 @@ export const products: Product[] = [
     id: "sillas-plegables",
     name: "Silla plegable",
     image: {
-      src: "https://misquince.es/fotos/silla-plegable.jpg",
+      src: "https://misquince.es/fotos/sillas negras.PNG",
     },
     price: 1.5,
   },
@@ -37,7 +37,7 @@ export const products: Product[] = [
     id: "tarimas-escenario",
     name: "Tarimas para escenario",
     image: {
-      src: "https://misquince.es/fotos/tarimas-escenario.jpg",
+      src: "https://misquince.es/fotos/Alquiler de escenario.png"
     },
     price: 40,
   },
