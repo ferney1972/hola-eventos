@@ -19,12 +19,12 @@ export default function Home() {
     <main className="flex-1 bg-black">
       {/* HERO */}
       <section className="relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[75vh] text-center text-white flex flex-col">
-        {/* Banner: centrado pero con foco a la izquierda para ver más al hombre */}
+        {/* Banner: foco centrado hacia 40% para que salgan hombre y chica */}
         <div className="relative w-full h-[220px] sm:h-[260px] md:h-[300px] overflow-hidden bg-black">
           <img
             src="https://misquince.es/fotos/cropped-banner-carlos.jpg"
             alt="Banner Hola Eventos"
-            className="w-full h-full object-cover object-[20%_50%]"
+            className="w-full h-full object-cover object-[40%_50%]"
           />
           <div className="absolute inset-0 bg-black/40" />
         </div>
