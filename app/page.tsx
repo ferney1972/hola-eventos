@@ -99,7 +99,7 @@ export default function Home() {
       <section id="how-it-works" className="bg-gray-50 py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h2 className="text-4xl font-bold">¿Cómo funciona?</h2>
+            <h2 className="text-4xl font-bold text-black">¿Cómo funciona?</h2>
             <p className="mx-auto mt-4 max-w-2xl text-gray-600">
               Organizar tu evento nunca fue tan fácil. Sigue estos simples pasos.
             </p>
@@ -130,10 +130,12 @@ export default function Home() {
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-white text-2xl font-bold text-primary">
                   {step.number}
                 </div>
-                <h3 className="mt-6 text-xl font-bold">{step.title}</h3>
+                {/* títulos en negro */}
+                <h3 className="mt-6 text-xl font-bold text-black">{step.title}</h3>
                 <p className="mt-2 text-gray-600">{step.desc}</p>
+                {/* “¿Necesitas asesoramiento?” en negro */}
                 {step.number === '3' && (
-                  <p className="mt-2 text-primary font-semibold">¿Necesitas asesoramiento?</p>
+                  <p className="mt-2 font-semibold text-black">¿Necesitas asesoramiento?</p>
                 )}
               </div>
             ))}
@@ -166,7 +168,7 @@ export default function Home() {
                     <MessageSquare className="mr-2 h-4 w-4" />
                     ¿Necesitas asesoramiento?
                   </div>
-                  <h3 className="text-lg font-semibold text-center">{item.name}</h3>
+                  <h3 className="text-lg font-semibold text-center text-black">{item.name}</h3>
 
                   <button
                     onClick={() => addItem(item)}
