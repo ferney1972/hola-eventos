@@ -44,8 +44,7 @@ export default function CartPage() {
       '',
       'Detalle de la solicitud:',
       ...items.map(
-        item =>
-          `• ${item.name} x ${item.quantity} (ref: ${item.id})`
+        item => `• ${item.name} x ${item.quantity} (ref: ${item.id})`
       ),
       '',
       `Total estimado: ${total} €`,
@@ -55,7 +54,7 @@ export default function CartPage() {
       `?subject=${encodeURIComponent('Solicitud de presupuesto desde la web')}` +
       `&body=${encodeURIComponent(bodyLines.join('\n'))}`;
 
-    window.location.href = mailto; [web:1395][web:1399]
+    window.location.href = mailto;
     setFormEnviado(true);
   };
 
@@ -64,22 +63,29 @@ export default function CartPage() {
       <section className="container mx-auto px-4 py-12">
         <h1 className="text-3xl font-bold mb-6 text-black">Tu solicitud de presupuesto</h1>
 
-        {/* LISTADO DEL CARRITO (ejemplo simple, deja aquí tu propio código) */}
+        {/* LISTADO DEL CARRITO */}
         <div className="mb-8 space-y-2">
+          {items.length === 0 && (
+            <p className="text-gray-600 text-sm">
+              No tienes productos en tu solicitud de presupuesto.
+            </p>
+          )}
           {items.map(item => (
             <div key={item.id} className="flex justify-between border-b pb-2 text-sm">
               <span>{item.name} x {item.quantity}</span>
               <span>{item.price} €</span>
             </div>
           ))}
-          <div className="mt-4 flex justify-between font-semibold text-black">
-            <span>Total estimado</span>
-            <span>{total} €</span>
-          </div>
+          {items.length > 0 && (
+            <div className="mt-4 flex justify-between font-semibold text-black">
+              <span>Total estimado</span>
+              <span>{total} €</span>
+            </div>
+          )}
         </div>
 
         {/* BOTÓN REVISAR Y SOLICITAR */}
-        {!mostrarFormulario && !formEnviado && (
+        {items.length > 0 && !mostrarFormulario && !formEnviado && (
           <button
             onClick={() => setMostrarFormulario(true)}
             className="inline-flex h-11 px-6 items-center justify-center rounded-md bg-blue-600 text-sm font-semibold text-white hover:bg-blue-700 transition-colors"
@@ -88,7 +94,7 @@ export default function CartPage() {
           </button>
         )}
 
-        {/* FORMULARIO SOLO CUANDO SE PULSA EL BOTÓN */}
+        {/* FORMULARIO */}
         {mostrarFormulario && !formEnviado && (
           <div className="mt-8 max-w-2xl bg-white rounded-lg shadow-md p-6">
             <h2 className="text-2xl font-bold text-black mb-4">
@@ -215,6 +221,7 @@ export default function CartPage() {
           </div>
         )}
 
+        {/* MENSAJE DE GRACIAS */}
         {formEnviado && (
           <div className="mt-8 max-w-xl bg-white rounded-lg shadow-md p-6 text-center">
             <h2 className="text-2xl font-bold text-black mb-2">
