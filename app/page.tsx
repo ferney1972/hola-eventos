@@ -17,26 +17,24 @@ export default function Home() {
 
   return (
     <main className="flex-1 bg-black">
-      {/* HERO COMO EN LA CAPTURA */}
+      {/* HERO */}
       <section className="relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[75vh] text-center text-white flex flex-col">
-        {/* Imagen banner centrada y recortada */}
+        {/* Banner: centrado pero con foco a la izquierda para ver más al hombre */}
         <div className="relative w-full h-[220px] sm:h-[260px] md:h-[300px] overflow-hidden bg-black">
           <img
             src="https://misquince.es/fotos/cropped-banner-carlos.jpg"
             alt="Banner Hola Eventos"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-[20%_50%]"
           />
           <div className="absolute inset-0 bg-black/40" />
         </div>
 
-        {/* Título sobre fondo negro, como en el móvil */}
         <div className="bg-black px-4 pt-6">
           <h1 className="mx-auto max-w-3xl text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
             Alquiler y organización de eventos en Madrid
           </h1>
         </div>
 
-        {/* Texto + botones debajo del banner */}
         <div className="bg-black px-4 pb-8 flex flex-col items-center">
           <p className="mt-3 max-w-xl text-sm sm:text-base text-gray-100">
             Material, decoración y asesoramiento profesional para que tu evento salga perfecto.
