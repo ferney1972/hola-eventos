@@ -18,36 +18,27 @@ export default function Home() {
   return (
     <main className="flex-1">
       {/* HERO / BANNER */}
-      <section className="relative w-full min-h-[75vh] sm:min-h-[70vh] md:min-h-[75vh] flex items-center justify-center text-center text-white overflow-hidden">
-        {/* Fondo con el banner azul nuevo */}
-        <div className="absolute inset-0">
-          <img
-            src="https://misquince.es/fotos/banner-hola-eventos-mobile.jpg"
-            // pon aquí la URL EXACTA del banner que has puesto en la captura
-            alt="Hola Eventos - Organización y producción de eventos"
-            className="w-full h-full object-cover md:object-center object-[50%_30%]"
-            loading="eager"
-            decoding="async"
-          />
-          {/* Capa oscura para que se lea bien el texto encima del banner */}
-          <div className="absolute inset-0 bg-black/45 md:bg-black/35" />
-        </div>
+      <section
+        className="relative w-full h-[100dvh] sm:h-[75vh] flex items-center justify-center text-center text-white bg-cover bg-center bg-no-repeat overflow-hidden"
+        style={{
+          backgroundImage: "url('https://misquince.es/fotos/cropped-banner-carlos.jpg')",
+        }}
+      >
+        {/* Capa oscura para contraste */}
+        <div className="absolute inset-0 bg-black/50 sm:bg-black/40" />
 
-        {/* Contenido del hero */}
-        <div className="relative z-10 w-full max-w-5xl px-5 sm:px-8 py-10 sm:py-14">
-          {/* Título principal */}
-          <h1 className="text-[1.6rem] xs:text-2xl sm:text-4xl md:text-5xl font-extrabold leading-snug sm:leading-tight mb-3 sm:mb-5">
+        {/* Contenido central */}
+        <div className="relative z-10 max-w-5xl px-5 sm:px-8 py-10 sm:py-14">
+          <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-extrabold leading-snug sm:leading-tight mb-4">
             Alquiler y organización de eventos en Madrid
           </h1>
 
-          {/* Subtítulo */}
-          <p className="text-sm xs:text-base sm:text-xl font-bold text-primary-light mb-3 sm:mb-5">
+          <p className="text-sm xs:text-base sm:text-xl font-bold text-primary-light mb-4 sm:mb-6">
             ORGANIZACIÓN DE EVENTOS
           </p>
 
-          {/* Descripción */}
           <div className="max-w-xl mx-auto mb-5 sm:mb-7">
-            <p className="text-xs xs:text-sm sm:text-lg text-gray-100 mb-2">
+            <p className="text-sm xs:text-base sm:text-lg text-gray-100 mb-2">
               Mobiliario, decoración y asesoramiento profesional para que tu evento sea un éxito
             </p>
             <p className="text-base xs:text-lg sm:text-2xl font-bold text-yellow-300 italic">
@@ -59,8 +50,7 @@ export default function Home() {
           </div>
 
           {/* Botones */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-2 sm:mt-4">
-            {/* WhatsApp */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2 sm:mt-4">
             <a
               href="https://wa.me/34123456789?text=Hola!%20Me%20gustaría%20pedir%20presupuesto%20para%20un%20evento."
               target="_blank"
@@ -74,9 +64,8 @@ export default function Home() {
               WhatsApp
             </a>
 
-            {/* Ver material destacado */}
             <Link href="#products">
-              <button className="w-full sm:w-auto h-11 sm:h-12 items-center justify-center rounded-full bg-primary px-8 sm:px-10 text-sm sm:text-lg font-medium text-white transition-colors hover:bg-primary/90 active:bg-primary/80">
+              <button className="w-full sm:w-auto h-12 sm:h-14 items-center justify-center rounded-full bg-primary px-8 sm:px-10 text-base sm:text-lg font-medium text-white transition-colors hover:bg-primary/90 active:bg-primary/80">
                 Ver material destacado
               </button>
             </Link>
@@ -91,10 +80,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Separador visual */}
+      {/* SEPARADOR */}
       <div className="w-full h-1 bg-gradient-to-r from-primary via-yellow-500 to-primary" />
 
-      {/* VIDEO */}
+      {/* VIDEO SECTION */}
       <section id="video-gallery" className="py-12 sm:py-16 md:py-20 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-8 sm:mb-12">
@@ -135,16 +124,13 @@ export default function Home() {
       </section>
 
       {/* CÓMO FUNCIONA */}
-      <section id="how-it-works" className="bg-gray-50 py-12 sm:py-16 md:py-20 lg:py-24">
+      <section id="how-it-works" className="bg-gray-50 py-12 sm:py-16 md:py-20 lg:py-24 text-center">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold px-2">
-              ¿Cómo funciona?
-            </h2>
-            <p className="mt-3 sm:mt-4 mx-auto max-w-2xl text-gray-600 text-sm sm:text-base">
-              Organizar tu evento nunca fue tan fácil. Sigue estos simples pasos.
-            </p>
-          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold px-2 mb-4">¿Cómo funciona?</h2>
+          <p className="max-w-2xl mx-auto text-gray-600 text-sm sm:text-base">
+            Organizar tu evento nunca fue tan fácil. Sigue estos simples pasos.
+          </p>
+
           <div className="relative mt-8 sm:mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             <div
               className="absolute top-1/2 left-0 hidden h-px w-full -translate-y-1/2 bg-gray-300 md:block"
@@ -173,11 +159,6 @@ export default function Home() {
                 </div>
                 <h3 className="mt-4 sm:mt-6 text-lg sm:text-xl font-bold">{step.title}</h3>
                 <p className="mt-2 text-gray-600 text-sm sm:text-base">{step.desc}</p>
-                {step.number === '3' && (
-                  <p className="mt-2 text-primary font-semibold text-sm sm:text-base">
-                    ¿Necesitas asesoramiento?
-                  </p>
-                )}
               </div>
             ))}
           </div>
@@ -199,7 +180,9 @@ export default function Home() {
                       src={item.image.src}
                       alt={item.name}
                       className={`h-full w-full ${
-                        item.id === 'estufa-gas' ? 'object-contain' : 'object-cover'
+                        item.id === 'estufa-gas'
+                          ? 'object-contain'
+                          : 'object-cover'
                       } transition-transform duration-300 group-hover:scale-105`}
                       loading="lazy"
                     />
@@ -225,7 +208,7 @@ export default function Home() {
           </div>
           <div className="mt-8 sm:mt-12 text-center">
             <Link href="/products">
-              <button className="inline-flex min-h-[44px] items-center justify-center rounded-md border border-gray-300 bg-white px-6 sm:px-8 text-sm sm:text_base font-medium transition-colors hover:bg-gray-100 active:bg-gray-200">
+              <button className="inline-flex min-h-[44px] items-center justify-center rounded-md border border-gray-300 bg-white px-6 sm:px-8 text-sm sm:text-base font-medium transition-colors hover:bg-gray-100 active:bg-gray-200">
                 Ver Catálogo Completo {'->'}
               </button>
             </Link>
