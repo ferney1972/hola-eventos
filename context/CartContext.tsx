@@ -1,54 +1,63 @@
-'use client';
+"use client";
 
-import React, { createContext, useContext, useState } from "react";
-import type { Product } from "@/lib/products";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
 
-type CartItem = Product & { quantity: number };
-
-type CartContextType = {
-  items: CartItem[];
-  addItem: (product: Product) => void;
-  updateQuantity: (id: string, delta: number) => void;
+export type Articulo = {
+  id: number;
+  name: string;
+  price?: number;
+  quantity?: number;
+  image?: {
+    src: string;
+  };
 };
 
-const CartContext = createContext<CartContextType | undefined>(undefined);
+// ELIMINADO CartContextType, dejamos que TS infiera el tipo
+const CartContext = createContext<
+  | {
+      articulos: Articulo[];
+      total: number;
+      setArticulos: React.Dispatch<React.SetStateAction<Articulo[]>>;
+    }
+  | undefined
+>(undefined);
 
-export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [items, setItems] = useState<CartItem[]>([]);
+export const CartProvider = ({ children }: { children: ReactNode }) => {
+  const [articulos, setArticulos] = useState<Articulo[]>([]);
 
-  const addItem = (product: Product) => {
-    setItems((prev) => {
-      const existing = prev.find((i) => i.id === product.id);
-      if (existing) {
-        return prev.map((i) =>
-          i.id === product.id ? { ...i, quantity: i.quantity + 1 } : i
-        );
-      }
-      return [...prev, { ...product, quantity: 1 }];
-    });
-  };
+  useEffect(() => {
+    const guardado = localStorage.getItem("carrito");
+    if (guardado) {
+      setArticulos(JSON.parse(guardado));
+    }
+  }, []);
 
-  const updateQuantity = (id: string, delta: number) => {
-    setItems((prev) =>
-      prev
-        .map((item) =>
-          item.id === id
-            ? { ...item, quantity: Math.max(1, item.quantity + delta) }
-            : item
-        )
-        .filter((item) => item.quantity > 0)
-    );
-  };
+  useEffect(() => {
+    localStorage.setItem("carrito", JSON.stringify(articulos));
+  }, [articulos]);
+
+  const total = articulos.reduce(
+    (suma, item) => suma + (item.price || 0) * (item.quantity || 1),
+    0
+  );
 
   return (
-    <CartContext.Provider value={{ items, addItem, updateQuantity }}>
+    <CartContext.Provider value={{ articulos, total, setArticulos }}>
       {children}
     </CartContext.Provider>
   );
-}
+};
 
-export function useCart() {
+export const useCart = () => {
   const ctx = useContext(CartContext);
-  if (!ctx) throw new Error("useCart must be used inside CartProvider");
+  if (!ctx) {
+    throw new Error("useCart debe usarse dentro de CartProvider");
+  }
   return ctx;
-}
+};

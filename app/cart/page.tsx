@@ -1,56 +1,52 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { useCart } from '@/context/CartContext';
+import React, { useState } from "react";
+import { useCart } from "@/context/CartContext";
 
 export default function CartPage() {
-  const { articulos } = useCart();
+  const { articulos, total } = useCart(); // ahora total viene del contexto
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [formEnviado, setFormEnviado] = useState(false);
   const [formData, setFormData] = useState({
-    nombre: '',
-    email: '',
-    telefono: '',
-    mensaje: '',
+    nombre: "",
+    email: "",
+    telefono: "",
+    mensaje: "",
   });
-
-  const total = articulos.reduce(
-    (suma, item) => suma + (item.price || 0) * (item.quantity || 1),
-    0
-  );
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     const lineasCarrito = articulos.map(
-      item =>
-        `• ${item.name} x ${item.quantity} (ref: ${item.id})`
+      (item) => `• ${item.name} x ${item.quantity} (ref: ${item.id})`
     );
 
     const cuerpo = [
       `Nombre: ${formData.nombre}`,
       `Email: ${formData.email}`,
       `Teléfono: ${formData.telefono}`,
-      '',
-      'Mensaje adicional:',
+      "",
+      "Mensaje adicional:",
       formData.mensaje,
-      '',
-      'Detalle de la solicitud:',
+      "",
+      "Detalle de la solicitud:",
       ...lineasCarrito,
-      '',
+      "",
       `Total estimado: ${total} €`,
-    ].join('\n');
+    ].join("\n");
 
     const mailto =
-      'mailto:produccionsanchezparra@gmail.com' +
-      `?subject=${encodeURIComponent('Solicitud de presupuesto desde la web')}` +
+      "mailto:produccionsanchezparra@gmail.com" +
+      `?subject=${encodeURIComponent(
+        "Solicitud de presupuesto desde la web"
+      )}` +
       `&body=${encodeURIComponent(cuerpo)}`;
 
     window.location.href = mailto;
@@ -68,7 +64,7 @@ export default function CartPage() {
       ) : (
         <>
           <section className="mb-8 space-y-4">
-            {articulos.map(item => (
+            {articulos.map((item) => (
               <div
                 key={item.id}
                 className="flex items-center justify-between rounded-xl border bg-white px-4 py-3 shadow-sm"
@@ -110,9 +106,7 @@ export default function CartPage() {
 
           {mostrarFormulario && !formEnviado && (
             <section className="mt-8 max-w-xl mx-auto">
-              <h2 className="mb-4 text-lg font-semibold">
-                Datos de contacto
-              </h2>
+              <h2 className="mb-4 text-lg font-semibold">Datos de contacto</h2>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label className="mb-1 block text-sm font-medium">
@@ -190,4 +184,5 @@ export default function CartPage() {
     </main>
   );
 }
+
 

@@ -1,38 +1,47 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { useCart } from '@/context/CartContext';
+import React, { useState } from "react";
+import { useCart } from "@/context/CartContext";
 
 export default function CartPage() {
-  const { items, total } = useCart();
+  const { articulos, total } = useCart();
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [formEnviado, setFormEnviado] = useState(false);
   const [formData, setFormData] = useState({
-    nombre: '',
-    apellido: '',
-    telefono: '',
-    email: '',
-    lugar: '',
-    provincia: '',
-    asistentes: '',
-    observaciones: '',
+    nombre: "",
+    apellido: "",
+    telefono: "",
+    email: "",
+    lugar: "",
+    provincia: "",
+    asistentes: "",
+    observaciones: "",
   });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const { nombre, apellido, telefono, email, lugar, provincia, asistentes, observaciones } = formData;
+    const {
+      nombre,
+      apellido,
+      telefono,
+      email,
+      lugar,
+      provincia,
+      asistentes,
+      observaciones,
+    } = formData;
 
     const bodyLines = [
-      'Nueva solicitud de presupuesto desde el carrito:',
-      '',
+      "Nueva solicitud de presupuesto desde el carrito:",
+      "",
       `Nombre: ${nombre}`,
       `Apellido: ${apellido}`,
       `Teléfono: ${telefono}`,
@@ -41,18 +50,21 @@ export default function CartPage() {
       `Provincia: ${provincia}`,
       `Cantidad de asistentes: ${asistentes}`,
       `Observaciones: ${observaciones}`,
-      '',
-      'Detalle de la solicitud:',
-      ...items.map(
-        item => `• ${item.name} x ${item.quantity} (ref: ${item.id})`
+      "",
+      "Detalle de la solicitud:",
+      ...articulos.map(
+        (item) => `• ${item.name} x ${item.quantity} (ref: ${item.id})`
       ),
-      '',
+      "",
       `Total estimado: ${total} €`,
     ];
 
-    const mailto = `mailto:produccionsanchezparra@gmail.com` +
-      `?subject=${encodeURIComponent('Solicitud de presupuesto desde la web')}` +
-      `&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+    const mailto =
+      `mailto:produccionsanchezparra@gmail.com` +
+      `?subject=${encodeURIComponent(
+        "Solicitud de presupuesto desde la web"
+      )}` +
+      `&body=${encodeURIComponent(bodyLines.join("\n"))}`;
 
     window.location.href = mailto;
     setFormEnviado(true);
@@ -61,22 +73,29 @@ export default function CartPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       <section className="container mx-auto px-4 py-12">
-        <h1 className="text-3xl font-bold mb-6 text-black">Tu solicitud de presupuesto</h1>
+        <h1 className="text-3xl font-bold mb-6 text-black">
+          Tu solicitud de presupuesto
+        </h1>
 
         {/* LISTADO DEL CARRITO */}
         <div className="mb-8 space-y-2">
-          {items.length === 0 && (
+          {articulos.length === 0 && (
             <p className="text-gray-600 text-sm">
               No tienes productos en tu solicitud de presupuesto.
             </p>
           )}
-          {items.map(item => (
-            <div key={item.id} className="flex justify-between border-b pb-2 text-sm">
-              <span>{item.name} x {item.quantity}</span>
+          {articulos.map((item) => (
+            <div
+              key={item.id}
+              className="flex justify-between border-b pb-2 text-sm"
+            >
+              <span>
+                {item.name} x {item.quantity}
+              </span>
               <span>{item.price} €</span>
             </div>
           ))}
-          {items.length > 0 && (
+          {articulos.length > 0 && (
             <div className="mt-4 flex justify-between font-semibold text-black">
               <span>Total estimado</span>
               <span>{total} €</span>
@@ -85,7 +104,7 @@ export default function CartPage() {
         </div>
 
         {/* BOTÓN REVISAR Y SOLICITAR */}
-        {items.length > 0 && !mostrarFormulario && !formEnviado && (
+        {articulos.length > 0 && !mostrarFormulario && !formEnviado && (
           <button
             onClick={() => setMostrarFormulario(true)}
             className="inline-flex h-11 px-6 items-center justify-center rounded-md bg-blue-600 text-sm font-semibold text-white hover:bg-blue-700 transition-colors"
@@ -228,7 +247,8 @@ export default function CartPage() {
               Gracias por contactar con nosotros
             </h2>
             <p className="text-gray-600">
-              Hemos recibido tu solicitud y nos pondremos en contacto contigo lo antes posible.
+              Hemos recibido tu solicitud y nos pondremos en contacto contigo lo
+              antes posible.
             </p>
           </div>
         )}
@@ -236,5 +256,6 @@ export default function CartPage() {
     </main>
   );
 }
+
 
 

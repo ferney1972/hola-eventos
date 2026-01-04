@@ -1,12 +1,15 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
 export function HeaderClient() {
-  const { items } = useCart();
-  const count = items.reduce((acc, item) => acc + item.quantity, 0);
+  const { articulos } = useCart(); // ← antes: items
+  const count = articulos.reduce(
+    (acc, item) => acc + (item.quantity || 0),
+    0
+  );
 
   return (
     <header className="border-b bg-white/80 backdrop-blur">
