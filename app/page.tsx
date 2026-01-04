@@ -1,14 +1,16 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { VideoThumbnail } from "@/components/video-thumbnail";
 import { MessageSquare } from "lucide-react";
-import { products } from "@/lib/products";
+import { products, type Product } from "@/lib/products";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 
 export default function Home() {
   const { addItem } = useCart();
+
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   const featuredProductIds = [
     "estufa-gas",
@@ -20,8 +22,7 @@ export default function Home() {
   const featuredProducts = products
     .filter((p) => featuredProductIds.includes(p.id))
     .sort(
-      (a, b) =>
-        featuredProductIds.indexOf(a.id) - featuredProductIds.indexOf(b.id)
+      (a, b) => featuredProductIds.indexOf(a.id) - featuredProductIds.indexOf(b.id)
     );
 
   return (
@@ -45,8 +46,7 @@ export default function Home() {
 
         <div className="bg-black px-4 pb-8 flex flex-col items-center">
           <p className="mt-3 max-w-xl text-sm sm:text-base text-gray-100">
-            Material, decoración y asesoramiento profesional para que tu evento
-            salga perfecto.
+            Material, decoración y asesoramiento profesional para que tu evento salga perfecto.
           </p>
 
           <div className="mt-6 w-full max-w-md flex flex-col gap-3">
@@ -113,8 +113,7 @@ export default function Home() {
           <div className="text-center">
             <h2 className="text-4xl font-bold text-black">¿Cómo funciona?</h2>
             <p className="mx-auto mt-4 max-w-2xl text-gray-600">
-              Organizar tu evento nunca fue tan fácil. Sigue estos simples
-              pasos.
+              Organizar tu evento nunca fue tan fácil. Sigue estos simples pasos.
             </p>
           </div>
           <div className="relative mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -165,21 +164,18 @@ export default function Home() {
             {featuredProducts.map((item) => (
               <div
                 key={item.id}
-                className="group overflow-hidden rounded-lg border bg-white shadow-sm"
+                className="group overflow-hidden rounded-lg border bg-white shadow-sm cursor-pointer"
+                onClick={() => setSelectedProduct(item)}
               >
-                <Link href="#">
-                  <div className="relative h-64 w-full">
-                    <img
-                      src={item.image.src}
-                      alt={item.name}
-                      className={`h-full w-full ${
-                        item.id === "estufa-gas"
-                          ? "object-contain"
-                          : "object-cover"
-                      } transition-transform duration-300 group-hover:scale-105`}
-                    />
-                  </div>
-                </Link>
+                <div className="relative h-64 w-full">
+                  <img
+                    src={item.image.src}
+                    alt={item.name}
+                    className={`h-full w-full ${
+                      item.id === "estufa-gas" ? "object-contain" : "object-cover"
+                    } transition-transform duration-300 group-hover:scale-105`}
+                  />
+                </div>
                 <div className="p-4">
                   <div className="mb-2 flex items-center justify-center text-sm text-primary font-semibold">
                     <MessageSquare className="mr-2 h-4 w-4" />
@@ -196,14 +192,15 @@ export default function Home() {
                   )}
 
                   <button
-                    onClick={() =>
+                    onClick={(e) => {
+                      e.stopPropagation();
                       addItem({
                         id: item.id,
                         name: item.name,
                         price: item.price,
                         image: { src: item.image.src },
-                      })
-                    }
+                      });
+                    }}
                     className="mt-4 w-full rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
                   >
                     Añadir al carrito
@@ -221,9 +218,57 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* MODAL DETALLE PRODUCTO */}
+      {selectedProduct && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+          <div className="max-w-md w-full rounded-lg bg-white p-6">
+            <button
+              onClick={() => setSelectedProduct(null)}
+              className="ml-auto mb-2 block text-sm text-gray-500"
+            >
+              Cerrar ✕
+            </button>
+
+            <h2 className="text-xl font-bold mb-2 text-black">
+              {selectedProduct.name}
+            </h2>
+
+            <img
+              src={selectedProduct.image.src}
+              alt={selectedProduct.name}
+              className="w-full h-48 object-contain mb-3"
+            />
+
+            {selectedProduct.description && (
+              <p className="text-sm text-gray-700 mb-3">
+                {selectedProduct.description}
+              </p>
+            )}
+
+            {selectedProduct.price !== undefined && (
+              <p className="font-semibold text-black mb-4">
+                Desde {selectedProduct.price.toFixed(2)} € unidad
+              </p>
+            )}
+
+            <button
+              onClick={() => {
+                addItem({
+                  id: selectedProduct.id,
+                  name: selectedProduct.name,
+                  price: selectedProduct.price,
+                  image: { src: selectedProduct.image.src },
+                });
+                setSelectedProduct(null);
+              }}
+              className="w-full rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+            >
+              Añadir al carrito
+            </button>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
-
-
-
