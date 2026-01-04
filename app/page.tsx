@@ -19,7 +19,7 @@ export default function Home() {
     <main className="flex-1 bg-black">
       {/* HERO */}
       <section className="relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[75vh] text-center text-white flex flex-col">
-        {/* Banner: foco centrado hacia 40% para que salgan hombre y chica */}
+        {/* Banner con foco 40% para ver hombre y chica */}
         <div className="relative w-full h-[220px] sm:h-[260px] md:h-[300px] overflow-hidden bg-black">
           <img
             src="https://misquince.es/fotos/cropped-banner-carlos.jpg"
@@ -47,11 +47,12 @@ export default function Home() {
               </button>
             </Link>
 
+            {/* BOTÓN WHATSAPP VERDE +34640651851 */}
             <a
-              href="https://wa.me/34123456789?text=Hola!%20Me%20gustaría%20pedir%20presupuesto%20para%20un%20evento."
+              href="https://wa.me/34640651851?text=Hola!%20Me%20gustaría%20pedir%20presupuesto%20para%20un%20evento."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-12 w-full items-center justify-center rounded-full bg-white text-black text-sm font-semibold"
+              className="inline-flex h-12 w-full items-center justify-center rounded-full bg-green-500 hover:bg-green-600 text-white text-sm font-semibold transition-colors"
             >
               Hablar por WhatsApp
             </a>
