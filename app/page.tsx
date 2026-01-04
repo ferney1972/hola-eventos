@@ -216,7 +216,7 @@ export default function Home() {
                       >
                         −
                       </button>
-                      <span className="min-w-[2rem] text-center text-sm font-medium">
+                      <span className="min-w-[2rem] text-center text-sm font-medium text-black">
                         {quantity}
                       </span>
                       <button
@@ -250,7 +250,7 @@ export default function Home() {
 
       {/* MODAL DETALLE PRODUCTO */}
       {selectedProduct && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+        <div className="fixed inset-0 z-50 flex items-center justify_center bg-black/60">
           <div className="max-w-md w-full rounded-lg bg-white p-6">
             <button
               onClick={() => setSelectedProduct(null)}
@@ -296,3 +296,4 @@ export default function Home() {
     </main>
   );
 }
+
