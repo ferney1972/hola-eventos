@@ -41,7 +41,7 @@ ${productosTexto}
 
     await transporter.sendMail({
       from: `"Web Hola Eventos" <hola@holaeventos.es>`,
-      to: "hola@holaeventos.es",
+      to: "produccionsanchezparra@gmail.com",
       subject: "Nueva solicitud de presupuesto desde la web",
       text: textBody,
     });
