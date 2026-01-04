@@ -1,19 +1,28 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { VideoThumbnail } from '@/components/video-thumbnail';
-import { MessageSquare } from 'lucide-react';
-import { products } from '@/lib/products';
-import Link from 'next/link';
-import { useCart } from '@/context/CartContext';
+import React from "react";
+import { VideoThumbnail } from "@/components/video-thumbnail";
+import { MessageSquare } from "lucide-react";
+import { products } from "@/lib/products";
+import Link from "next/link";
+import { useCart } from "@/context/CartContext";
 
 export default function Home() {
   const { addItem } = useCart();
 
-  const featuredProductIds = ['estufa-gas', 'silla-blanca-resina', 'sillas-plegables', 'tarimas-escenario'];
+  const featuredProductIds = [
+    "estufa-gas",
+    "silla-blanca-resina",
+    "sillas-plegables",
+    "tarimas-escenario",
+  ];
+
   const featuredProducts = products
     .filter((p) => featuredProductIds.includes(p.id))
-    .sort((a, b) => featuredProductIds.indexOf(a.id) - featuredProductIds.indexOf(b.id));
+    .sort(
+      (a, b) =>
+        featuredProductIds.indexOf(a.id) - featuredProductIds.indexOf(b.id)
+    );
 
   return (
     <main className="flex-1 bg-black">
@@ -36,7 +45,8 @@ export default function Home() {
 
         <div className="bg-black px-4 pb-8 flex flex-col items-center">
           <p className="mt-3 max-w-xl text-sm sm:text-base text-gray-100">
-            Material, decoración y asesoramiento profesional para que tu evento salga perfecto.
+            Material, decoración y asesoramiento profesional para que tu evento
+            salga perfecto.
           </p>
 
           <div className="mt-6 w-full max-w-md flex flex-col gap-3">
@@ -62,12 +72,16 @@ export default function Home() {
       <section id="video-gallery" className="py-16 md:py-24 bg-black">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white">porque tus sueños son nuestra realidad</h2>
-            <p className="mx-auto mt-4 max-w-2xl text-gray-400">asesoramiento personalizado</p>
+            <h2 className="text-4xl font-bold text-white">
+              porque tus sueños son nuestra realidad
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-gray-400">
+              asesoramiento personalizado
+            </p>
           </div>
 
           <div className="mb-8 overflow-hidden rounded-lg border border-gray-800 shadow-lg">
-            <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
+            <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
               <video
                 src="https://videos.pexels.com/video-files/3209828/3209828-hd_1920_1080_25fps.mp4"
                 controls
@@ -83,9 +97,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
             {[
-              'https://videos.pexels.com/video-files/5969502/5969502-sd_640_360_25fps.mp4',
-              'https://videos.pexels.com/video-files/8098020/8098020-sd_640_360_25fps.mp4',
-              'https://videos.pexels.com/video-files/5699313/5699313-sd_640_360_25fps.mp4',
+              "https://videos.pexels.com/video-files/5969502/5969502-sd_640_360_25fps.mp4",
+              "https://videos.pexels.com/video-files/8098020/8098020-sd_640_360_25fps.mp4",
+              "https://videos.pexels.com/video-files/5699313/5699313-sd_640_360_25fps.mp4",
             ].map((videoSrc, index) => (
               <VideoThumbnail key={index} src={videoSrc} />
             ))}
@@ -99,7 +113,8 @@ export default function Home() {
           <div className="text-center">
             <h2 className="text-4xl font-bold text-black">¿Cómo funciona?</h2>
             <p className="mx-auto mt-4 max-w-2xl text-gray-600">
-              Organizar tu evento nunca fue tan fácil. Sigue estos simples pasos.
+              Organizar tu evento nunca fue tan fácil. Sigue estos simples
+              pasos.
             </p>
           </div>
           <div className="relative mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -109,29 +124,33 @@ export default function Home() {
             />
             {[
               {
-                number: '1',
-                title: 'Elige tu material',
-                desc: 'Explora nuestro catálogo y añade todo lo que necesites a tu carrito de presupuesto.',
+                number: "1",
+                title: "Elige tu material",
+                desc: "Explora nuestro catálogo y añade todo lo que necesites a tu carrito de presupuesto.",
               },
               {
-                number: '2',
-                title: 'Pide tu presupuesto',
-                desc: 'Envíanos tu selección y te daremos una cotización sin compromiso.',
+                number: "2",
+                title: "Pide tu presupuesto",
+                desc: "Envíanos tu selección y te daremos una cotización sin compromiso.",
               },
               {
-                number: '3',
-                title: 'Asesoramiento directo',
-                desc: 'Contactaremos contigo para afinar los detalles y ofrecerte la mejor solución.',
+                number: "3",
+                title: "Asesoramiento directo",
+                desc: "Contactaremos contigo para afinar los detalles y ofrecerte la mejor solución.",
               },
             ].map((step) => (
               <div key={step.title} className="relative z-10 text-center">
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-blue-500 bg-white text-2xl font-bold text-blue-500">
                   {step.number}
                 </div>
-                <h3 className="mt-6 text-xl font-bold text-black">{step.title}</h3>
+                <h3 className="mt-6 text-xl font-bold text-black">
+                  {step.title}
+                </h3>
                 <p className="mt-2 text-gray-600">{step.desc}</p>
-                {step.number === '3' && (
-                  <p className="mt-2 font-semibold text-black">¿Necesitas asesoramiento?</p>
+                {step.number === "3" && (
+                  <p className="mt-2 font-semibold text-black">
+                    ¿Necesitas asesoramiento?
+                  </p>
                 )}
               </div>
             ))}
@@ -148,13 +167,15 @@ export default function Home() {
                 key={item.id}
                 className="group overflow-hidden rounded-lg border bg-white shadow-sm"
               >
-                <Link href={item.seeMoreLink || '#'}>
+                <Link href="#">
                   <div className="relative h-64 w-full">
                     <img
                       src={item.image.src}
                       alt={item.name}
                       className={`h-full w-full ${
-                        item.id === 'estufa-gas' ? 'object-contain' : 'object-cover'
+                        item.id === "estufa-gas"
+                          ? "object-contain"
+                          : "object-cover"
                       } transition-transform duration-300 group-hover:scale-105`}
                     />
                   </div>
@@ -164,10 +185,25 @@ export default function Home() {
                     <MessageSquare className="mr-2 h-4 w-4" />
                     ¿Necesitas asesoramiento?
                   </div>
-                  <h3 className="text-lg font-semibold text-center text-black">{item.name}</h3>
+                  <h3 className="text-lg font-semibold text-center text-black">
+                    {item.name}
+                  </h3>
+
+                  {item.price !== undefined && (
+                    <p className="mt-1 text-center text-sm text-gray-700">
+                      Desde {item.price.toFixed(2)} € unidad
+                    </p>
+                  )}
 
                   <button
-                    onClick={() => addItem(item)}
+                    onClick={() =>
+                      addItem({
+                        id: item.id,
+                        name: item.name,
+                        price: item.price,
+                        image: { src: item.image.src },
+                      })
+                    }
                     className="mt-4 w-full rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
                   >
                     Añadir al carrito
@@ -179,7 +215,7 @@ export default function Home() {
           <div className="mt-12 text-center">
             <Link href="/products">
               <button className="inline-flex h-11 items-center justify-center rounded-md border border-gray-300 bg-white px-8 text-sm font-medium transition-colors hover:bg-gray-100">
-                Ver Catálogo Completo {'->'}
+                Ver Catálogo Completo {"->"}
               </button>
             </Link>
           </div>
