@@ -9,7 +9,6 @@ import { useCart } from "@/context/CartContext";
 
 export default function Home() {
   const { addItem } = useCart();
-
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   const featuredProductIds = [
@@ -161,53 +160,89 @@ export default function Home() {
       <section id="products" className="bg-gray-50 py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {featuredProducts.map((item) => (
-              <div
-                key={item.id}
-                className="group overflow-hidden rounded-lg border bg-white shadow-sm cursor-pointer"
-                onClick={() => setSelectedProduct(item)}
-              >
-                <div className="relative h-64 w-full">
-                  <img
-                    src={item.image.src}
-                    alt={item.name}
-                    className={`h-full w-full ${
-                      item.id === "estufa-gas" ? "object-contain" : "object-cover"
-                    } transition-transform duration-300 group-hover:scale-105`}
-                  />
-                </div>
-                <div className="p-4">
-                  <div className="mb-2 flex items-center justify-center text-sm text-primary font-semibold">
-                    <MessageSquare className="mr-2 h-4 w-4" />
-                    ¿Necesitas asesoramiento?
+            {featuredProducts.map((item) => {
+              const [quantity, setQuantity] = React.useState(1);
+
+              const increase = (e: React.MouseEvent) => {
+                e.stopPropagation();
+                setQuantity((q) => q + 1);
+              };
+
+              const decrease = (e: React.MouseEvent) => {
+                e.stopPropagation();
+                setQuantity((q) => (q > 1 ? q - 1 : 1));
+              };
+
+              const handleAddToCart = (e: React.MouseEvent) => {
+                e.stopPropagation();
+                addItem({
+                  id: item.id,
+                  name: item.name,
+                  price: item.price,
+                  image: { src: item.image.src },
+                  quantity,
+                });
+              };
+
+              return (
+                <div
+                  key={item.id}
+                  className="group overflow-hidden rounded-lg border bg-white shadow-sm cursor-pointer"
+                  onClick={() => setSelectedProduct(item)}
+                >
+                  <div className="relative h-64 w-full">
+                    <img
+                      src={item.image.src}
+                      alt={item.name}
+                      className={`h-full w-full ${
+                        item.id === "estufa-gas" ? "object-contain" : "object-cover"
+                      } transition-transform duration-300 group-hover:scale-105`}
+                    />
                   </div>
-                  <h3 className="text-lg font-semibold text-center text-black">
-                    {item.name}
-                  </h3>
+                  <div className="p-4">
+                    <div className="mb-2 flex items-center justify-center text-sm text-primary font-semibold">
+                      <MessageSquare className="mr-2 h-4 w-4" />
+                      ¿Necesitas asesoramiento?
+                    </div>
+                    <h3 className="text-lg font-semibold text-center text-black">
+                      {item.name}
+                    </h3>
 
-                  {item.price !== undefined && (
-                    <p className="mt-1 text-center text-sm text-gray-700">
-                      Desde {item.price.toFixed(2)} € unidad
-                    </p>
-                  )}
+                    {item.price !== undefined && (
+                      <p className="mt-1 text-center text-sm text-gray-700">
+                        Desde {item.price.toFixed(2)} € unidad
+                      </p>
+                    )}
 
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      addItem({
-                        id: item.id,
-                        name: item.name,
-                        price: item.price,
-                        image: { src: item.image.src },
-                      });
-                    }}
-                    className="mt-4 w-full rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
-                  >
-                    Añadir al carrito
-                  </button>
+                    {/* Selector cantidad + / - */}
+                    <div className="mt-3 flex items-center justify-center gap-3">
+                      <button
+                        onClick={decrease}
+                        className="h-8 w-8 rounded-full border border-gray-300 flex items-center justify-center text-lg leading-none"
+                      >
+                        −
+                      </button>
+                      <span className="min-w-[2rem] text-center text-sm font-medium">
+                        {quantity}
+                      </span>
+                      <button
+                        onClick={increase}
+                        className="h-8 w-8 rounded-full border border-gray-300 flex items-center justify-center text-lg leading-none"
+                      >
+                        +
+                      </button>
+                    </div>
+
+                    <button
+                      onClick={handleAddToCart}
+                      className="mt-4 w-full rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+                    >
+                      Añadir al carrito
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
           <div className="mt-12 text-center">
             <Link href="/products">
@@ -259,6 +294,7 @@ export default function Home() {
                   name: selectedProduct.name,
                   price: selectedProduct.price,
                   image: { src: selectedProduct.image.src },
+                  quantity: 1,
                 });
                 setSelectedProduct(null);
               }}
