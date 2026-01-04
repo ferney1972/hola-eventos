@@ -15,6 +15,7 @@ export default function CartPage() {
     mensaje: "",
   });
 
+  // Si no quieres mostrar total en dinero, puedes dejar esto pero no mostrarlo en pantalla
   const total = items.reduce((acc, item) => {
     const price = item.price ?? 0;
     return acc + price * (item.quantity || 0);
@@ -28,9 +29,6 @@ export default function CartPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    // aquí puedes montar el texto del pedido para email/WhatsApp, etc.
-    // de momento solo marcamos como enviado
     setFormEnviado(true);
     clearCart();
   };
@@ -39,13 +37,13 @@ export default function CartPage() {
     return (
       <main className="min-h-screen bg-gray-50">
         <div className="container mx-auto px-4 py-10">
-          <h1 className="text-2xl font-bold mb-4">
+          <h1 className="text-2xl font-bold mb-4 text-black">
             ¡Gracias por tu solicitud!
           </h1>
-          <p className="mb-4">
+          <p className="mb-4 text-black">
             Hemos recibido tu petición de presupuesto. Nos pondremos en contacto contigo lo antes posible.
           </p>
-          <Link href="/" className="text-blue-600 hover:underline">
+          <Link href="/" className="text-black underline">
             Volver al inicio
           </Link>
         </div>
@@ -56,12 +54,12 @@ export default function CartPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-10">
-        <h1 className="text-2xl font-bold mb-6">Tu carrito</h1>
+        <h1 className="text-2xl font-bold mb-6 text-black">Tu carrito</h1>
 
         {items.length === 0 && !mostrarFormulario && (
-          <p className="mb-4">
+          <p className="mb-4 text-black">
             No hay productos en el carrito.{" "}
-            <Link href="/" className="text-blue-600 hover:underline">
+            <Link href="/" className="text-black underline">
               Volver a la página principal
             </Link>
           </p>
@@ -82,23 +80,16 @@ export default function CartPage() {
                       className="h-16 w-16 object-contain"
                     />
                     <div>
-                      <p className="font-semibold">{item.name}</p>
-                      {item.price !== undefined && (
-                        <p className="text-sm text-gray-600">
-                          {item.price.toFixed(2)} € x {item.quantity}
-                        </p>
-                      )}
+                      <p className="font-semibold text-black">{item.name}</p>
+                      <p className="text-sm text-black">
+                        Cantidad: {item.quantity}
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    {item.price !== undefined && (
-                      <span className="font-semibold">
-                        {(item.price * (item.quantity || 0)).toFixed(2)} €
-                      </span>
-                    )}
                     <button
                       onClick={() => removeItem(item.id)}
-                      className="text-sm text-red-600 hover:underline"
+                      className="text-sm text-black underline"
                     >
                       Quitar
                     </button>
@@ -107,10 +98,17 @@ export default function CartPage() {
               ))}
             </ul>
 
+            {/* Si no quieres mostrar el total en €, comenta o borra este bloque */}
+            {/* 
             <div className="mb-6 flex items-center justify-between">
-              <span className="text-lg font-semibold">Total estimado:</span>
-              <span className="text-xl font-bold">{total.toFixed(2)} €</span>
+              <span className="text-lg font-semibold text-black">
+                Total estimado:
+              </span>
+              <span className="text-xl font-bold text-black">
+                {total.toFixed(2)} €
+              </span>
             </div>
+            */}
 
             <div className="flex flex-wrap gap-3">
               <button
@@ -121,7 +119,7 @@ export default function CartPage() {
               </button>
               <button
                 onClick={clearCart}
-                className="rounded-full border border-gray-300 px-5 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100"
+                className="rounded-full border border-gray-300 px-5 py-2 text-sm font-medium text-black hover:bg-gray-100"
               >
                 Vaciar carrito
               </button>
@@ -131,12 +129,12 @@ export default function CartPage() {
 
         {mostrarFormulario && (
           <div className="mt-8 max-w-xl rounded-lg border bg-white p-6">
-            <h2 className="mb-4 text-xl font-semibold">
+            <h2 className="mb-4 text-xl font-semibold text-black">
               Datos para el presupuesto
             </h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="mb-1 block text-sm font-medium">
+                <label className="mb-1 block text-sm font-medium text-black">
                   Nombre
                 </label>
                 <input
@@ -145,11 +143,11 @@ export default function CartPage() {
                   value={formData.nombre}
                   onChange={handleChange}
                   required
-                  className="w-full rounded-md border px-3 py-2 text-sm"
+                  className="w-full rounded-md border px-3 py-2 text-sm text-black"
                 />
               </div>
               <div>
-                <label className="mb-1 block text-sm font-medium">
+                <label className="mb-1 block text-sm font-medium text-black">
                   Email
                 </label>
                 <input
@@ -158,11 +156,11 @@ export default function CartPage() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full rounded-md border px-3 py-2 text-sm"
+                  className="w-full rounded-md border px-3 py-2 text-sm text-black"
                 />
               </div>
               <div>
-                <label className="mb-1 block text-sm font-medium">
+                <label className="mb-1 block text-sm font-medium text-black">
                   Teléfono
                 </label>
                 <input
@@ -171,11 +169,11 @@ export default function CartPage() {
                   value={formData.telefono}
                   onChange={handleChange}
                   required
-                  className="w-full rounded-md border px-3 py-2 text-sm"
+                  className="w-full rounded-md border px-3 py-2 text-sm text-black"
                 />
               </div>
               <div>
-                <label className="mb-1 block text-sm font-medium">
+                <label className="mb-1 block text-sm font-medium text-black">
                   Comentarios adicionales
                 </label>
                 <textarea
@@ -183,7 +181,7 @@ export default function CartPage() {
                   value={formData.mensaje}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full rounded-md border px-3 py-2 text-sm"
+                  className="w-full rounded-md border px-3 py-2 text-sm text-black"
                   placeholder="Cuéntanos fecha, lugar, tipo de evento..."
                 />
               </div>
@@ -198,7 +196,7 @@ export default function CartPage() {
                 <button
                   type="button"
                   onClick={() => setMostrarFormulario(false)}
-                  className="rounded-full border border-gray-300 px-5 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100"
+                  className="rounded-full border border-gray-300 px-5 py-2 text-sm font-medium text-black hover:bg-gray-100"
                 >
                   Volver al carrito
                 </button>
