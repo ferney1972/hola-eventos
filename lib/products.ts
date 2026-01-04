@@ -11,28 +11,34 @@ export const products: Product[] = [
   {
     id: "estufa-gas",
     name: "Estufa de gas exterior",
-    image: { src: "/images/estufa-gas.jpg" },
+    image: {
+      src: "https://misquince.es/fotos/estufa-gas.jpg",
+    },
     price: 25,
   },
   {
     id: "silla-blanca-resina",
     name: "Silla blanca de resina",
-    image: { src: "/images/silla-blanca-resina.jpg" },
+    image: {
+      src: "https://misquince.es/fotos/silla-blanca-resina.jpg",
+    },
     price: 1.8,
   },
   {
     id: "sillas-plegables",
     name: "Silla plegable",
-    image: { src: "/images/silla-plegable.jpg" },
+    image: {
+      src: "https://misquince.es/fotos/silla-plegable.jpg",
+    },
     price: 1.5,
   },
   {
     id: "tarimas-escenario",
     name: "Tarimas para escenario",
-    image: { src: "/images/tarimas-escenario.jpg" },
+    image: {
+      src: "https://misquince.es/fotos/tarimas-escenario.jpg",
+    },
     price: 40,
   },
   // aquí puedes seguir añadiendo más productos con el mismo formato
 ];
-
-
