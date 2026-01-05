@@ -8,7 +8,7 @@ export async function POST(req: Request) {
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT) || 587,
-      secure: false,
+      secure: false, // si DonDominio te dice puerto 465/SSL, esto habrá que ponerlo en true y PORT=465
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
@@ -39,12 +39,14 @@ Productos seleccionados:
 ${productosTexto}
 `.trim();
 
-    await transporter.sendMail({
+    const info = await transporter.sendMail({
       from: `"Web Hola Eventos" <hola@holaeventos.es>`,
       to: "produccionsanchezparra@gmail.com",
       subject: "Nueva solicitud de presupuesto desde la web",
       text: textBody,
     });
+
+    console.log("RESULTADO_SMTP", info);
 
     return NextResponse.json({ ok: true });
   } catch (e) {
