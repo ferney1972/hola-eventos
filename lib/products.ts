@@ -23,7 +23,7 @@ export const products: Product[] = [
     id: "silla-blanca-resina",
     name: "Silla blanca de resina",
     image: {
-      src: "https://misquince.es/fotos/silla-blanca-resina.jpg",
+      src: "https://misquince.es/fotos/Silla blanca de resina.jpg",
     },
     price: 1.8,
     description:
