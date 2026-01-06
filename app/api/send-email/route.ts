@@ -52,7 +52,7 @@ ${mensaje || "(sin mensaje adicional)"}
     const info = await transporter.sendMail({
       from: `"Web Hola Eventos" <${process.env.SMTP_USER}>`,
       to: "produccionsanchezparra@gmail.com",
-      subject: "Nueva solicitud desde el formulario de la web",
+      subject: "Nueva solicitud desde la web Hola Eventos",
       text: textBody,
     });
 
