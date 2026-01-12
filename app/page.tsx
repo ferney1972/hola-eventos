@@ -67,45 +67,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* VIDEO SECTION */}
-      <section id="video-gallery" className="py-16 md:py-24 bg-black">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white">
-              porque tus sueños son nuestra realidad
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-gray-400">
-              asesoramiento personalizado
-            </p>
-          </div>
-
-          <div className="mb-8 overflow-hidden rounded-lg border border-gray-800 shadow-lg">
-            <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
-              <video
-                src="https://videos.pexels.com/video-files/3209828/3209828-hd_1920_1080_25fps.mp4"
-                controls
-                autoPlay
-                muted
-                loop
-                className="absolute inset-0 h-full w-full object-cover"
-              >
-                Tu navegador no soporta la etiqueta de vídeo.
-              </video>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-            {[
-              "https://videos.pexels.com/video-files/5969502/5969502-sd_640_360_25fps.mp4",
-              "https://videos.pexels.com/video-files/8098020/8098020-sd_640_360_25fps.mp4",
-              "https://videos.pexels.com/video-files/5699313/5699313-sd_640_360_25fps.mp4",
-            ].map((videoSrc, index) => (
-              <VideoThumbnail key={index} src={videoSrc} />
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CÓMO FUNCIONA */}
       <section id="how-it-works" className="bg-gray-50 py-16 md:py-24">
         <div className="container mx-auto px-4">
@@ -195,7 +156,9 @@ export default function Home() {
                       src={item.image.src}
                       alt={item.name}
                       className={`h-full w-full ${
-                        item.id === "estufa-gas" ? "object-contain" : "object-cover"
+                        item.id === "estufa-gas"
+                          ? "object-contain"
+                          : "object-cover"
                       } transition-transform duration-300 group-hover:scale-105`}
                     />
                   </div>
@@ -208,7 +171,6 @@ export default function Home() {
                       {item.name}
                     </h3>
 
-                    {/* Selector cantidad + / - en negro */}
                     <div className="mt-3 flex items-center justify-center gap-3">
                       <button
                         onClick={decrease}
@@ -238,6 +200,7 @@ export default function Home() {
               );
             })}
           </div>
+
           <div className="mt-12 text-center">
             <Link href="/products">
               <button className="inline-flex h-11 items-center justify-center rounded-md border border-gray-300 bg-white px-8 text-sm font-medium transition-colors hover:bg-gray-100">
@@ -248,7 +211,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AGENTES ESPECIALIZADOS (REDONDOS AL FINAL DE LOS PRODUCTOS) */}
+      {/* AGENTES ESPECIALIZADOS */}
       <section className="bg-black py-16">
         <div className="container mx-auto px-4">
           <h2 className="mb-8 text-center text-3xl font-bold text-white">
@@ -256,7 +219,7 @@ export default function Home() {
           </h2>
 
           <div className="flex flex-col items-center gap-8 md:flex-row md:justify-center">
-            {/* Agente Decoración (chica) */}
+            {/* Agente Decoración */}
             <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg-white/10 text-center shadow-lg">
               <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border-white">
                 <img
@@ -281,7 +244,7 @@ export default function Home() {
               </a>
             </div>
 
-            {/* Agente Sonido y Vídeo (chico) */}
+            {/* Agente Sonido y Vídeo */}
             <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg-white/10 text-center shadow-lg">
               <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border-white">
                 <img
@@ -306,7 +269,7 @@ export default function Home() {
               </a>
             </div>
 
-            {/* Agente Mobiliario (chico) */}
+            {/* Agente Mobiliario */}
             <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg-white/10 text-center shadow-lg">
               <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border-white">
                 <img
@@ -330,6 +293,47 @@ export default function Home() {
                 WhatsApp
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* VIDEO SECTION – ÚLTIMA */}
+      <section id="video-gallery" className="py-16 md:py-24 bg-black">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white">
+              porque tus sueños son nuestra realidad
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-gray-400">
+              asesoramiento personalizado
+            </p>
+          </div>
+
+          {/* VÍDEO PRINCIPAL: TU ARCHIVO */}
+          <div className="mb-8 overflow-hidden rounded-lg border border-gray-800 shadow-lg">
+            <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+              <video
+                src="/videos/Decoracion%20para%20empresas%20madrid.mp4"
+                controls
+                autoPlay
+                muted
+                loop
+                className="absolute inset-0 h-full w-full object-cover"
+              >
+                Tu navegador no soporta la etiqueta de vídeo.
+              </video>
+            </div>
+          </div>
+
+          {/* GALERÍA DE VÍDEOS */}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+            {[
+              "/videos/Decoracion%20para%20empresas%20madrid.mp4",
+              "https://videos.pexels.com/video-files/8098020/8098020-sd_640_360_25fps.mp4",
+              "https://videos.pexels.com/video-files/5699313/5699313-sd_640_360_25fps.mp4",
+            ].map((videoSrc, index) => (
+              <VideoThumbnail key={index} src={videoSrc} />
+            ))}
           </div>
         </div>
       </section>
