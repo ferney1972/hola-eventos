@@ -211,7 +211,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AGENTES ESPECIALIZADOS */}
+      {/* AGENTES ESPECIALIZADOS (avatares) */}
       <section className="bg-black py-16">
         <div className="container mx-auto px-4">
           <h2 className="mb-8 text-center text-3xl font-bold text-white">
@@ -270,7 +270,7 @@ export default function Home() {
             </div>
 
             {/* Agente Mobiliario */}
-            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg-white/10 text-center shadow-lg">
+            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg.white/10 text-center shadow-lg">
               <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border-white">
                 <img
                   src="https://misquince.es/fotos/mobiliario.jpg"
@@ -309,7 +309,7 @@ export default function Home() {
             </p>
           </div>
 
-          {/* VÍDEO PRINCIPAL: TU ARCHIVO */}
+          {/* VÍDEO PRINCIPAL 1 */}
           <div className="mb-8 overflow-hidden rounded-lg border border-gray-800 shadow-lg">
             <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
               <video
@@ -325,17 +325,33 @@ export default function Home() {
             </div>
           </div>
 
-          {/* GALERÍA DE VÍDEOS – MINIATURAS MÁS PEQUEÑAS */}
+          {/* VÍDEO PRINCIPAL 2 – PRODUCCIÓN */}
+          <div className="mb-8 overflow-hidden rounded-lg border border-gray-800 shadow-lg">
+            <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+              <video
+                src="https://misquince.es/fotos/PRODUCCION.mp4"
+                controls
+                muted
+                loop
+                className="absolute inset-0 h.full w-full object-cover"
+              >
+                Tu navegador no soporta la etiqueta de vídeo.
+              </video>
+            </div>
+          </div>
+
+          {/* GALERÍA DE VÍDEOS – MINIATURAS */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
             {[
               "/videos/Decoracion%20para%20empresas%20madrid.mp4",
+              "https://misquince.es/fotos/PRODUCCION.mp4",
               "https://videos.pexels.com/video-files/8098020/8098020-sd_640_360_25fps.mp4",
               "https://videos.pexels.com/video-files/5699313/5699313-sd_640_360_25fps.mp4",
             ].map((videoSrc, index) => (
               <div
                 key={index}
                 className="mx-auto"
-                style={{ maxWidth: 220 }} // aquí controlas el tamaño miniatura
+                style={{ maxWidth: 220 }}
               >
                 <VideoThumbnail src={videoSrc} />
               </div>
@@ -382,7 +398,7 @@ export default function Home() {
                 });
                 setSelectedProduct(null);
               }}
-              className="w-full rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+              className="w-full rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text.white hover:bg-blue-700"
             >
               Añadir al carrito
             </button>
@@ -392,3 +408,4 @@ export default function Home() {
     </main>
   );
 }
+
