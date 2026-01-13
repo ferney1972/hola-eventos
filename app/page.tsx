@@ -325,14 +325,20 @@ export default function Home() {
             </div>
           </div>
 
-          {/* GALERÍA DE VÍDEOS */}
+          {/* GALERÍA DE VÍDEOS – MINIATURAS MÁS PEQUEÑAS */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
             {[
               "/videos/Decoracion%20para%20empresas%20madrid.mp4",
               "https://videos.pexels.com/video-files/8098020/8098020-sd_640_360_25fps.mp4",
               "https://videos.pexels.com/video-files/5699313/5699313-sd_640_360_25fps.mp4",
             ].map((videoSrc, index) => (
-              <VideoThumbnail key={index} src={videoSrc} />
+              <div
+                key={index}
+                className="mx-auto"
+                style={{ maxWidth: 220 }} // aquí controlas el tamaño miniatura
+              >
+                <VideoThumbnail src={videoSrc} />
+              </div>
             ))}
           </div>
         </div>
