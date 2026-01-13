@@ -11,17 +11,16 @@ export default function Home() {
   const { addItem } = useCart();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
-  // -----------------------------
-  // VÍDEOS DE LA GALERÍA
-  // -----------------------------
+  // =========================
+  // VÍDEOS (GRANDE + MINIATURAS)
+  // =========================
   const videoSources = [
     "/videos/Decoracion%20para%20empresas%20madrid.mp4", // vídeo local
-    "https://misquince.es/fotos/PRODUCCION.mp4",          // tu vídeo PRODUCCION
+    "https://misquince.es/fotos/PRODUCCION.mp4",          // PRODUCCION
     "https://videos.pexels.com/video-files/8098020/8098020-sd_640_360_25fps.mp4",
     "https://videos.pexels.com/video-files/5699313/5699313-sd_640_360_25fps.mp4",
   ];
 
-  // Vídeo que se ve en grande (por defecto el primero)
   const [activeVideo, setActiveVideo] = useState<string>(videoSources[0]);
 
   const featuredProductIds = [
@@ -180,7 +179,7 @@ export default function Home() {
                       <MessageSquare className="mr-2 h-4 w-4 text-black" />
                       ¿Necesitas asesoramiento?
                     </div>
-                    <h3 className="text-lg font-semibold text-center text-black">
+                    <h3 className="text-lg font-semibold text-center text.black">
                       {item.name}
                     </h3>
 
@@ -283,7 +282,7 @@ export default function Home() {
             </div>
 
             {/* Agente Mobiliario */}
-            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg-white/10 text-center shadow-lg">
+            <div className="flex h-64 w-64 flex-col items-center justify.center rounded-full bg-white/10 text-center shadow-lg">
               <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border-white">
                 <img
                   src="https://misquince.es/fotos/mobiliario.jpg"
@@ -322,7 +321,7 @@ export default function Home() {
             </p>
           </div>
 
-          {/* VÍDEO PRINCIPAL: usa activeVideo */}
+          {/* VÍDEO PRINCIPAL */}
           <div className="mb-8 overflow-hidden rounded-lg border border-gray-800 shadow-lg">
             <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
               <video
@@ -338,7 +337,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* GALERÍA DE VÍDEOS – MINIATURAS */}
+          {/* MINIATURAS CLICABLES */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
             {videoSources.map((videoSrc) => (
               <button
