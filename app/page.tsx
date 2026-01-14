@@ -15,8 +15,10 @@ export default function Home() {
   // VÍDEOS (GRANDE + MINIATURAS)
   // =========================
   const videoSources = [
-    "/videos/Decoracion para empresas madrid",   // vídeo local en /public/videos
-    "https://misquince.es/fotos/PRODUCCION.mp4",     // vídeo remoto PRODUCCION
+// VÍDEOS (GRANDE + MINIATURAS)
+const videoSources = [
+  "https://misquince.es/fotos/decoracionparaempresasmadrid.mp4", // se ve en grande al entrar
+  "https://misquince.es/fotos/PRODUCCION.mp4",                   // se ve al hacer clic en su miniatura
   ];
 
   const [activeVideo, setActiveVideo] = useState<string>(videoSources[0]);
