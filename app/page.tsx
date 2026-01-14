@@ -17,7 +17,8 @@ export default function Home() {
   const videoSources = [
     "https://misquince.es/fotos/Decoracionparaempresasmadrid.mp4",
     "https://misquince.es/fotos/PRODUCCION.mp4",
-  ];
+    "https://misquince.es/fotos/Misquincecentro.mp4",
+    ];
 
   const [activeVideo, setActiveVideo] = useState<string>(videoSources[0]);
 
