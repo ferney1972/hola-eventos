@@ -15,7 +15,7 @@ export default function Home() {
   // VÍDEOS (GRANDE + MINIATURAS)
   // =========================
   const videoSources = [
-    "https://misquince.es/fotos/decoracionparaempresasmadrid.mp4",
+    "https://misquince.es/fotos/Decoracionparaempresasmadrid.mp4",
     "https://misquince.es/fotos/PRODUCCION.mp4",
   ];
 
