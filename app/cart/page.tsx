@@ -30,11 +30,16 @@ function CartPage() {
       prev
         .map((item) =>
           item.id === id
-            ? { ...item, quantity: Math.max(1, item.quantity + delta) }
+            ? { ...item, quantity: Math.max(0, item.quantity + delta) }
             : item
         )
         .filter((item) => item.quantity > 0)
     );
+  };
+
+  // NUEVO: vaciar carrito
+  const clearCart = () => {
+    setCart([]);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -88,40 +93,54 @@ function CartPage() {
         <h2 className="text-xl font-semibold mb-3 text-black">
           Tu selección
         </h2>
+
         {cart.length === 0 ? (
           <p className="text-black">No hay productos en el carrito.</p>
         ) : (
-          <ul className="space-y-2">
-            {cart.map((item) => (
-              <li
-                key={item.id}
-                className="flex items-center justify-between gap-4 border-b pb-2 last:border-b-0 text-black"
+          <>
+            <ul className="space-y-2">
+              {cart.map((item) => (
+                <li
+                  key={item.id}
+                  className="flex items-center justify-between gap-4 border-b pb-2 last:border-b-0 text-black"
+                >
+                  <span>{item.name}</span>
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => updateQuantity(item.id, -1)}
+                      className="h-8 w-8 rounded-full border flex items-center justify-center text-black"
+                    >
+                      −
+                    </button>
+                    <span className="w-8 text-center">{item.quantity}</span>
+                    <button
+                      type="button"
+                      onClick={() => updateQuantity(item.id, 1)}
+                      className="h-8 w-8 rounded-full border flex items-center justify-center text-black"
+                    >
+                      +
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            {/* Botón para vaciar carrito */}
+            <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <p className="font-semibold text-black">
+                Total de ítems: {totalItems}
+              </p>
+              <button
+                type="button"
+                onClick={clearCart}
+                className="rounded-full border border-red-500 px-4 py-2 text-sm font-medium text-red-600 hover:bg-red-500 hover:text-white"
               >
-                <span>{item.name}</span>
-                <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={() => updateQuantity(item.id, -1)}
-                    className="h-8 w-8 rounded-full border flex items-center justify-center text-black"
-                  >
-                    −
-                  </button>
-                  <span className="w-8 text-center">{item.quantity}</span>
-                  <button
-                    type="button"
-                    onClick={() => updateQuantity(item.id, 1)}
-                    className="h-8 w-8 rounded-full border flex items-center justify-center text-black"
-                  >
-                    +
-                  </button>
-                </div>
-              </li>
-            ))}
-          </ul>
+                Vaciar carrito
+              </button>
+            </div>
+          </>
         )}
-        <p className="mt-4 font-semibold text-black">
-          Total de ítems: {totalItems}
-        </p>
       </section>
 
       {/* Formulario */}
@@ -222,7 +241,6 @@ function CartPage() {
 }
 
 export default CartPage;
-
 
 
 
