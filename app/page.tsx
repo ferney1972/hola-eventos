@@ -193,7 +193,7 @@ export default function Home() {
                       </span>
                       <button
                         onClick={increase}
-                        className="h-8 w-8 rounded-full border border-black flex items-center justify-center text-lg leading-none text.black"
+                        className="h-8 w-8 rounded-full border border-black flex items-center justify-center text-lg leading-none text-black"
                       >
                         +
                       </button>
@@ -319,19 +319,21 @@ export default function Home() {
             </p>
           </div>
 
-          {/* VÍDEO PRINCIPAL */}
-          <div className="mb-8 overflow-hidden rounded-lg border border-gray-800 shadow-lg">
-            <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
-              <video
-                src={activeVideo}
-                controls
-                autoPlay
-                muted
-                loop
-                className="absolute inset-0 h-full w-full object-cover"
-              >
-                Tu navegador no soporta la etiqueta de vídeo.
-              </video>
+          {/* VÍDEO PRINCIPAL (ajustado para desktop) */}
+          <div className="mb-8 flex justify-center">
+            <div className="w-full max-w-3xl overflow-hidden rounded-lg border border-gray-800 shadow-lg">
+              <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+                <video
+                  src={activeVideo}
+                  controls
+                  autoPlay
+                  muted
+                  loop
+                  className="absolute inset-0 h-full w-full object-cover"
+                >
+                  Tu navegador no soporta la etiqueta de vídeo.
+                </video>
+              </div>
             </div>
           </div>
 
@@ -400,5 +402,3 @@ export default function Home() {
     </main>
   );
 }
-
-
