@@ -14,10 +14,9 @@ export default function Home() {
   // =========================
   // VÍDEOS (GRANDE + MINIATURAS)
   // =========================
-  // Ajusta estos nombres a como se llaman tus archivos reales dentro de /public/videos
   const videoSources = [
-    "/videos/Decoracion-para-empresas-madrid.mp4",
-    "/videos/PRODUCCION.mp4",
+    "/videos/Decoracion para empresas madrid",   // vídeo local en /public/videos
+    "https://misquince.es/fotos/PRODUCCION.mp4",     // vídeo remoto PRODUCCION
   ];
 
   const [activeVideo, setActiveVideo] = useState<string>(videoSources[0]);
@@ -214,7 +213,7 @@ export default function Home() {
 
           <div className="mt-12 text-center">
             <Link href="/products">
-              <button className="inline-flex h-11 items-center justify-center rounded-md border border-gray-300 bg.white px-8 text-sm font-medium transition-colors hover:bg-gray-100">
+              <button className="inline-flex h-11 items-center justify-center rounded-md border border-gray-300 bg-white px-8 text-sm font-medium transition-colors hover:bg-gray-100">
                 Ver Catálogo Completo {"->"}
               </button>
             </Link>
@@ -232,7 +231,7 @@ export default function Home() {
           <div className="flex flex-col items-center gap-8 md:flex-row md:justify-center">
             {/* Agente Decoración */}
             <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg-white/10 text-center shadow-lg">
-              <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border.white">
+              <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border-white">
                 <img
                   src="https://misquince.es/fotos/decoracion.png"
                   alt="Agente de decoración"
@@ -401,4 +400,5 @@ export default function Home() {
     </main>
   );
 }
+
 
