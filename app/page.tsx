@@ -15,10 +15,8 @@ export default function Home() {
   // VÍDEOS (GRANDE + MINIATURAS)
   // =========================
   const videoSources = [
-// VÍDEOS (GRANDE + MINIATURAS)
-const videoSources = [
-  "https://misquince.es/fotos/decoracionparaempresasmadrid.mp4", // se ve en grande al entrar
-  "https://misquince.es/fotos/PRODUCCION.mp4",                   // se ve al hacer clic en su miniatura
+    "https://misquince.es/fotos/decoracionparaempresasmadrid.mp4",
+    "https://misquince.es/fotos/PRODUCCION.mp4",
   ];
 
   const [activeVideo, setActiveVideo] = useState<string>(videoSources[0]);
@@ -195,7 +193,7 @@ const videoSources = [
                       </span>
                       <button
                         onClick={increase}
-                        className="h-8 w-8 rounded-full border border-black flex items-center justify-center text-lg leading-none text-black"
+                        className="h-8 w-8 rounded-full border border-black flex items-center justify-center text-lg leading-none text.black"
                       >
                         +
                       </button>
