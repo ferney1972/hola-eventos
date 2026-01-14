@@ -11,6 +11,8 @@ type CartItem = {
 const initialCart: CartItem[] = [
   { id: "1", name: "Estufa de gas exterior", quantity: 1 },
   { id: "2", name: "Silla blanca de resina", quantity: 1 },
+  { id: "3", name: "Silla plegable", quantity: 1 },
+  { id: "4", name: "Tarimas escenario", quantity: 1 },
 ];
 
 function CartPage() {
