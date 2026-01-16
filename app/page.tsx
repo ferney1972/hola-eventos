@@ -27,6 +27,7 @@ export default function Home() {
     "silla-blanca-resina",
     "sillas-plegables",
     "tarimas-escenario",
+    "carpa plegable-3x3m"
   ];
 
   const featuredProducts = products

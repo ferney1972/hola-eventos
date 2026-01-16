@@ -49,4 +49,14 @@ export const products: Product[] = [
     description:
       "Módulos de tarima para escenario configurables en distintas medidas y alturas. Superficie antideslizante, ideal para conciertos y presentaciones.",
   },
+  {
+    id: "carpa-3x3m",
+    name: "carpade3x3m",
+    image: {
+      src: "https://misquince.es/fotos/alquiler carpa de 3x3m.jpg",
+    },
+    price: 40,
+    description:
+      "Alquiler de carpa de 3x3m con laterales y contrapesos.",
 ];
+
