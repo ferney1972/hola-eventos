@@ -7,13 +7,13 @@ export default function Carpa3x3mPage() {
   const [cantidad, setCantidad] = React.useState(1);
   const { addItem } = useCart();
 
-  const cambiarCantidad = (cambio: number) => {
+  const cambiarCantidad = (cambio) => {
     setCantidad((prev) => Math.max(1, prev + cambio));
   };
 
   const añadirAlCarrito = () => {
     addItem({
-      id: "carpa-3x3m", // mismo id que en lib/products.ts
+      id: "carpa-3x3m",
       name: "Carpa plegable 3x3m",
       price: 40,
       image: {
@@ -32,12 +32,10 @@ export default function Carpa3x3mPage() {
 
         <p className="mx-auto mb-10 max-w-3xl text-center text-sm text-gray-600">
           Carpa plegable de 3x3 metros ideal para eventos al aire libre,
-          ferias, catering y celebraciones privadas. Se monta y desmonta
-          rápidamente y ofrece protección frente a sol y lluvia ligera.
+          ferias, catering y celebraciones privadas.
         </p>
 
         <div className="grid gap-10 md:grid-cols-2 md:items-start">
-          {/* Imagen izquierda */}
           <div className="flex justify-center">
             <img
               src="https://misquince.es/fotos/alquiler carpa de 3x3m.jpg"
@@ -46,29 +44,7 @@ export default function Carpa3x3mPage() {
             />
           </div>
 
-          {/* Texto + contador derecha */}
           <div>
-            <ul className="space-y-5 text-sm text-gray-700">
-              <li>
-                <p className="font-semibold text-blue-600">Medidas</p>
-                <p>3 x 3 metros, altura regulable según el montaje.</p>
-              </li>
-              <li>
-                <p className="font-semibold text-blue-600">Incluye</p>
-                <p>Estructura plegable, techo y laterales opcionales.</p>
-              </li>
-              <li>
-                <p className="font-semibold text-blue-600">
-                  Uso recomendado
-                </p>
-                <p>
-                  Perfecta para zonas de catering, barras, zonas de
-                  recepción o stands de empresa.
-                </p>
-              </li>
-            </ul>
-
-            {/* Contador cantidad */}
             <div className="mt-10 text-center">
               <p className="mb-3 text-sm text-gray-700">
                 Escribe la cantidad
