@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useCart } from "@/context/CartContext";
 
 type CartItem = {
   id: string;
@@ -8,15 +9,13 @@ type CartItem = {
   quantity: number;
 };
 
-const initialCart: CartItem[] = [
-  { id: "1", name: "Estufa de gas exterior", quantity: 1 },
-  { id: "2", name: "Silla blanca de resina", quantity: 1 },
-  { id: "3", name: "Silla plegable", quantity: 1 },
-  { id: "4", name: "Tarimas escenario", quantity: 1 },
-];
-
 function CartPage() {
-  const [cart, setCart] = useState<CartItem[]>(initialCart);
+  // Asegúrate de que tu CartContext devuelve estas 3 cosas:
+  // items: { id, name, quantity, ... }[]
+  // updateItemQuantity(id: string, quantity: number): void
+  // clearCart(): void
+  const { items, updateItemQuantity, clearCart } = useCart();
+
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [telefono, setTelefono] = useState("");
@@ -25,23 +24,24 @@ function CartPage() {
   const [mensaje, setMensaje] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // Adaptamos lo que viene del contexto al tipo CartItem
+  const cart: CartItem[] = items.map((item) => ({
+    id: item.id,
+    name: item.name,
+    quantity: item.quantity,
+  }));
+
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   const updateQuantity = (id: string, delta: number) => {
-    setCart((prev) =>
-      prev
-        .map((item) =>
-          item.id === id
-            ? { ...item, quantity: Math.max(0, item.quantity + delta) }
-            : item
-        )
-        .filter((item) => item.quantity > 0)
-    );
+    const current = cart.find((i) => i.id === id);
+    if (!current) return;
+    const nextQty = Math.max(0, current.quantity + delta);
+    updateItemQuantity(id, nextQty);
   };
 
-  // NUEVO: vaciar carrito
-  const clearCart = () => {
-    setCart([]);
+  const handleClearCart = () => {
+    clearCart();
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -128,14 +128,13 @@ function CartPage() {
               ))}
             </ul>
 
-            {/* Botón para vaciar carrito */}
             <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <p className="font-semibold text-black">
                 Total de ítems: {totalItems}
               </p>
               <button
                 type="button"
-                onClick={clearCart}
+                onClick={handleClearCart}
                 className="rounded-full border border-red-500 px-4 py-2 text-sm font-medium text-red-600 hover:bg-red-500 hover:text-white"
               >
                 Vaciar carrito
@@ -243,6 +242,3 @@ function CartPage() {
 }
 
 export default CartPage;
-
-
-
