@@ -10,7 +10,6 @@ type CartItem = {
 };
 
 function CartPage() {
-  // Usa solo lo que exista en tu CartContext
   const { items, addItem, removeItem, clearCart } = useCart();
 
   const [nombre, setNombre] = useState("");
@@ -21,6 +20,7 @@ function CartPage() {
   const [mensaje, setMensaje] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // Adaptamos lo que viene del contexto al tipo CartItem
   const cart: CartItem[] = items.map((item) => ({
     id: item.id,
     name: item.name,
@@ -39,7 +39,7 @@ function CartPage() {
       // quitar del carrito
       removeItem(id);
     } else {
-      // volver a añadir con la nueva cantidad
+      // volver a añadirlo con la nueva cantidad
       addItem({ ...current, quantity: nextQty });
     }
   };
@@ -111,4 +111,138 @@ function CartPage() {
                   className="flex items-center justify-between gap-4 border-b pb-2 last:border-b-0 text-black"
                 >
                   <span>{item.name}</span>
-                  <div className="flex items-ce
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => updateQuantity(item.id, -1)}
+                      className="h-8 w-8 rounded-full border flex items-center justify-center text-black"
+                    >
+                      −
+                    </button>
+                    <span className="w-8 text-center">{item.quantity}</span>
+                    <button
+                      type="button"
+                      onClick={() => updateQuantity(item.id, 1)}
+                      className="h-8 w-8 rounded-full border flex items-center justify-center text-black"
+                    >
+                      +
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <p className="font-semibold text-black">
+                Total de ítems: {totalItems}
+              </p>
+              <button
+                type="button"
+                onClick={handleClearCart}
+                className="rounded-full border border-red-500 px-4 py-2 text-sm font-medium text-red-600 hover:bg-red-500 hover:text-white"
+              >
+                Vaciar carrito
+              </button>
+            </div>
+          </>
+        )}
+      </section>
+
+      {/* Formulario */}
+      <section className="border rounded-lg p-4 bg-white">
+        <h2 className="text-xl font-semibold mb-3 text-black">
+          Solicita tu presupuesto
+        </h2>
+
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium mb-1 text-black">
+              Nombre completo *
+            </label>
+            <input
+              type="text"
+              className="w-full border rounded px-3 py-2 text-black"
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-1 text-black">
+              Email *
+            </label>
+            <input
+              type="email"
+              className="w-full border rounded px-3 py-2 text-black"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-1 text-black">
+              Teléfono
+            </label>
+            <input
+              type="tel"
+              className="w-full border rounded px-3 py-2 text-black"
+              value={telefono}
+              onChange={(e) => setTelefono(e.target.value)}
+            />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium mb-1 text-black">
+                Tipo de evento
+              </label>
+              <input
+                type="text"
+                className="w-full border rounded px-3 py-2 text-black"
+                value={tipoEvento}
+                onChange={(e) => setTipoEvento(e.target.value)}
+                placeholder="Boda, cumpleaños, empresa..."
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium mb-1 text-black">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                className="w-full border rounded px-3 py-2 text-black"
+                value={fechaEvento}
+                onChange={(e) => setFechaEvento(e.target.value)}
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-1 text-black">
+              Cuéntanos tu idea
+            </label>
+            <textarea
+              className="w-full border rounded px-3 py-2 min-h-[120px] text-black"
+              value={mensaje}
+              onChange={(e) => setMensaje(e.target.value)}
+              placeholder="Número aproximado de personas, lugar, horarios, etc."
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-2 text-white font-semibold disabled:opacity-60"
+          >
+            {loading ? "Enviando..." : "Enviar solicitud"}
+          </button>
+        </form>
+      </section>
+    </main>
+  );
+}
+
+export default CartPage;
