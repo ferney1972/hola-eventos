@@ -7,6 +7,7 @@ type CartItem = {
   id: string;
   name: string;
   quantity: number;
+  image?: { src: string }; // opcional aquí, por si tu contexto lo tiene
 };
 
 function CartPage() {
@@ -20,27 +21,29 @@ function CartPage() {
   const [mensaje, setMensaje] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Adaptamos lo que viene del contexto al tipo CartItem
-  const cart: CartItem[] = items.map((item) => ({
+  // Adaptamos lo que viene del contexto al tipo CartItem local
+  const cart: CartItem[] = items.map((item: any) => ({
     id: item.id,
     name: item.name,
     quantity: item.quantity,
+    image: item.image,
   }));
 
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   const updateQuantity = (id: string, delta: number) => {
-    const current = cart.find((i) => i.id === id);
+    const current = items.find((i: any) => i.id === id);
     if (!current) return;
 
     const nextQty = current.quantity + delta;
 
     if (nextQty <= 0) {
-      // quitar del carrito
       removeItem(id);
     } else {
-      // volver a añadirlo con la nueva cantidad
-      addItem({ ...current, quantity: nextQty });
+      addItem({
+        ...current,
+        quantity: nextQty,
+      });
     }
   };
 
