@@ -28,6 +28,7 @@ export default function Home() {
     "sillas-plegables",
     "tarimas-escenario",
     "carpa-3x3m",
+    "carpade1.80",
   ];
 
   const featuredProducts = products
