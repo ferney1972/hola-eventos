@@ -248,7 +248,7 @@ export default function Home() {
                 Especialista en decoración y ambientación de eventos.
               </p>
               <a
-                href="https://wa.me/34600000001?text=Hola,%20me%20gustaría%20hablar%20con%20decoración%20sobre%20mi%20evento."
+                href="https://wa.me/34649330612?text=Hola,%20me%20gustaría%20hablar%20con%20decoración%20sobre%20mi%20evento."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-3 inline-flex items-center justify-center rounded-full border border-green-500 px-4 py-1.5 text-xs font-medium text-green-400 hover:bg-green-500 hover:text-white"
@@ -273,7 +273,7 @@ export default function Home() {
                 Técnico en sonido, iluminación y proyección.
               </p>
               <a
-                href="https://wa.me/34600000002?text=Hola,%20me%20gustaría%20hablar%20sobre%20sonido%20y%20vídeo%20para%20mi%20evento."
+                href="https://wa.me/34640658864?text=Hola,%20me%20gustaría%20hablar%20sobre%20sonido%20y%20vídeo%20para%20mi%20evento."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-3 inline-flex items-center justify-center rounded-full border border-green-500 px-4 py-1.5 text-xs font-medium text-green-400 hover:bg-green-500 hover:text-white"
@@ -298,7 +298,7 @@ export default function Home() {
                 Especialista en sillas, mesas, tarimas y estructuras.
               </p>
               <a
-                href="https://wa.me/34600000003?text=Hola,%20me%20gustaría%20hablar%20sobre%20mobiliario%20para%20mi%20evento."
+                href="https://wa.me/34640651851?text=Hola,%20me%20gustaría%20hablar%20sobre%20mobiliario%20para%20mi%20evento."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-3 inline-flex items-center justify-center rounded-full border border-green-500 px-4 py-1.5 text-xs font-medium text-green-400 hover:bg-green-500 hover:text-white"
