@@ -60,5 +60,15 @@ export const products: Product[] = [
     description:
       "Alquiler de carpa de 3x3m con laterales y contrapesos.",
   },
+{
+    id: "mesade1.80",
+    name: "mesa de 1.80m",
+    image: {
+      src: "https://misquince.es/fotos/mesade1.80",
+    },
+    price: 40,
+    description:
+      "Alquiler mesa plegable de 1.80m",
+  },
 ];
 
