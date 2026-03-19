@@ -34,7 +34,7 @@ export const products: Product[] = [
     id: "sillas-plegables",
     name: "Silla plegable",
     image: {
-      src: "https://misquince.es/fotos/sillas-negras.png",
+      src: "https://misquince.es/fotos/sillas negras.PNG",
     },
     price: 1.5,
     description:
