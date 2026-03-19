@@ -44,7 +44,7 @@ export const products: Product[] = [
     id: "tarimas-escenario",
     name: "Tarimas para escenario",
     image: {
-      src: "https://misquince.es/fotos/alquiler-escenario.png",
+      src: "https://misquince.es/fotos/Alquiler de escenario.png",
     },
     price: 40,
     description:
@@ -54,7 +54,7 @@ export const products: Product[] = [
     id: "carpa-3x3m",
     name: "Carpa de 3x3m",
     image: {
-      src: "https://misquince.es/fotos/alquiler-carpa-3x3m.jpg",
+      src: "https://misquince.es/fotos/alquiler carpa de 3x3m.jpg",
     },
     price: 40,
     description:
