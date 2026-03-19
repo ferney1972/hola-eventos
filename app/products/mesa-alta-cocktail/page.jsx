@@ -21,7 +21,7 @@ export default function MesaAltaCocktail() {
       name: "Mesa alta para cocktail",
       price: 10, // cambia al precio real
       image: {
-        src: "https://misquince.es/fotos/mesa-alta-cocktail.jpg",
+        src: "https://misquince.es/fotos/mesaalta.jpeg",
       },
       quantity: cantidad,
     });
