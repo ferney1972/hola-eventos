@@ -28,7 +28,7 @@ export default function SillaBlancaResina() {
           {/* Imagen izquierda */}
           <div className="flex justify-center">
             <img
-              src="https://misquince.es/fotos/Silla%20blanca%20de%20resina.jpg"
+              src="https://misquince.es/fotos/Silla blanca de resina.jpg"
               alt="Silla blanca de resina"
               className="max-h-[420px] w-auto object-contain"
             />
