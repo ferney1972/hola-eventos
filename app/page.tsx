@@ -29,6 +29,7 @@ export default function Home() {
     "tarimas-escenario",
     "carpa-3x3m",
     "mesade1.80",
+    "mesa-alta-cocktail",
   ];
 
   const featuredProducts = products
