@@ -24,7 +24,7 @@ export const products: Product[] = [
     name: "Silla blanca de resina",
     image: {
       // Mejor sin espacios en el nombre del archivo
-      src: "https://misquince.es/fotos/Silla blanca de resina.jpg",
+      src: "https://misquince.es/fotos/silla-blanca-resina.jpg",
     },
     price: 1.8,
     description:
@@ -34,7 +34,7 @@ export const products: Product[] = [
     id: "sillas-plegables",
     name: "Silla plegable",
     image: {
-      src: "https://misquince.es/fotos/sillas negras.PNG",
+      src: "https://misquince.es/fotos/sillas-negras.png",
     },
     price: 1.5,
     description:
@@ -44,7 +44,7 @@ export const products: Product[] = [
     id: "tarimas-escenario",
     name: "Tarimas para escenario",
     image: {
-      src: "https://misquince.es/fotos/Alquiler de escenario.png",
+      src: "https://misquince.es/fotos/alquiler-escenario.png",
     },
     price: 40,
     description:
@@ -54,21 +54,30 @@ export const products: Product[] = [
     id: "carpa-3x3m",
     name: "Carpa de 3x3m",
     image: {
-      src: "https://misquince.es/fotos/alquiler carpa de 3x3m.jpg",
+      src: "https://misquince.es/fotos/alquiler-carpa-3x3m.jpg",
     },
     price: 40,
     description:
       "Alquiler de carpa de 3x3m con laterales y contrapesos.",
   },
-{
-    id: "mesade1.80",
-    name: "mesa de 1.80m",
+  {
+    id: "mesa-180",
+    name: "Mesa plegable 1,80 m",
     image: {
-      src: "https://misquince.es/fotos/mesade1.80",
+      src: "https://misquince.es/fotos/mesa-180.jpg",
     },
-    price: 40,
+    price: 8,
     description:
-      "Alquiler mesa plegable de 1.80m",
+      "Mesa plegable de 1,80 m ideal para banquetes, buffets y eventos de empresa.",
+  },
+  {
+    id: "mesa-alta-cocktail",
+    name: "Mesa alta para cocktail",
+    image: {
+      src: "https://misquince.es/fotos/mesaalta.jpeg",
+    },
+    price: 10, // cambia al precio real
+    description:
+      "Mesa alta para cocktail y recepciones, perfecta para eventos de pie y zonas de bebida.",
   },
 ];
-
