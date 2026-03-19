@@ -16,8 +16,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Hola Eventos | Alquiler de Material y Organización de Eventos en Madrid",
+export const metadata: Metadata = {"Alquiler de Sillas, Mesas y Carpas para Eventos en Madrid"
   description:
     "Alquiler de material, decoración y organización integral de eventos en Madrid: cumpleaños, bodas, comuniones y eventos de empresa.",
 };
