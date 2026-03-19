@@ -17,8 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Hola Eventos",
-  description: "Alquiler y decoración para eventos",
+  title: "Hola Eventos | Alquiler de Material y Organización de Eventos en Madrid",
+  description:
+    "Alquiler de material, decoración y organización integral de eventos en Madrid: cumpleaños, bodas, comuniones y eventos de empresa.",
 };
 
 export default function RootLayout({
@@ -34,7 +35,7 @@ export default function RootLayout({
           <main>{children}</main>
         </CartProvider>
         {/* Astronauta flotando con WhatsApp */}
-        <AstronautWhatsApp phone="34TU_NUMERO_AQUI" />
+        <AstronautWhatsApp phone="34640658864" />
       </body>
     </html>
   );
