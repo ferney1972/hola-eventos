@@ -1,4 +1,6 @@
 // app/productos/mesa-baja-blanca/page.tsx
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
@@ -8,7 +10,7 @@ const product = {
   name: "Mesa baja blanca plegable 80×80 cm",
   price: 20,
   description:
-    "Mesa baja plegable perfecta para crear zonas lounge, apoyar decoración o candy bar. Tablero blanco fácil de limpiar y estructura metálica resistente.",
+    "Mesa baja perfecta para crear zonas lounge, apoyar decoración o candy bar. Tablero blanco fácil de limpiar y estructura metálica resistente.",
   image: {
     src: "/images/mesa-baja-blanca.jpg",
     alt: "Mesa baja blanca plegable para eventos",
@@ -18,7 +20,7 @@ const product = {
 export const metadata = {
   title: "Mesa baja blanca para eventos | Hola Eventos",
   description:
-    "Alquiler de mesa baja blanca  45×50 cm ideal para zonas lounge, candy bar y rincones decorativos en eventos en Madrid.",
+    "Alquiler de mesa baja blanca 45×50 cm ideal para zonas lounge, candy bar y rincones decorativos en eventos en Madrid.",
 };
 
 export default function MesaBajaPage() {

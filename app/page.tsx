@@ -30,6 +30,7 @@ export default function Home() {
     "carpa-3x3m",
     "mesade1.80",
     "mesa-alta-cocktail",
+    "mesa-baja",
   ];
 
   const featuredProducts = products
