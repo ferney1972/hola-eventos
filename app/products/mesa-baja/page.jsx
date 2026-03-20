@@ -1,4 +1,4 @@
-// app/products/mesa-baja/page.tsx
+// app/products/mesa-baja/page.jsx
 "use client";
 
 import React from "react";
@@ -22,7 +22,7 @@ export default function MesaBajaPage() {
   const { addItem } = useCart();
   const [cantidad, setCantidad] = React.useState(1);
 
-  const cambiarCantidad = (cambio: number) => {
+  const cambiarCantidad = (cambio) => {
     setCantidad((prev) => Math.max(1, prev + cambio));
   };
 
@@ -132,4 +132,5 @@ export default function MesaBajaPage() {
     </main>
   );
 }
+
 
