@@ -80,4 +80,15 @@ export const products: Product[] = [
     description:
       "Mesa alta para cocktail y recepciones, perfecta para eventos de pie y zonas de bebida.",
   },
+  // 🔹 Nuevo producto: mesa baja
+  {
+    id: "mesa-baja",
+    name: "Mesa baja  45×50 cm",
+    image: {
+      src: "https://misquince.es/fotos/mesabaja.jpg", // pon aquí la URL real que vayas a usar
+    },
+    price: 20, // ajusta al precio real de alquiler
+    description:
+      "Mesa baja blanca perfecta para crear zonas lounge, apoyar decoración o candy bar. Tablero fácil de limpiar y estructura resistente.",
+  },
 ];
