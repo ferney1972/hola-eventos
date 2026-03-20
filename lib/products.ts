@@ -85,7 +85,7 @@ export const products: Product[] = [
     id: "mesa-baja",
     name: "Mesa baja  45×50 cm",
     image: {
-      src: "https://misquince.es/fotos/mesabaja.jpg", // pon aquí la URL real que vayas a usar
+      src: "https://misquince.es/fotos/mesabaja.jpeg", // pon aquí la URL real que vayas a usar
     },
     price: 20, // ajusta al precio real de alquiler
     description:
