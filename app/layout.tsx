@@ -5,6 +5,7 @@ import "./globals.css";
 import { CartProvider } from "@/context/CartContext";
 import { HeaderClient } from "./HeaderClient";
 import { AstronautWhatsApp } from "@/components/AstronautWhatsApp";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,7 +34,16 @@ export default function RootLayout({
         <CartProvider>
           <HeaderClient />
           <main>{children}</main>
+
+          {/* Botón flotante del carrito */}
+          <Link
+            href="/cart"
+            className="fixed bottom-4 right-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700"
+          >
+            <span className="text-xl">🛒</span>
+          </Link>
         </CartProvider>
+
         {/* Astronauta flotando con WhatsApp */}
         <AstronautWhatsApp phone="34640658864" />
       </body>
