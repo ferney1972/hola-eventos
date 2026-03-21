@@ -111,10 +111,7 @@ export const products: Product[] = [
     },
     price: 20, // ajusta al precio real de alquiler
     description:
-      "Arcon congelador para eventos.
-Medidas: 1500 x 700 x 900 mm.
-Capacidad amplia, tapa abatible, acabado en acero inoxidable.
-Máxima eficiencia y conservación óptima en catering y celebraciones.",
+      "Arcon congelador para eventos,",
   },
 ];
 
