@@ -102,5 +102,20 @@ export const products: Product[] = [
     description:
       "Conferencia estándar desarmable, con medidas de 500 x 400 x 1100 mm de alto. Cuenta con un espesor de 10 mm, una tapa superior de 500 x 400, un frontal de 350 x 600 mm (alto) para colocar el logotipo, y una base de 500 x 350. Los cantos están pulidos. La separación interna entre las patas es de 35 cm, mientras que la externa es de 37 cm.",
   },
+
+  {
+    id: "Arcon-congelador",
+    name: "Arcon",
+    image: {
+      src: "https://misquince.es/fotos/ARCON 302.PNG", // pon aquí la URL real que vayas a usar
+    },
+    price: 20, // ajusta al precio real de alquiler
+    description:
+      "Arcon congelador para eventos.
+Medidas: 1500 x 700 x 900 mm.
+Capacidad amplia, tapa abatible, acabado en acero inoxidable.
+Máxima eficiencia y conservación óptima en catering y celebraciones.",
+  },
 ];
+
 
