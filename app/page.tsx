@@ -31,6 +31,7 @@ export default function Home() {
     "mesade1.80",
     "mesa-alta-cocktail",
     "mesa-baja",
+    "atril-metraquilato"
   ];
 
   const featuredProducts = products

@@ -91,4 +91,16 @@ export const products: Product[] = [
     description:
       "Mesa baja blanca perfecta para crear zonas lounge, apoyar decoración o candy bar. Tablero fácil de limpiar y estructura resistente.",
   },
+
+  {
+    id: "atril-metraquilato",
+    name: "Atril alto 118",
+    image: {
+      src: "https://misquince.es/fotos/atril.PNG", // pon aquí la URL real que vayas a usar
+    },
+    price: 20, // ajusta al precio real de alquiler
+    description:
+      "Conferencia estándar desarmable, con medidas de 500 x 400 x 1100 mm de alto. Cuenta con un espesor de 10 mm, una tapa superior de 500 x 400, un frontal de 350 x 600 mm (alto) para colocar el logotipo, y una base de 500 x 350. Los cantos están pulidos. La separación interna entre las patas es de 35 cm, mientras que la externa es de 37 cm.",
+  },
 ];
+
