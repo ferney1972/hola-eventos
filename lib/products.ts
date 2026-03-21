@@ -113,6 +113,18 @@ export const products: Product[] = [
     description:
       "Arcon congelador para eventos,",
   },
+
+{
+    id: "Sombrilla ",
+    name: "Sombrilla 2x3m",
+    image: {
+      src: "https://misquince.es/fotos/sombrillas.jpg", // pon aquí la URL real que vayas a usar
+    },
+    price: 20, // ajusta al precio real de alquiler
+    description:
+      "Sombrilla de 3x3m mastil tubular de alumino blanco de una pieza y un sistema de doble polea,",
+  },
 ];
+
 
 

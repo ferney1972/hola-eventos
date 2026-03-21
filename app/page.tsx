@@ -33,6 +33,7 @@ export default function Home() {
     "mesa-baja",
     "atril-metraquilato",
     "Arcon-congelador",
+    "Sombrila"
   ];
 
   const featuredProducts = products
