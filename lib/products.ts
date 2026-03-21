@@ -124,6 +124,16 @@ export const products: Product[] = [
     description:
       "Sombrilla de 3x3m mastil tubular de alumino blanco de una pieza y un sistema de doble polea,",
   },
+{
+    id: "Expositor",
+    name: "Expositor A4",
+    image: {
+      src: "https://misquince.es/fotos/Expositor.jpg", // pon aquí la URL real que vayas a usar
+    },
+    price: 20, // ajusta al precio real de alquiler
+    description:
+      "Expositor A4 con medidas 297x210mm",
+  },
 ];
 
 
