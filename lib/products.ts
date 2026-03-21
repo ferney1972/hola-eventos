@@ -115,7 +115,7 @@ export const products: Product[] = [
   },
 
 {
-    id: "Sombrilla ",
+    id: "sombrillas",
     name: "Sombrilla 2x3m",
     image: {
       src: "https://misquince.es/fotos/sombrillas.jpg", // pon aquí la URL real que vayas a usar
