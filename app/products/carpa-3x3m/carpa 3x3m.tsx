@@ -4,11 +4,11 @@ import React from "react";
 import { useCart } from "@/context/CartContext";
 
 export default function Carpa3x3mPage() {
-  const [cantidad, setCantidad] = React.useState(1);
-  const [mensaje, setMensaje] = React.useState(""); // mensaje pequeño
+  const [cantidad, setCantidad] = React.useState<number>(1);
+  const [mensaje, setMensaje] = React.useState<string>(""); // mensaje pequeño
   const { addItem } = useCart();
 
-  const cambiarCantidad = (cambio) => {
+  const cambiarCantidad = (cambio: number) => {
     setCantidad((prev) => Math.max(1, prev + cambio));
   };
 
