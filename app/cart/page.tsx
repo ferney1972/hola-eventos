@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useCart } from "@/context/CartContext";
 
 type CartItem = {
@@ -30,6 +30,15 @@ function CartPage() {
   }));
 
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+
+  // Cuando haya productos en el carrito, mostramos la frase
+  useEffect(() => {
+    if (cart.length > 0) {
+      setMensajeInfo("Hemos añadido tus productos a esta solicitud.");
+      const t = setTimeout(() => setMensajeInfo(""), 3000);
+      return () => clearTimeout(t);
+    }
+  }, [cart.length]);
 
   const updateQuantity = (id: string, delta: number) => {
     const current = items.find((i: any) => i.id === id);
@@ -84,7 +93,9 @@ function CartPage() {
       }
 
       setMensaje("");
-      setMensajeInfo("Tu solicitud se ha enviado correctamente. Te responderemos en breve.");
+      setMensajeInfo(
+        "Tu solicitud se ha enviado correctamente. Te responderemos en breve."
+      );
       setTimeout(() => setMensajeInfo(""), 4000);
     } catch (error) {
       console.error("Error de red al enviar formulario", error);
@@ -264,4 +275,5 @@ function CartPage() {
 }
 
 export default CartPage;
+
 
