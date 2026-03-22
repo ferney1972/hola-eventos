@@ -37,6 +37,30 @@ export default function Home() {
 
   return (
     <main className="flex-1 bg-black">
+      {/* MENÚ SUPERIOR */}
+      <nav className="w-full bg-black/80 border-b border-white/10 sticky top-0 z-40">
+        <div className="container mx-auto px-4 flex items-center justify-center gap-6 py-3 text-sm sm:text-base">
+          <a
+            href="#sillas"
+            className="text-gray-100 hover:text-white font-medium"
+          >
+            Sillas
+          </a>
+          <a
+            href="#mesas"
+            className="text-gray-100 hover:text-white font-medium"
+          >
+            Mesas
+          </a>
+          <a
+            href="#carpas"
+            className="text-gray-100 hover:text-white font-medium"
+          >
+            Carpas
+          </a>
+        </div>
+      </nav>
+
       {/* HERO */}
       <section className="relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[75vh] text-center text-white flex flex-col">
         <div className="relative w-full h-[220px] sm:h-[260px] md:h-[300px] overflow-hidden bg-black">
@@ -81,6 +105,17 @@ export default function Home() {
       {/* PRODUCTOS DESTACADOS */}
       <section id="products" className="bg-gray-50 py-16 md:py-24">
         <div className="container mx-auto px-4">
+          {/* Ejemplo de anclas dentro de productos, ajusta donde quieras que haga scroll */}
+          <h2 id="sillas" className="sr-only">
+            Sillas
+          </h2>
+          <h2 id="mesas" className="sr-only">
+            Mesas
+          </h2>
+          <h2 id="carpas" className="sr-only">
+            Carpas
+          </h2>
+
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {featuredProducts.map((item) => {
               const [quantity, setQuantity] = React.useState(0);
