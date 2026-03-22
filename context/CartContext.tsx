@@ -25,6 +25,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const addItem: CartContextType["addItem"] = (item) => {
     const qty = item.quantity ?? 1;
 
+    console.log("AÑADIR AL CARRITO DESDE CONTEXT", item, "CANTIDAD:", qty);
+
     setItems((prev) => {
       const existing = prev.find((it) => it.id === item.id);
       if (existing) {
