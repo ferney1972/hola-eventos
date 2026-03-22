@@ -78,56 +78,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ¿EN QUÉ TE PODEMOS AYUDAR? / CÓMO FUNCIONA */}
-      <section id="how-it-works" className="bg-gray-50 py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <h2 className="text-4xl font-bold text-black">¿En qué te podemos ayudar?</h2>
-            <p className="mx-auto mt-4 max-w-2xl text-gray-600">
-              Organizar tu evento nunca fue tan fácil. Sigue estos simples pasos y cuéntanos qué necesitas.
-            </p>
-          </div>
-          <div className="relative mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
-            <div
-              className="absolute top-1/2 left-0 hidden h-px w-full -translate-y-1/2 bg-gray-300 md:block"
-              aria-hidden="true"
-            />
-            {[
-              {
-                number: "1",
-                title: "Elige tu material",
-                desc: "Explora nuestro catálogo y añade todo lo que necesites a tu carrito de presupuesto.",
-              },
-              {
-                number: "2",
-                title: "Pide tu presupuesto",
-                desc: "Envíanos tu selección y te prepararemos una propuesta a medida, sin compromiso.",
-              },
-              {
-                number: "3",
-                title: "Asesoramiento directo",
-                desc: "Contactaremos contigo para afinar detalles de logística, decoración y técnica.",
-              },
-            ].map((step) => (
-              <div key={step.title} className="relative z-10 text-center">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-blue-500 bg-white text-2xl font-bold text-blue-500">
-                  {step.number}
-                </div>
-                <h3 className="mt-6 text-xl font-bold text-black">
-                  {step.title}
-                </h3>
-                <p className="mt-2 text-gray-600">{step.desc}</p>
-                {step.number === "3" && (
-                  <p className="mt-2 font-semibold text-black">
-                    ¿Necesitas asesoramiento ahora mismo?
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* PRODUCTOS DESTACADOS */}
       <section id="products" className="bg-gray-50 py-16 md:py-24">
         <div className="container mx-auto px-4">
@@ -373,6 +323,56 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ¿EN QUÉ TE PODEMOS AYUDAR? / CÓMO FUNCIONA */}
+      <section id="how-it-works" className="bg-gray-50 py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h2 className="text-4xl font-bold text-black">¿En qué te podemos ayudar?</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-gray-600">
+              Organizar tu evento nunca fue tan fácil. Sigue estos simples pasos y cuéntanos qué necesitas.
+            </p>
+          </div>
+          <div className="relative mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
+            <div
+              className="absolute top-1/2 left-0 hidden h-px w-full -translate-y-1/2 bg-gray-300 md:block"
+              aria-hidden="true"
+            />
+            {[
+              {
+                number: "1",
+                title: "Elige tu material",
+                desc: "Explora nuestro catálogo y añade todo lo que necesites a tu carrito de presupuesto.",
+              },
+              {
+                number: "2",
+                title: "Pide tu presupuesto",
+                desc: "Envíanos tu selección y te prepararemos una propuesta a medida, sin compromiso.",
+              },
+              {
+                number: "3",
+                title: "Asesoramiento directo",
+                desc: "Contactaremos contigo para afinar detalles de logística, decoración y técnica.",
+              },
+            ].map((step) => (
+              <div key={step.title} className="relative z-10 text-center">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-blue-500 bg-white text-2xl font-bold text-blue-500">
+                  {step.number}
+                </div>
+                <h3 className="mt-6 text-xl font-bold text-black">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-gray-600">{step.desc}</p>
+                {step.number === "3" && (
+                  <p className="mt-2 font-semibold text-black">
+                    ¿Necesitas asesoramiento ahora mismo?
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* MODAL DETALLE PRODUCTO */}
       {selectedProduct && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
@@ -421,4 +421,3 @@ export default function Home() {
     </main>
   );
 }
-
