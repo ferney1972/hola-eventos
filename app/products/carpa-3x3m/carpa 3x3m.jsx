@@ -74,16 +74,17 @@ export default function Carpa3x3mPage() {
                   className="flex h-8 w-8 items-center justify-center rounded-full border text-lg font-bold text-blue-700"
                 >
                   +
-                </button>
-              </div>
-
-              <button
-                type="button"
-                onClick={añadirAlCarrito}
-                className="mt-6 inline-flex w-full max-w-xs items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow hover:bg-blue-700"
-              >
-                Añadir a la solicitud
-              </button>
+                <button
+  type="button"
+  onClick={añadirAlCarrito}
+  className="mt-6 inline-flex w-full max-w-xs items-center justify-center rounded-full
+             bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow
+             hover:bg-blue-700
+             active:bg-blue-800 active:translate-y-[1px] active:scale-95
+             transition-colors transition-transform duration-150"
+>
+  Añadir a la solicitud
+</button>
 
               {mensaje && (
                 <p className="mt-3 text-xs font-semibold text-green-700 bg-white">
