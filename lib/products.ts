@@ -41,6 +41,16 @@ export const products: Product[] = [
       "Silla plegable ligera y robusta, ideal para eventos con gran aforo. Ocupa poco espacio y permite montajes rápidos.",
   },
   {
+  id: "silla-plegabledemadera",
+  name: "Silla plegable de madera",
+  image: {
+    src: "https://misquince.es/fotos/sillaplegabledemadera.jpg",
+  },
+  price: 1.5,
+  description:
+    "Silla plegable de madera ideal eventos masivos",
+},
+  {
     id: "tarimas-escenario",
     name: "Tarimas para escenario",
     image: {
