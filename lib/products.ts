@@ -84,7 +84,7 @@ export const products: Product[] = [
     id: "mesa-180",
     name: "Mesa plegable 1,80 m",
     image: {
-      src: "https://misquince.es/fotos/mesa-180.jpg",
+      src: "https://misquince.es/fotos/mesade1.80",
     },
     price: 8,
     description:
