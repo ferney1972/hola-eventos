@@ -5,7 +5,7 @@ import { useCart } from "@/context/CartContext";
 
 export default function Carpa3x3mPage() {
   const [cantidad, setCantidad] = React.useState<number>(1);
-  const [mensaje, setMensaje] = React.useState<string>(""); // mensaje pequeño
+  const [mensaje, setMensaje] = React.useState<string>("");
   const { addItem } = useCart();
 
   const cambiarCantidad = (cambio: number) => {
@@ -13,18 +13,24 @@ export default function Carpa3x3mPage() {
   };
 
   const añadirAlCarrito = () => {
-    addItem({
-      id: "carpa-3x3m",
-      name: "Carpa plegable 3x3m",
-      price: 40,
-      image: {
-        src: "https://misquince.es/fotos/alquiler carpa de 3x3m.jpg",
-      },
-      quantity: cantidad,
-    });
+    try {
+      addItem({
+        id: "carpa-3x3m",
+        name: "Carpa plegable 3x3m",
+        price: 40,
+        image: {
+          src: "https://misquince.es/fotos/alquiler carpa de 3x3m.jpg",
+        },
+        quantity: cantidad,
+      });
 
-    setMensaje("Producto añadido a tu pedido");
-    setTimeout(() => setMensaje(""), 2000);
+      setMensaje("✓ Producto añadido a tu pedido");
+      setTimeout(() => setMensaje(""), 2000);
+    } catch (error) {
+      console.error("Error al añadir al carrito:", error);
+      setMensaje("❌ Error al añadir, inténtalo de nuevo");
+      setTimeout(() => setMensaje(""), 3000);
+    }
   };
 
   return (
@@ -74,17 +80,19 @@ export default function Carpa3x3mPage() {
                   className="flex h-8 w-8 items-center justify-center rounded-full border text-lg font-bold text-blue-700"
                 >
                   +
-                <button
-  type="button"
-  onClick={añadirAlCarrito}
-  className="mt-6 inline-flex w-full max-w-xs items-center justify-center rounded-full
-             bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow
-             hover:bg-blue-700
-             active:bg-blue-800 active:translate-y-[1px] active:scale-95
-             transition-colors transition-transform duration-150"
->
-  Añadir a la solicitud
-</button>
+                </button>
+              </div>
+
+              <button
+                type="button"
+                onClick={añadirAlCarrito}
+                className="mt-6 inline-flex w-full max-w-xs items-center justify-center rounded-full
+                           bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow
+                           hover:bg-blue-700 active:bg-blue-800 active:translate-y-[1px] active:scale-95
+                           transition-colors transition-transform duration-150"
+              >
+                Añadir a la solicitud
+              </button>
 
               {mensaje && (
                 <p className="mt-3 text-xs font-semibold text-green-700 bg-white">
