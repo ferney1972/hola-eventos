@@ -4,10 +4,11 @@ import React from "react";
 import { useCart } from "@/context/CartContext";
 
 export default function Carpa3x3mPage() {
-  const [cantidad, setCantidad] = React.useState<number>(1);
+  const [cantidad, setCantidad] = React.useState(1);
+  const [mensaje, setMensaje] = React.useState(""); // mensaje pequeño
   const { addItem } = useCart();
 
-  const cambiarCantidad = (cambio: number) => {
+  const cambiarCantidad = (cambio) => {
     setCantidad((prev) => Math.max(1, prev + cambio));
   };
 
@@ -21,6 +22,9 @@ export default function Carpa3x3mPage() {
       },
       quantity: cantidad,
     });
+
+    setMensaje("Producto añadido a tu pedido");
+    setTimeout(() => setMensaje(""), 2000);
   };
 
   return (
@@ -80,6 +84,12 @@ export default function Carpa3x3mPage() {
               >
                 Añadir a la solicitud
               </button>
+
+              {mensaje && (
+                <p className="mt-2 text-xs text-green-600">
+                  {mensaje}
+                </p>
+              )}
             </div>
           </div>
         </div>
