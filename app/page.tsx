@@ -10,34 +10,12 @@ import { useCart } from "@/context/CartContext";
 export default function Home() {
   const { addItem } = useCart();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [quantity, setQuantity] = useState(1);
-
-  // NUEVO: estado para mensaje y último producto añadido
-  const [flash, setFlash] = useState("");
-  const [lastAddedId, setLastAddedId] = useState<string | null>(null);
-
-  const videoSources = [
-    "https://misquince.es/fotos/Decoracionparaempresasmadrid.mp4",
-    "https://misquince.es/fotos/PRODUCCION.mp4",
-    "https://misquince.es/fotos/Misquincecentro.mp4",
-  ];
-
-  const [activeVideo, setActiveVideo] = useState<string>(videoSources[0]);
 
   const featuredProductIds = [
     "estufa-gas",
     "silla-blanca-resina",
     "sillas-plegables",
     "tarimas-escenario",
-    "carpa-3x3m",
-    "mesade1.80",
-    "mesa-alta-cocktail",
-    "mesa-baja",
-    "atril-metraquilato",
-    "Arcon-congelador",
-    "sombrillas",
-    "Expositor",
-    "Sonido",
   ];
 
   const featuredProducts = products
@@ -89,9 +67,54 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CÓMO FUNCIONA */}
+      {/* EN QUÉ TE PODEMOS AYUDAR / CÓMO FUNCIONA */}
       <section id="how-it-works" className="bg-gray-50 py-16 md:py-24">
-        {/* ... todo igual ... */}
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h2 className="text-4xl font-bold text-black">¿En qué te podemos ayudar?</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-gray-600">
+              Organizar tu evento nunca fue tan fácil. Sigue estos simples pasos y cuéntanos qué necesitas.
+            </p>
+          </div>
+          <div className="relative mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
+            <div
+              className="absolute top-1/2 left-0 hidden h-px w-full -translate-y-1/2 bg-gray-300 md:block"
+              aria-hidden="true"
+            />
+            {[
+              {
+                number: "1",
+                title: "Elige tu material",
+                desc: "Explora nuestro catálogo y añade todo lo que necesites a tu carrito de presupuesto.",
+              },
+              {
+                number: "2",
+                title: "Pide tu presupuesto",
+                desc: "Envíanos tu selección y te prepararemos una propuesta a medida, sin compromiso.",
+              },
+              {
+                number: "3",
+                title: "Asesoramiento directo",
+                desc: "Contactaremos contigo para afinar detalles de logística, decoración y técnica.",
+              },
+            ].map((step) => (
+              <div key={step.title} className="relative z-10 text-center">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-blue-500 bg-white text-2xl font-bold text-blue-500">
+                  {step.number}
+                </div>
+                <h3 className="mt-6 text-xl font-bold text-black">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-gray-600">{step.desc}</p>
+                {step.number === "3" && (
+                  <p className="mt-2 font-semibold text-black">
+                    ¿Necesitas asesoramiento ahora mismo?
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* PRODUCTOS DESTACADOS */}
@@ -99,6 +122,8 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {featuredProducts.map((item) => {
+              const [quantity, setQuantity] = React.useState(1);
+
               const increase = (e: React.MouseEvent) => {
                 e.stopPropagation();
                 setQuantity((q) => q + 1);
@@ -118,17 +143,7 @@ export default function Home() {
                   image: { src: item.image.src },
                   quantity,
                 });
-
-                setLastAddedId(item.id);
-                setFlash("Producto añadido a tu pedido");
-
-                setTimeout(() => {
-                  setFlash("");
-                  setLastAddedId(null);
-                }, 2000);
               };
-
-              const isLastAdded = lastAddedId === item.id;
 
               return (
                 <div
@@ -176,26 +191,15 @@ export default function Home() {
 
                     <button
                       onClick={handleAddToCart}
-                      className={`mt-4 w-full rounded-full px-4 py-2 text-sm font-medium text-white
-                        ${isLastAdded
-                          ? "bg-green-600 hover:bg-green-700"
-                          : "bg-blue-600 hover:bg-blue-700"
-                        }`}
+                      className="mt-4 w-full rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
                     >
-                      {isLastAdded ? "Añadido al carrito" : "Añadir al carrito"}
+                      Añadir al carrito
                     </button>
                   </div>
                 </div>
               );
             })}
           </div>
-
-          {/* Mensaje general debajo del grid */}
-          {flash && (
-            <p className="mt-4 text-center text-sm text-green-600">
-              {flash}
-            </p>
-          )}
 
           <div className="mt-12 text-center">
             <Link href="/products">
@@ -207,8 +211,182 @@ export default function Home() {
         </div>
       </section>
 
-      {/* resto de secciones igual que ya tienes (agentes, vídeos, modal, etc.) */}
-      {/* ... */}
+      {/* AGENTES ESPECIALIZADOS */}
+      <section className="bg-black py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="mb-8 text-center text-3xl font-bold text-white">
+            Habla con nuestros especialistas
+          </h2>
+
+          <div className="flex flex-col items-center gap-8 md:flex-row md:justify-center">
+            {/* Agente Decoración */}
+            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg-white/10 text-center shadow-lg">
+              <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border-white">
+                <img
+                  src="https://misquince.es/fotos/decoracion.png"
+                  alt="Agente de decoración"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <p className="text-sm font-semibold uppercase tracking-wide text-white">
+                Decoración
+              </p>
+              <p className="mt-1 px-4 text-xs text-gray-200">
+                Especialista en decoración y ambientación de eventos.
+              </p>
+              <a
+                href="https://wa.me/34600000001?text=Hola,%20me%20gustaría%20hablar%20con%20decoración%20sobre%20mi%20evento."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center justify-center rounded-full border border-green-500 px-4 py-1.5 text-xs font-medium text-green-400 hover:bg-green-500 hover:text-white"
+              >
+                WhatsApp
+              </a>
+            </div>
+
+            {/* Agente Sonido y Vídeo */}
+            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg-white/10 text-center shadow-lg">
+              <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border-white">
+                <img
+                  src="https://misquince.es/fotos/sonido%20y%20video.jpg"
+                  alt="Agente de sonido y vídeo"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <p className="text-sm font-semibold uppercase tracking-wide text_white">
+                Sonido y vídeo
+              </p>
+              <p className="mt-1 px-4 text-xs text-gray-200">
+                Técnico en sonido, iluminación y proyección.
+              </p>
+              <a
+                href="https://wa.me/34600000002?text=Hola,%20me%20gustaría%20hablar%20sobre%20sonido%20y%20vídeo%20para%20mi%20evento."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center justify-center rounded-full border border-green-500 px-4 py-1.5 text-xs font-medium text-green-400 hover:bg-green-500 hover:text-white"
+              >
+                WhatsApp
+              </a>
+            </div>
+
+            {/* Agente Mobiliario */}
+            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg-white/10 text-center shadow-lg">
+              <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border-white">
+                <img
+                  src="https://misquince.es/fotos/mobiliario.jpg"
+                  alt="Agente de mobiliario"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <p className="text-sm font-semibold uppercase tracking-wide text-white">
+                Mobiliario
+              </p>
+              <p className="mt-1 px-4 text-xs text-gray-200">
+                Especialista en sillas, mesas, tarimas y estructuras.
+              </p>
+              <a
+                href="https://wa.me/34600000003?text=Hola,%20me%20gustaría%20hablar%20sobre%20mobiliario%20para%20mi%20evento."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center justify-center rounded-full border border-green-500 px-4 py-1.5 text-xs font-medium text-green-400 hover:bg-green-500 hover:text-white"
+              >
+                WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* VIDEO SECTION – ÚLTIMA */}
+      <section id="video-gallery" className="py-16 md:py-24 bg-black">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white">
+              porque tus sueños son nuestra realidad
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-gray-400">
+              asesoramiento personalizado
+            </p>
+          </div>
+
+          <div className="mb-8 overflow-hidden rounded-lg border border-gray-800 shadow-lg">
+            <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+              <video
+                src="/videos/Decoracion%20para%20empresas%20madrid.mp4"
+                controls
+                autoPlay
+                muted
+                loop
+                className="absolute inset-0 h-full w-full object-cover"
+              >
+                Tu navegador no soporta la etiqueta de vídeo.
+              </video>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+            {[
+              "/videos/Decoracion%20para%20empresas%20madrid.mp4",
+              "https://videos.pexels.com/video-files/8098020/8098020-sd_640_360_25fps.mp4",
+              "https://videos.pexels.com/video-files/5699313/5699313-sd_640_360_25fps.mp4",
+            ].map((videoSrc, index) => (
+              <div
+                key={index}
+                className="mx-auto"
+                style={{ maxWidth: 220 }}
+              >
+                <VideoThumbnail src={videoSrc} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* MODAL DETALLE PRODUCTO */}
+      {selectedProduct && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+          <div className="max-w-md w-full rounded-lg bg-white p-6">
+            <button
+              onClick={() => setSelectedProduct(null)}
+              className="ml-auto mb-2 block text-sm text-gray-500"
+            >
+              Cerrar ✕
+            </button>
+
+            <h2 className="text-xl font-bold mb-2 text-black">
+              {selectedProduct.name}
+            </h2>
+
+            <img
+              src={selectedProduct.image.src}
+              alt={selectedProduct.name}
+              className="w-full h-48 object-contain mb-3"
+            />
+
+            {selectedProduct.description && (
+              <p className="text-sm text-gray-700 mb-3">
+                {selectedProduct.description}
+              </p>
+            )}
+
+            <button
+              onClick={() => {
+                addItem({
+                  id: selectedProduct.id,
+                  name: selectedProduct.name,
+                  price: selectedProduct.price,
+                  image: { src: selectedProduct.image.src },
+                  quantity: 1,
+                });
+                setSelectedProduct(null);
+              }}
+              className="w-full rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+            >
+              Añadir al carrito
+            </button>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
