@@ -35,6 +35,7 @@ export default function Home() {
     "Arcon-congelador",
     "sombrillas",
     "Expositor",
+    "Sonido"
   ];
 
   const featuredProducts = products

@@ -134,6 +134,16 @@ export const products: Product[] = [
     description:
       "Expositor A4 con medidas 297x210mm",
   },
+{
+    id: "Sonido"
+    name: "Alquilerdesonido",
+    image: {
+      src: "https://misquince.es/fotos/Alquiler de sonido.png", // pon aquí la URL real que vayas a usar
+    },
+    price: 20, // ajusta al precio real de alquiler
+    description:
+      "Alquiler de sonido",
+  },
 ];
 
 
