@@ -50,6 +50,16 @@ export const products: Product[] = [
   description:
     "Silla plegable de madera ideal eventos masivos",
 },
+{
+  id: "sillablanca",
+  name: "Silla blanca acolchada",
+  image: {
+    src: "https://misquince.es/fotos/sillas plegables /sillablanca.jpg",
+  },
+  price: 1.5,
+  description:
+    "Silla plegable blanca acolchada ideal para bodas y eventos especiales",
+},
   {
     id: "tarimas-escenario",
     name: "Tarimas para escenario",
