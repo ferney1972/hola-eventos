@@ -135,7 +135,7 @@ export const products: Product[] = [
       "Expositor A4 con medidas 297x210mm",
   },
 {
-    id: "Sonido"
+    id: "Sonido",
     name: "Alquilerdesonido",
     image: {
       src: "https://misquince.es/fotos/Alquiler de sonido.png", // pon aquí la URL real que vayas a usar
