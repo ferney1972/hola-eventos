@@ -21,6 +21,9 @@ function CartPage() {
   const [mensaje, setMensaje] = useState("");
   const [loading, setLoading] = useState(false);
   const [mensajeInfo, setMensajeInfo] = useState(""); // mensaje para el usuario
+  
+  // Nuevo estado para controlar la animación de confirmación
+  const [confirmacionVisual, setConfirmacionVisual] = useState(false);
 
   const cart: CartItem[] = items.map((item: any) => ({
     id: item.id,
@@ -31,11 +34,17 @@ function CartPage() {
 
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
-  // Cuando haya productos en el carrito, mostramos la frase
+  // Efecto mejorado: Cuando se añade un producto, activamos la confirmación visual
   useEffect(() => {
     if (cart.length > 0) {
-      setMensajeInfo("Hemos añadido tus productos a esta solicitud.");
-      const t = setTimeout(() => setMensajeInfo(""), 3000);
+      setMensajeInfo("¡Producto añadido con éxito! ✅");
+      setConfirmacionVisual(true);
+      
+      const t = setTimeout(() => {
+        setMensajeInfo("");
+        setConfirmacionVisual(false);
+      }, 3000);
+      
       return () => clearTimeout(t);
     }
   }, [cart.length]);
@@ -116,15 +125,17 @@ function CartPage() {
         Carrito y solicitud de presupuesto
       </h1>
 
-      {/* Mensajes informativos pequeños */}
+      {/* Mensajes informativos dinámicos */}
       {mensajeInfo && (
-        <p className="mb-4 text-xs text-green-600">
-          {mensajeInfo}
-        </p>
+        <div className={`mb-4 p-3 rounded-lg transition-all duration-500 ${confirmacionVisual ? 'bg-green-100 border border-green-400' : ''}`}>
+          <p className={`text-sm font-medium ${confirmacionVisual ? 'text-green-700' : 'text-gray-600'}`}>
+            {mensajeInfo}
+          </p>
+        </div>
       )}
 
       {/* Carrito */}
-      <section className="mb-10 border rounded-lg p-4 bg-white">
+      <section className="mb-10 border rounded-lg p-4 bg-white shadow-sm">
         <h2 className="text-xl font-semibold mb-3 text-black">
           Tu selección
         </h2>
@@ -139,20 +150,20 @@ function CartPage() {
                   key={item.id}
                   className="flex items-center justify-between gap-4 border-b pb-2 last:border-b-0 text-black"
                 >
-                  <span>{item.name}</span>
+                  <span className="font-medium">{item.name}</span>
                   <div className="flex items-center gap-2">
                     <button
                       type="button"
                       onClick={() => updateQuantity(item.id, -1)}
-                      className="h-8 w-8 rounded-full border flex items-center justify-center text-black"
+                      className="h-8 w-8 rounded-full border border-gray-300 flex items-center justify-center text-black hover:bg-gray-100 transition-colors"
                     >
                       −
                     </button>
-                    <span className="w-8 text-center">{item.quantity}</span>
+                    <span className="w-8 text-center font-bold">{item.quantity}</span>
                     <button
                       type="button"
                       onClick={() => updateQuantity(item.id, 1)}
-                      className="h-8 w-8 rounded-full border flex items-center justify-center text-black"
+                      className="h-8 w-8 rounded-full border border-gray-300 flex items-center justify-center text-black hover:bg-gray-100 transition-colors"
                     >
                       +
                     </button>
@@ -162,13 +173,13 @@ function CartPage() {
             </ul>
 
             <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-              <p className="font-semibold text-black">
+              <p className="font-semibold text-black text-lg">
                 Total de ítems: {totalItems}
               </p>
               <button
                 type="button"
                 onClick={handleClearCart}
-                className="rounded-full border border-red-500 px-4 py-2 text-sm font-medium text-red-600 hover:bg-red-500 hover:text-white"
+                className="rounded-full border border-red-500 px-4 py-2 text-sm font-medium text-red-600 hover:bg-red-500 hover:text-white transition-all"
               >
                 Vaciar carrito
               </button>
@@ -178,7 +189,7 @@ function CartPage() {
       </section>
 
       {/* Formulario */}
-      <section className="border rounded-lg p-4 bg-white">
+      <section className="border rounded-lg p-4 bg-white shadow-sm">
         <h2 className="text-xl font-semibold mb-3 text-black">
           Solicita tu presupuesto
         </h2>
@@ -190,7 +201,7 @@ function CartPage() {
             </label>
             <input
               type="text"
-              className="w-full border rounded px-3 py-2 text-black"
+              className="w-full border rounded px-3 py-2 text-black focus:ring-2 focus:ring-blue-500 outline-none"
               value={nombre}
               onChange={(e) => setNombre(e.target.value)}
               required
@@ -203,7 +214,7 @@ function CartPage() {
             </label>
             <input
               type="email"
-              className="w-full border rounded px-3 py-2 text-black"
+              className="w-full border rounded px-3 py-2 text-black focus:ring-2 focus:ring-blue-500 outline-none"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -216,7 +227,7 @@ function CartPage() {
             </label>
             <input
               type="tel"
-              className="w-full border rounded px-3 py-2 text-black"
+              className="w-full border rounded px-3 py-2 text-black focus:ring-2 focus:ring-blue-500 outline-none"
               value={telefono}
               onChange={(e) => setTelefono(e.target.value)}
             />
@@ -229,7 +240,7 @@ function CartPage() {
               </label>
               <input
                 type="text"
-                className="w-full border rounded px-3 py-2 text-black"
+                className="w-full border rounded px-3 py-2 text-black focus:ring-2 focus:ring-blue-500 outline-none"
                 value={tipoEvento}
                 onChange={(e) => setTipoEvento(e.target.value)}
                 placeholder="Boda, cumpleaños, empresa..."
@@ -242,7 +253,7 @@ function CartPage() {
               </label>
               <input
                 type="date"
-                className="w-full border rounded px-3 py-2 text-black"
+                className="w-full border rounded px-3 py-2 text-black focus:ring-2 focus:ring-blue-500 outline-none"
                 value={fechaEvento}
                 onChange={(e) => setFechaEvento(e.target.value)}
               />
@@ -254,7 +265,7 @@ function CartPage() {
               Cuéntanos tu idea
             </label>
             <textarea
-              className="w-full border rounded px-3 py-2 min-h-[120px] text-black"
+              className="w-full border rounded px-3 py-2 min-h-[120px] text-black focus:ring-2 focus:ring-blue-500 outline-none"
               value={mensaje}
               onChange={(e) => setMensaje(e.target.value)}
               placeholder="Número aproximado de personas, lugar, horarios, etc."
@@ -264,9 +275,9 @@ function CartPage() {
           <button
             type="submit"
             disabled={loading}
-            className="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-2 text-white font-semibold disabled:opacity-60"
+            className={`inline-flex items-center justify-center rounded-full bg-blue-600 px-8 py-3 text-white font-bold text-lg shadow-md hover:bg-blue-700 active:scale-95 transition-all disabled:opacity-60`}
           >
-            {loading ? "Enviando..." : "Enviar solicitud"}
+            {loading ? "Enviando..." : "Enviar solicitud de presupuesto"}
           </button>
         </form>
       </section>
