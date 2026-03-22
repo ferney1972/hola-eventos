@@ -44,7 +44,7 @@ export const products: Product[] = [
   id: "silla-plegabledemadera",
   name: "Silla plegable de madera",
   image: {
-    src: "https://misquince.es/fotos/sillasplegables/sillaplegabledemadera.jpg",
+    src: "https://misquince.es/fotos/sillas plegables /sillaplegabledemadera.jpg",
   },
   price: 1.5,
   description:
