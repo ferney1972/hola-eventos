@@ -10,15 +10,13 @@ import { useCart } from "@/context/CartContext";
 export default function Home() {
   const { addItem } = useCart();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [quantity, setQuantity] = useState(1);
 
-  // =========================
-  // VÍDEOS (GRANDE + MINIATURAS)
-  // =========================
   const videoSources = [
     "https://misquince.es/fotos/Decoracionparaempresasmadrid.mp4",
     "https://misquince.es/fotos/PRODUCCION.mp4",
     "https://misquince.es/fotos/Misquincecentro.mp4",
-    ];
+  ];
 
   const [activeVideo, setActiveVideo] = useState<string>(videoSources[0]);
 
@@ -142,8 +140,6 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {featuredProducts.map((item) => {
-              const [quantity, setQuantity] = React.useState(1);
-
               const increase = (e: React.MouseEvent) => {
                 e.stopPropagation();
                 setQuantity((q) => q + 1);
@@ -329,7 +325,6 @@ export default function Home() {
             </p>
           </div>
 
-          {/* VÍDEO PRINCIPAL (ajustado para desktop) */}
           <div className="mb-8 flex justify-center">
             <div className="w-full max-w-3xl overflow-hidden rounded-lg border border-gray-800 shadow-lg">
               <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
@@ -347,7 +342,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* MINIATURAS CLICABLES */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
             {videoSources.map((videoSrc) => (
               <button
