@@ -12,10 +12,19 @@ export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   const featuredProductIds = [
-    "estufa-gas",
-    "silla-blanca-resina",
-    "sillas-plegables",
-    "tarimas-escenario",
+  "estufa-gas",
+  "silla-blanca-resina",
+  "sillas-plegables",
+  "tarimas-escenario",
+  "carpa-3x3m",
+  "mesade1.80",
+  "mesa-alta-cocktail",
+  "mesa-baja",
+  "atril-metraquilato",
+  "Arcon-congelador",
+  "sombrillas",
+  "Expositor",
+  "Sonido",
   ];
 
   const featuredProducts = products
