@@ -189,18 +189,6 @@ export default function Home() {
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {visibleProducts.map((item) => {
-              const [quantity, setQuantity] = React.useState(0);
-
-              const increase = (e: React.MouseEvent) => {
-                e.stopPropagation();
-                setQuantity((q) => q + 1);
-              };
-
-              const decrease = (e: React.MouseEvent) => {
-                e.stopPropagation();
-                setQuantity((q) => (q > 1 ? q - 1 : 1));
-              };
-
               const handleAddToCart = (e: React.MouseEvent) => {
                 e.stopPropagation();
                 addItem({
@@ -208,7 +196,7 @@ export default function Home() {
                   name: item.name,
                   price: item.price,
                   image: { src: item.image.src },
-                  quantity,
+                  quantity: 1, // de momento 1 unidad por clic
                 });
 
                 setLastAddedId(item.id);
@@ -248,23 +236,7 @@ export default function Home() {
                       {item.name}
                     </h3>
 
-                    <div className="mt-3 flex items-center justify-center gap-3">
-                      <button
-                        onClick={decrease}
-                        className="h-8 w-8 rounded-full border border-black flex items_center justify-center text-lg leading-none text-black"
-                      >
-                        −
-                      </button>
-                      <span className="min-w-[2rem] text-center text-sm font-medium text-black">
-                        {quantity}
-                      </span>
-                      <button
-                        onClick={increase}
-                        className="h-8 w-8 rounded-full border border-black flex items-center justify-center text-lg leading-none text-black"
-                      >
-                        +
-                      </button>
-                    </div>
+                    {/* Si quieres, aquí puedes quitar o dejar sin funcionalidad los botones +/- */}
 
                     <button
                       onClick={handleAddToCart}
@@ -357,7 +329,7 @@ export default function Home() {
             </div>
 
             {/* Agente Mobiliario */}
-            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg-white/10 text-center shadow-lg">
+            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg:white/10 text-center shadow-lg">
               <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border-white">
                 <img
                   src="https://misquince.es/fotos/mobiliario.jpg"
@@ -517,7 +489,7 @@ export default function Home() {
                 });
                 setSelectedProduct(null);
               }}
-              className="w-full rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text:white hover:bg-blue-700"
+              className="w-full rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
             >
               Añadir al carrito
             </button>
