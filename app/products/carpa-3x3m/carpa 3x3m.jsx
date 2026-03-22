@@ -86,7 +86,7 @@ export default function Carpa3x3mPage() {
               </button>
 
               {mensaje && (
-                <p className="mt-2 text-xs text-green-600">
+                <p className="mt-3 text-xs font-semibold text-green-700 bg-white">
                   {mensaje}
                 </p>
               )}
@@ -97,5 +97,7 @@ export default function Carpa3x3mPage() {
     </main>
   );
 }
+
+
 
 
