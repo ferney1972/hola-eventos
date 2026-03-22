@@ -51,7 +51,7 @@ export const products: Product[] = [
     "Silla plegable de madera ideal eventos masivos",
 },
 {
-  id: "sillablanca",
+  id: "silla-blanca-acolchada",
   name: "Silla blanca acolchada",
   image: {
     src: "https://misquince.es/fotos/sillas plegables /sillablanca.jpg",
