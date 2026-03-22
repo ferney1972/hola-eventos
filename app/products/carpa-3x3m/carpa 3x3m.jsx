@@ -8,11 +8,17 @@ export default function Carpa3x3mPage() {
   const [mensaje, setMensaje] = React.useState<string>("");
   const { addItem } = useCart();
 
+  // Depuración: cada vez que mensaje cambie, lo vemos en consola
+  React.useEffect(() => {
+    console.log("mensaje actualizado:", mensaje);
+  }, [mensaje]);
+
   const cambiarCantidad = (cambio: number) => {
     setCantidad((prev) => Math.max(1, prev + cambio));
   };
 
   const añadirAlCarrito = () => {
+    console.log("Botón clickeado, cantidad:", cantidad);
     try {
       addItem({
         id: "carpa-3x3m",
@@ -23,11 +29,12 @@ export default function Carpa3x3mPage() {
         },
         quantity: cantidad,
       });
-
+      console.log("addItem ejecutado sin errores");
       setMensaje("✓ Producto añadido a tu pedido");
+      // Opcional: también podrías limpiar después de 2 segundos
       setTimeout(() => setMensaje(""), 2000);
     } catch (error) {
-      console.error("Error al añadir al carrito:", error);
+      console.error("Error en addItem:", error);
       setMensaje("❌ Error al añadir, inténtalo de nuevo");
       setTimeout(() => setMensaje(""), 3000);
     }
@@ -56,9 +63,8 @@ export default function Carpa3x3mPage() {
 
           <div>
             <div className="mt-10 text-center">
-              <p className="mb-3 text-sm text-gray-700">
-                Escribe la cantidad
-              </p>
+              <p className="mb-3 text-sm text-gray-700">Escribe la cantidad</p>
+
               <div className="inline-flex items-center rounded-full border bg-white px-4 py-2">
                 <button
                   type="button"
@@ -83,6 +89,7 @@ export default function Carpa3x3mPage() {
                 </button>
               </div>
 
+              {/* Botón correctamente cerrado */}
               <button
                 type="button"
                 onClick={añadirAlCarrito}
@@ -94,11 +101,14 @@ export default function Carpa3x3mPage() {
                 Añadir a la solicitud
               </button>
 
-              {mensaje && (
-                <p className="mt-3 text-xs font-semibold text-green-700 bg-white">
-                  {mensaje}
-                </p>
-              )}
+              {/* Mensaje de retroalimentación - siempre se renderiza, pero con contenido condicional */}
+              <div className="mt-3 min-h-[2rem]">
+                {mensaje && (
+                  <p className="text-xs font-semibold text-green-700 bg-white">
+                    {mensaje}
+                  </p>
+                )}
+              </div>
             </div>
           </div>
         </div>
