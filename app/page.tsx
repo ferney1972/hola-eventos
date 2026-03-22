@@ -31,6 +31,7 @@ export default function Home() {
     "sombrillas",
     "Expositor",
     "Sonido",
+    "silla-plegabledemadera",
   ];
 
   const featuredProducts = products
