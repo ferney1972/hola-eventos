@@ -40,9 +40,14 @@ export default function Home() {
       (a, b) => featuredProductIds.indexOf(a.id) - featuredProductIds.indexOf(b.id)
     );
 
-  const visibleProducts = featuredProducts.filter((p) => {
-    if (activeCategory === "todos") return true;
+  // AQUÍ ES LO ÚNICO QUE CAMBIA
+  const visibleProducts = products.filter((p) => {
+    if (activeCategory === "todos") {
+      // home: solo destacados
+      return featuredProductIds.includes(p.id);
+    }
     if (activeCategory === "sillas") {
+      // apartado Sillas: todas las sillas
       return p.id.includes("silla");
     }
     if (activeCategory === "mesas") {
@@ -253,7 +258,6 @@ export default function Home() {
                       {item.name}
                     </h3>
 
-                    {/* Controles de cantidad */}
                     <div className="mt-3 flex items-center justify-center gap-3">
                       <button
                         onClick={decrease}
