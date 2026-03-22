@@ -10,21 +10,23 @@ import { useCart } from "@/context/CartContext";
 export default function Home() {
   const { addItem } = useCart();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [flash, setFlash] = useState("");
+  const [lastAddedId, setLastAddedId] = useState<string | null>(null);
 
   const featuredProductIds = [
-  "estufa-gas",
-  "silla-blanca-resina",
-  "sillas-plegables",
-  "tarimas-escenario",
-  "carpa-3x3m",
-  "mesade1.80",
-  "mesa-alta-cocktail",
-  "mesa-baja",
-  "atril-metraquilato",
-  "Arcon-congelador",
-  "sombrillas",
-  "Expositor",
-  "Sonido",
+    "estufa-gas",
+    "silla-blanca-resina",
+    "sillas-plegables",
+    "tarimas-escenario",
+    "carpa-3x3m",
+    "mesade1.80",
+    "mesa-alta-cocktail",
+    "mesa-baja",
+    "atril-metraquilato",
+    "Arcon-congelador",
+    "sombrillas",
+    "Expositor",
+    "Sonido",
   ];
 
   const featuredProducts = products
@@ -76,7 +78,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* EN QUÉ TE PODEMOS AYUDAR / CÓMO FUNCIONA */}
+      {/* ¿EN QUÉ TE PODEMOS AYUDAR? / CÓMO FUNCIONA */}
       <section id="how-it-works" className="bg-gray-50 py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center">
@@ -152,7 +154,17 @@ export default function Home() {
                   image: { src: item.image.src },
                   quantity,
                 });
+
+                setLastAddedId(item.id);
+                setFlash("Producto añadido a tu pedido");
+
+                setTimeout(() => {
+                  setFlash("");
+                  setLastAddedId(null);
+                }, 2000);
               };
+
+              const isLastAdded = lastAddedId === item.id;
 
               return (
                 <div
@@ -200,15 +212,25 @@ export default function Home() {
 
                     <button
                       onClick={handleAddToCart}
-                      className="mt-4 w-full rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+                      className={`mt-4 w-full rounded-full px-4 py-2 text-sm font-medium text-white ${
+                        isLastAdded
+                          ? "bg-green-600 hover:bg-green-700"
+                          : "bg-blue-600 hover:bg-blue-700"
+                      }`}
                     >
-                      Añadir al carrito
+                      {isLastAdded ? "Añadido al carrito" : "Añadir al carrito"}
                     </button>
                   </div>
                 </div>
               );
             })}
           </div>
+
+          {flash && (
+            <p className="mt-4 text-center text-sm text-green-600">
+              {flash}
+            </p>
+          )}
 
           <div className="mt-12 text-center">
             <Link href="/products">
@@ -399,3 +421,4 @@ export default function Home() {
     </main>
   );
 }
+
