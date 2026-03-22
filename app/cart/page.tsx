@@ -7,7 +7,7 @@ type CartItem = {
   id: string;
   name: string;
   quantity: number;
-  image?: { src: string }; // opcional aquí, por si tu contexto lo tiene
+  image?: { src: string };
 };
 
 function CartPage() {
@@ -20,8 +20,8 @@ function CartPage() {
   const [fechaEvento, setFechaEvento] = useState("");
   const [mensaje, setMensaje] = useState("");
   const [loading, setLoading] = useState(false);
+  const [mensajeInfo, setMensajeInfo] = useState(""); // mensaje para el usuario
 
-  // Adaptamos lo que viene del contexto al tipo CartItem local
   const cart: CartItem[] = items.map((item: any) => ({
     id: item.id,
     name: item.name,
@@ -49,6 +49,8 @@ function CartPage() {
 
   const handleClearCart = () => {
     clearCart();
+    setMensajeInfo("Has vaciado tu pedido.");
+    setTimeout(() => setMensajeInfo(""), 2000);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -81,8 +83,9 @@ function CartPage() {
         return;
       }
 
-      alert("Formulario enviado correctamente. Te escribiremos en breve.");
       setMensaje("");
+      setMensajeInfo("Tu solicitud se ha enviado correctamente. Te responderemos en breve.");
+      setTimeout(() => setMensajeInfo(""), 4000);
     } catch (error) {
       console.error("Error de red al enviar formulario", error);
       alert("Error de red al enviar el formulario.");
@@ -93,9 +96,21 @@ function CartPage() {
 
   return (
     <main className="container mx-auto px-4 py-8 max-w-4xl text-black">
-      <h1 className="text-3xl font-bold mb-6 text-black">
+      {/* Frase explicativa arriba */}
+      <p className="mb-2 text-sm text-gray-600">
+        Aquí tienes tu pedido. Revisa los productos que has añadido antes de solicitar tu presupuesto.
+      </p>
+
+      <h1 className="text-3xl font-bold mb-4 text-black">
         Carrito y solicitud de presupuesto
       </h1>
+
+      {/* Mensajes informativos pequeños */}
+      {mensajeInfo && (
+        <p className="mb-4 text-xs text-green-600">
+          {mensajeInfo}
+        </p>
+      )}
 
       {/* Carrito */}
       <section className="mb-10 border rounded-lg p-4 bg-white">
@@ -249,3 +264,4 @@ function CartPage() {
 }
 
 export default CartPage;
+
