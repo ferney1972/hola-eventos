@@ -16,6 +16,7 @@ export default function Home() {
   const [activeCategory, setActiveCategory] = useState<
     "todos" | "sillas" | "mesas" | "carpas"
   >("todos");
+  const [quantities, setQuantities] = useState<Record<string, number>>({});
 
   const featuredProductIds = [
     "estufa-gas",
@@ -23,7 +24,7 @@ export default function Home() {
     "sillas-plegables",
     "tarimas-escenario",
     "carpa-3x3m",
-    "mesade1.80",
+    "mesa-180",
     "mesa-alta-cocktail",
     "mesa-baja",
     "atril-metraquilato",
@@ -31,7 +32,6 @@ export default function Home() {
     "sombrillas",
     "Expositor",
     "Sonido",
-    "silla-plegabledemadera",
   ];
 
   const featuredProducts = products
@@ -40,7 +40,6 @@ export default function Home() {
       (a, b) => featuredProductIds.indexOf(a.id) - featuredProductIds.indexOf(b.id)
     );
 
-  // Filtrado: si es "todos", no filtra
   const visibleProducts = featuredProducts.filter((p) => {
     if (activeCategory === "todos") return true;
     if (activeCategory === "sillas") {
@@ -74,9 +73,7 @@ export default function Home() {
               {activeCategory === "sillas" && "Sillas"}
               {activeCategory === "mesas" && "Mesas"}
               {activeCategory === "carpas" && "Carpas"}
-              <span className="ml-2 text-xs">
-                {openMenu ? "▲" : "▼"}
-              </span>
+              <span className="ml-2 text-xs">{openMenu ? "▲" : "▼"}</span>
             </button>
 
             {openMenu && (
@@ -190,6 +187,25 @@ export default function Home() {
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {visibleProducts.map((item) => {
+              const quantity = quantities[item.id] ?? 1;
+
+              const increase = (e: React.MouseEvent) => {
+                e.stopPropagation();
+                setQuantities((prev) => ({
+                  ...prev,
+                  [item.id]: (prev[item.id] ?? 1) + 1,
+                }));
+              };
+
+              const decrease = (e: React.MouseEvent) => {
+                e.stopPropagation();
+                setQuantities((prev) => {
+                  const current = prev[item.id] ?? 1;
+                  const next = current > 1 ? current - 1 : 1;
+                  return { ...prev, [item.id]: next };
+                });
+              };
+
               const handleAddToCart = (e: React.MouseEvent) => {
                 e.stopPropagation();
                 addItem({
@@ -197,7 +213,7 @@ export default function Home() {
                   name: item.name,
                   price: item.price,
                   image: { src: item.image.src },
-                  quantity: 1, // de momento 1 unidad por clic
+                  quantity,
                 });
 
                 setLastAddedId(item.id);
@@ -237,7 +253,24 @@ export default function Home() {
                       {item.name}
                     </h3>
 
-                    {/* Si quieres, aquí puedes quitar o dejar sin funcionalidad los botones +/- */}
+                    {/* Controles de cantidad */}
+                    <div className="mt-3 flex items-center justify-center gap-3">
+                      <button
+                        onClick={decrease}
+                        className="h-8 w-8 rounded-full border border-black flex items-center justify-center text-lg leading-none text-black"
+                      >
+                        −
+                      </button>
+                      <span className="min-w-[2rem] text-center text-sm font-medium text-black">
+                        {quantity}
+                      </span>
+                      <button
+                        onClick={increase}
+                        className="h-8 w-8 rounded-full border border-black flex items-center justify-center text-lg leading-none text-black"
+                      >
+                        +
+                      </button>
+                    </div>
 
                     <button
                       onClick={handleAddToCart}
@@ -330,7 +363,7 @@ export default function Home() {
             </div>
 
             {/* Agente Mobiliario */}
-            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg:white/10 text-center shadow-lg">
+            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg-white/10 text-center shadow-lg">
               <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border-white">
                 <img
                   src="https://misquince.es/fotos/mobiliario.jpg"
@@ -390,11 +423,7 @@ export default function Home() {
               "https://videos.pexels.com/video-files/8098020/8098020-sd_640_360_25fps.mp4",
               "https://videos.pexels.com/video-files/5699313/5699313-sd_640_360_25fps.mp4",
             ].map((videoSrc, index) => (
-              <div
-                key={index}
-                className="mx-auto"
-                style={{ maxWidth: 220 }}
-              >
+              <div key={index} className="mx-auto" style={{ maxWidth: 220 }}>
                 <VideoThumbnail src={videoSrc} />
               </div>
             ))}
