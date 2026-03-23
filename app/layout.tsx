@@ -6,6 +6,7 @@ import { CartProvider } from "@/context/CartContext";
 import { HeaderClient } from "./HeaderClient";
 import { AstronautWhatsApp } from "@/components/AstronautWhatsApp";
 import Link from "next/link";
+import Script from "next/script"; // ← NUEVO
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+        {/* Google Analytics 4 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-8PJEWQC26B');
+          `}
+        </Script>
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <CartProvider>
           <HeaderClient />
