@@ -71,6 +71,16 @@ export const products: Product[] = [
     "Silla plegable bambú acolchada",
 },
   {
+  id: "silla-mono-casco",
+  name: "Silla casco",
+  image: {
+    src: "https://misquince.es/fotos/silla casco .png",
+  },
+  price: 1.5,
+  description:
+    "Silla mono casco en blanco y negro",
+},
+  {
     id: "tarimas-escenario",
     name: "Tarimas para escenario",
     image: {
