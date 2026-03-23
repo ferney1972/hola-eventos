@@ -60,6 +60,16 @@ export const products: Product[] = [
   description:
     "Silla plegable blanca acolchada ideal para bodas y eventos especiales",
 },
+{
+  id: "silla-bambú-acolchada",
+  name: "Silla bambú acolchada",
+  image: {
+    src: "https://misquince.es/fotos/silla bambu.png",
+  },
+  price: 1.5,
+  description:
+    "Silla plegable bambú acolchada",
+},
   {
     id: "tarimas-escenario",
     name: "Tarimas para escenario",
