@@ -80,6 +80,16 @@ export const products: Product[] = [
   description:
     "Silla mono casco en blanco y negro",
 },
+   {
+  id: "silla-tiffany-blanca",
+  name: "Silla tiffany blanca",
+  image: {
+    src: "https://misquince.es/fotos/sillatifany.png",
+  },
+  price: 1.5,
+  description:
+    "Silla tiffany blanca y otros colores",
+},
   {
     id: "tarimas-escenario",
     name: "Tarimas para escenario",
