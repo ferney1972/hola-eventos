@@ -32,6 +32,7 @@ export default function Home() {
     "sombrillas",
     "Expositor",
     "Sonido",
+    "Ventilador-nebulizador"
   ];
 
   const featuredProducts = products
