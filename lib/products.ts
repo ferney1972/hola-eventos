@@ -205,7 +205,7 @@ export const products: Product[] = [
       " Mide aproximadamente 20 cm de alto por 15 cm de ancho en la base. Cuenta con tanque de agua de 500 ml, tres velocidades de aire y nebulización continua o intermitente.",
   },
 ];
-];
+
 
 
 
