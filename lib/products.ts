@@ -194,6 +194,17 @@ export const products: Product[] = [
     description:
       "Alquiler de sonido",
   },
+  {
+    id: "Ventilador-nebulizador",
+    name: "Ventilador",
+    image: {
+      src: "https://misquince.es/fotos/ventilador nebulizador.png", // pon aquí la URL real que vayas a usar
+    },
+    price: 20, // ajusta al precio real de alquiler
+    description:
+      " Mide aproximadamente 20 cm de alto por 15 cm de ancho en la base. Cuenta con tanque de agua de 500 ml, tres velocidades de aire y nebulización continua o intermitente.",
+  },
+];
 ];
 
 
