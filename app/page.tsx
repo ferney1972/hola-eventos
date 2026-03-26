@@ -33,13 +33,13 @@ export default function Home() {
     "Expositor",
     "Sonido",
     "Ventilador-nebulizador",
-    "Cantenaria-dorada"
+    "Cantenaria-dorada",
   ];
 
   const featuredProducts = products
     .filter((p) => featuredProductIds.includes(p.id))
     .sort(
-      (a, b) => featuredProductIds.indexOf(a.id) - featuredProductIds.indexOf(b.id)
+      (a, b) => featuredProductIds.indexOf(a.id) - featuredProductIds.indexOf(b.icd)
     );
 
   const visibleProducts = products.filter((p) => {
