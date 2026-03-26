@@ -33,6 +33,7 @@ export default function Home() {
     "Expositor",
     "Sonido",
     "Ventilador-nebulizador",
+    "Cantenaria"
   ];
 
   const featuredProducts = products
