@@ -205,8 +205,8 @@ export const products: Product[] = [
       " Mide aproximadamente 20 cm de alto por 15 cm de ancho en la base. Cuenta con tanque de agua de 500 ml, tres velocidades de aire y nebulización continua o intermitente.",
   },
   {
-    id: "Catenaria dorada",
-    name: "Catenaria-dorada",
+    id: "Catenaria-dorada",
+    name: "Catenaria dorada",
     image: {
       src: "https://misquince.es/fotos/Catenaria.PNG", // pon aquí la URL real que vayas a usar
     },
