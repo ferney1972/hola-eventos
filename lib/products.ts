@@ -204,6 +204,16 @@ export const products: Product[] = [
     description:
       " Mide aproximadamente 20 cm de alto por 15 cm de ancho en la base. Cuenta con tanque de agua de 500 ml, tres velocidades de aire y nebulización continua o intermitente.",
   },
+  {
+    id: "Catenaria",
+    name: "Catenaria dorada",
+    image: {
+      src: "https://misquince.es/fotos/Catenaria.PNG", // pon aquí la URL real que vayas a usar
+    },
+    price: 20, // ajusta al precio real de alquiler
+    description:
+      "Poste de acero dorado con medidas 1m Altura,30cm Ancho",
+  },
 ];
 
 
