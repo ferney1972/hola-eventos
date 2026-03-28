@@ -139,7 +139,7 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* HERO */}
+      {/* 1. HERO */}
       <section className="relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[75vh] text-center text-white flex flex-col">
         <div className="relative w-full h-[220px] sm:h-[260px] md:h-[300px] overflow-hidden bg-black">
           <img
@@ -200,7 +200,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PRODUCTOS DESTACADOS */}
+      {/* 2. PRODUCTOS DESTACADOS */}
       <section id="products" className="bg-gray-50 py-16 md:py-24">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-bold mb-6 text-black">
@@ -326,7 +326,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AGENTES ESPECIALIZADOS */}
+      {/* 3. AGENTES ESPECIALIZADOS */}
       <section className="bg-black py-16">
         <div className="container mx-auto px-4">
           <h2 className="mb-8 text-center text-3xl font-bold text-white">
@@ -385,7 +385,7 @@ export default function Home() {
             </div>
 
             {/* Agente Mobiliario */}
-            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg-white/10 text-center shadow-lg">
+            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg.white/10 text-center shadow-lg">
               <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border-white">
                 <img
                   src="https://misquince.es/fotos/mobiliario.jpg"
@@ -412,48 +412,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* VIDEO SECTION – ÚLTIMA */}
-      <section id="video-gallery" className="py-16 md:py-24 bg-black">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white">
-              porque tus sueños son nuestra realidad
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-gray-400">
-              asesoramiento personalizado
-            </p>
-          </div>
-
-          <div className="mb-8 overflow-hidden rounded-lg border border-gray-800 shadow-lg">
-            <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
-              <video
-                src="/videos/Decoracion%20para%20empresas%20madrid.mp4"
-                controls
-                autoPlay
-                muted
-                loop
-                className="absolute inset-0 h-full w-full object-cover"
-              >
-                Tu navegador no soporta la etiqueta de vídeo.
-              </video>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-            {[
-              "/videos/Decoracion%20para%20empresas%20madrid.mp4",
-              "https://videos.pexels.com/video-files/8098020/8098020-sd_640_360_25fps.mp4",
-              "https://videos.pexels.com/video-files/5699313/5699313-sd_640_360_25fps.mp4",
-            ].map((videoSrc, index) => (
-              <div key={index} className="mx-auto" style={{ maxWidth: 220 }}>
-                <VideoThumbnail src={videoSrc} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ¿EN QUÉ TE PODEMOS AYUDAR? / CÓMO FUNCIONA */}
+      {/* 4. ¿EN QUÉ TE PODEMOS AYUDAR? */}
       <section id="how-it-works" className="bg-gray-50 py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center">
@@ -500,6 +459,47 @@ export default function Home() {
                     ¿Necesitas asesoramiento ahora mismo?
                   </p>
                 )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. VIDEO SECTION – ÚLTIMA */}
+      <section id="video-gallery" className="py-16 md:py-24 bg-black">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white">
+              porque tus sueños son nuestra realidad
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-gray-400">
+              asesoramiento personalizado
+            </p>
+          </div>
+
+          <div className="mb-8 overflow-hidden rounded-lg border border-gray-800 shadow-lg">
+            <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+              <video
+                src="/videos/Decoracion%20para%20empresas%20madrid.mp4"
+                controls
+                autoPlay
+                muted
+                loop
+                className="absolute inset-0 h-full w-full object-cover"
+              >
+                Tu navegador no soporta la etiqueta de vídeo.
+              </video>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+            {[
+              "/videos/Decoracion%20para%20empresas%20madrid.mp4",
+              "https://videos.pexels.com/video-files/8098020/8098020-sd_640_360_25fps.mp4",
+              "https://videos.pexels.com/video-files/5699313/5699313-sd_640_360_25fps.mp4",
+            ].map((videoSrc, index) => (
+              <div key={index} className="mx-auto" style={{ maxWidth: 220 }}>
+                <VideoThumbnail src={videoSrc} />
               </div>
             ))}
           </div>
