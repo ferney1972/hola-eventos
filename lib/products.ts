@@ -77,10 +77,10 @@ export const products: Product[] = [
     image: {
       src: "https://misquince.es/fotos/silla bambu.png",
     },
-    price: ,
+    price: 
     description: "Silla plegable bambú acolchada",
-    minPrice: ,
-    maxPrice: ,
+    minPrice: 
+    maxPrice: 
   },
   {
     id: "silla-mono-casco",
@@ -88,10 +88,10 @@ export const products: Product[] = [
     image: {
       src: "https://misquince.es/fotos/silla casco .png",
     },
-    price: ,
+    price: 
     description: "Silla mono casco en blanco y negro",
-    minPrice: ,
-    maxPrice: ,
+    minPrice: 
+    maxPrice: 
   },
   {
     id: "silla-tiffany-blanca",
@@ -99,10 +99,10 @@ export const products: Product[] = [
     image: {
       src: "https://misquince.es/fotos/sillatifany.png",
     },
-    price: ,
+    price: 
     description: "Silla tiffany blanca y otros colores",
-    minPrice:,
-    maxPrice: ,
+    minPrice:
+    maxPrice: 
   },
   {
     id: "tarimas-escenario",
@@ -146,11 +146,11 @@ export const products: Product[] = [
     image: {
       src: "https://misquince.es/fotos/mesaalta.jpeg",
     },
-    price: , // cambia al precio real
+    price:  // cambia al precio real
     description:
       "Mesa alta para cocktail y recepciones, perfecta para eventos de pie y zonas de bebida.",
-    minPrice: ,
-    maxPrice: ,
+    minPrice: 
+    maxPrice: 
   },
   {
     id: "mesa-baja",
@@ -158,11 +158,11 @@ export const products: Product[] = [
     image: {
       src: "https://misquince.es/fotos/mesabaja.jpeg",
     },
-    price: ,
+    price: 
     description:
       "Mesa baja blanca perfecta para crear zonas lounge, apoyar decoración o candy bar. Tablero fácil de limpiar y estructura resistente.",
-    minPrice: ,
-    maxPrice: ,
+    minPrice: 
+    maxPrice: 
   },
   {
     id: "atril-metraquilato",
@@ -170,22 +170,22 @@ export const products: Product[] = [
     image: {
       src: "https://misquince.es/fotos/atril.PNG",
     },
-    price: ,
+    price: 
     description:
       "Conferencia estándar desarmable, con medidas de 500 x 400 x 1100 mm de alto. Cuenta con un espesor de 10 mm, una tapa superior de 500 x 400, un frontal de 350 x 600 mm (alto) para colocar el logotipo, y una base de 500 x 350. Los cantos están pulidos. La separación interna entre las patas es de 35 cm, mientras que la externa es de 37 cm.",
-    minPrice: ,
-    maxPrice: ,
-  },
+    minPrice: 
+    maxPrice: 
+  }
   {
     id: "Arcon-congelador",
     name: "Arcon",
     image: {
       src: "https://misquince.es/fotos/ARCON 302.PNG",
     },
-    price: ,
+    price: 
     description: "Arcon congelador para eventos,",
-    minPrice: ,
-    maxPrice: ,
+    minPrice: 
+    maxPrice: 
   },
   {
     id: "sombrillas",
@@ -193,11 +193,11 @@ export const products: Product[] = [
     image: {
       src: "https://misquince.es/fotos/sombrillas.jpg",
     },
-    price: ,
+    price: 
     description:
       "Sombrilla de 3x3m mastil tubular de alumino blanco de una pieza y un sistema de doble polea,",
-    minPrice: ,
-    maxPrice: ,
+    minPrice: 
+    maxPrice: 
   },
   {
     id: "Expositor",
@@ -205,21 +205,21 @@ export const products: Product[] = [
     image: {
       src: "https://misquince.es/fotos/Expositor.jpg",
     },
-    price: ,
+    price: 
     description: "Expositor A4 con medidas 297x210mm",
-    minPrice: ,
-    maxPrice: ,
-  },
+    minPrice: 
+    maxPrice: 
+  }
   {
     id: "Sonido",
     name: "Alquilerdesonido",
     image: {
       src: "https://misquince.es/fotos/Alquiler de sonido.png",
     },
-    price: ,
+    price: 
     description: "Alquiler de sonido",
-    minPrice: ,
-    maxPrice: ,
+    minPrice: 
+    maxPrice: 
   },
   {
     id: "Ventilador-nebulizador",
@@ -227,11 +227,11 @@ export const products: Product[] = [
     image: {
       src: "https://misquince.es/fotos/ventilador nebulizador.png",
     },
-    price: ,
+    price: 
     description:
       " Mide aproximadamente 20 cm de alto por 15 cm de ancho en la base. Cuenta con tanque de agua de 500 ml, tres velocidades de aire y nebulización continua o intermitente.",
-    minPrice: ,
-    maxPrice: ,
+    minPrice: 
+    maxPrice: 
   },
   {
     id: "Catenaria-dorada",
@@ -239,10 +239,10 @@ export const products: Product[] = [
     image: {
       src: "https://misquince.es/fotos/Catenaria.PNG",
     },
-    price: ,
+    price: 
     description: "Poste de acero dorado con medidas 1m Altura,30cm Ancho",
-    minPrice: ,
-    maxPrice: ,
+    minPrice: 
+    maxPrice: 
   },
   {
     id: "Perchero-burrito",
@@ -250,11 +250,11 @@ export const products: Product[] = [
     image: {
       src: "https://misquince.es/fotos/perchero.jpg",
     },
-    price: ,
+    price: 
     description:
       "Soportes portátiles para colgar ropa, con barra ajustable en altura y ruedas de desplazamiento, más 50 perchas y 50 comprobantes de servicio de guardarropa.",
-    minPrice: ,
-    maxPrice: ,
+    minPrice: 
+    maxPrice: 
   },
   {
     id: "Manteleria-vajilla",
@@ -262,10 +262,10 @@ export const products: Product[] = [
     image: {
       src: "https://misquince.es/fotos/MANTELERIA.png",
     },
-    price: ,
+    price: 
     description:
       "Ofrecemos mantelería a medida, perfectamente adaptada a nuestras mesas. Como complemento, ponemos a tu disposición todo tipo de vajilla. Así garantizamos que cada detalle de tu evento sea todo un éxito.",
-    minPrice: ,
-    maxPrice: ,
-  },
+    minPrice: 
+    maxPrice: 
+  }
 ];
