@@ -345,82 +345,56 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CALCULADORA DE PRESUPUESTO */}
-      <section className="bg-gradient-to-b from-gray-900 to-black py-16 md:py-24">
+      {/* TU EVENTO PERFECTO */}
+      <section className="bg-white py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-white mb-2">
-            Calculadora de Presupuesto
-          </h2>
-          <p className="text-gray-300 mb-8">
-            Obtén una estimación aproximada de tu evento
-          </p>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
+              Tu evento perfecto, nuestro compromiso
+            </h2>
+            <p className="text-gray-600 text-lg">
+              Cada detalle cuenta. Por eso nos comprometemos a hacer tu evento inolvidable.
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Panel izquierdo: Selección de materiales */}
-            <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
-              <h3 className="text-lg font-semibold text-white mb-4">
-                Selecciona tus materiales
-              </h3>
-              <div className="space-y-3 max-h-96 overflow-y-auto">
-                {products.slice(0, 8).map((product) => (
-                  <label
-                    key={product.id}
-                    className="flex items-center gap-3 cursor-pointer hover:bg-gray-700/50 p-2 rounded transition"
-                  >
-                    <input type="checkbox" className="w-4 h-4 rounded" />
-                    <div className="flex-1">
-                      <p className="text-white font-medium text-sm">
-                        {product.name}
-                      </p>
-                      <p className="text-xs text-green-400">
-                        desde €{product.minPrice ?? 10} - €
-                        {product.maxPrice ?? 50}
-                      </p>
-                    </div>
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            {/* Panel derecho: Resumen estimado */}
-            <div className="bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-lg p-6 border border-green-600/30 flex flex-col justify-between">
-              <div>
-                <h3 className="text-lg font-semibold text-white mb-6">
-                  Resumen Estimado
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center pb-3 border-b border-green-600/20">
-                    <span className="text-gray-300">
-                      Materiales seleccionados:
-                    </span>
-                    <span className="text-2xl font-bold text-green-400">
-                      0
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center pb-3 border-b border-green-600/20">
-                    <span className="text-gray-300">Rango estimado:</span>
-                    <span className="text-xl font-bold text-green-400">
-                      €0 - €0
-                    </span>
-                  </div>
-                  <div className="bg-green-600/10 rounded p-3 mt-4">
-                    <p className="text-xs text-gray-300">
-                      💡 Este es un rango aproximado. El precio final dependerá
-                      de la cantidad, fecha y customizaciones.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <a
-                href="https://wa.me/34640651851?text=Quiero%20un%20presupuesto%20personalizado%20basado%20en%20mi%20selecci%C3%B3n%20de%20materiales"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex h-12 w-full items-center justify-center rounded-full bg-green-500 hover:bg-green-600 text-white font-semibold transition-colors"
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: "✨",
+                title: "Calidad Premium",
+                description:
+                  "Material de primera calidad, limpio y en perfecto estado para que tu evento brille.",
+              },
+              {
+                icon: "⚡",
+                title: "Entrega Puntual",
+                description:
+                  "Garantizamos la entrega a tiempo. Tu evento no espera, nosotros tampoco.",
+              },
+              {
+                icon: "🤝",
+                title: "Asesoramiento Experto",
+                description:
+                  "Nuestro equipo de especialistas te guía en cada paso para el mejor resultado.",
+              },
+              {
+                icon: "💯",
+                title: "Satisfacción Garantizada",
+                description:
+                  "Si algo no es perfecto, lo arreglamos. Tu satisfacción es nuestro éxito.",
+              },
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-gray-50 rounded-lg p-6 border border-gray-200 hover:shadow-lg transition"
               >
-                Solicitar Presupuesto Personalizado
-              </a>
-            </div>
+                <div className="text-4xl mb-3">{item.icon}</div>
+                <h3 className="text-lg font-bold text-black mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 text-sm">{item.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -488,6 +462,101 @@ export default function Home() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* LO QUE DICEN NUESTROS CLIENTES */}
+      <section className="bg-gray-900 py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Lo que dicen nuestros clientes
+            </h2>
+            <p className="text-gray-400 text-lg">
+              Miles de eventos exitosos hablan por nosotros
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                name: "María García",
+                event: "Boda",
+                rating: 5,
+                comment:
+                  "Fue perfecto. El equipo de Hola Eventos fue profesional, puntual y muy atento. Mi boda fue exactamente como la imaginé. ¡Gracias!",
+              },
+              {
+                name: "Carlos López",
+                event: "Evento Corporativo",
+                rating: 5,
+                comment:
+                  "Excelente servicio. Necesitábamos material de última hora y lo consiguieron sin problema. Muy recomendable para eventos empresariales.",
+              },
+              {
+                name: "Ana Martínez",
+                event: "Cumpleaños",
+                rating: 5,
+                comment:
+                  "El mejor alquiler de Madrid. Buena calidad, precios justos y un asesoramiento increíble. Volveremos a confiar en ellos.",
+              },
+              {
+                name: "Roberto Fernández",
+                event: "Bautizo",
+                rating: 5,
+                comment:
+                  "Profesionales de verdad. Desde el primer contacto hasta la entrega, todo fue perfecto. Muy satisfecho con el servicio.",
+              },
+              {
+                name: "Sofía Rodríguez",
+                event: "Graduación",
+                rating: 5,
+                comment:
+                  "Recomendado 100%. Nos ayudaron a organizar todo. Material de calidad y equipo muy amable. ¡Gracias Hola Eventos!",
+              },
+              {
+                name: "Juan Sánchez",
+                event: "Fiesta Privada",
+                rating: 5,
+                comment:
+                  "Servicio impecable. Entrega rápida, material en perfecto estado y asesoramiento personalizado. Definitivamente volveremos.",
+              },
+            ].map((testimonial, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition"
+              >
+                <div className="flex items-center mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <span key={i} className="text-yellow-400 text-lg">
+                      ★
+                    </span>
+                  ))}
+                </div>
+                <p className="text-gray-700 mb-4 text-sm italic">
+                  "{testimonial.comment}"
+                </p>
+                <div className="border-t border-gray-200 pt-4">
+                  <p className="font-bold text-black">{testimonial.name}</p>
+                  <p className="text-sm text-gray-600">{testimonial.event}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-gray-600 text-lg mb-6">
+              ¿Listo para tu evento perfecto?
+            </p>
+            <a
+              href="https://wa.me/34640651851?text=Hola!%20Me%20gustaría%20pedir%20presupuesto%20para%20un%20evento."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-12 px-8 items-center justify-center rounded-full bg-green-500 hover:bg-green-600 text-white font-semibold transition-colors"
+            >
+              Hablar con nosotros
+            </a>
           </div>
         </div>
       </section>
