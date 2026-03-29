@@ -741,5 +741,38 @@ export default function Home() {
         </div>
       </section>
     </main>
+          {/* BOTÓN FLOTANTE CONTACTO RÁPIDO */}
+      <div className="fixed bottom-4 right-4 z-50">
+        <div className="flex flex-col items-end gap-2">
+          {/* Panel de opciones */}
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 px-3 py-2 flex flex-col gap-2">
+            <a
+              href="https://wa.me/34640651851?text=Hola!%20Necesito%20información%20para%20un%20evento."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm text-gray-800 hover:text-green-600"
+            >
+              <span className="text-green-500 text-lg">🟢</span>
+              <span>WhatsApp inmediato</span>
+            </a>
+            <a
+              href="tel:+34640651851"
+              className="flex items-center gap-2 text-sm text-gray-800 hover:text-blue-600"
+            >
+              <span className="text-blue-500 text-lg">📞</span>
+              <span>Llamada urgente</span>
+            </a>
+          </div>
+
+          {/* Botón principal (icono WhatsApp) */}
+          <button
+            type="button"
+            className="w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 shadow-xl flex items-center justify-center text-white text-2xl"
+            aria-label="Contacto rápido"
+          >
+            🟢
+          </button>
+        </div>
+      </div>
   );
 }
