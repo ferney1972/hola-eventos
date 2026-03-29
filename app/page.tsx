@@ -34,6 +34,7 @@ export default function Home() {
     "Sonido",
     "Ventilador-nebulizador",
     "Cantenaria-dorada",
+    "Perchero-burrito",
   ];
 
   const featuredProducts = products
