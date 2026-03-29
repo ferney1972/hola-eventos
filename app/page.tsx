@@ -141,7 +141,7 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* 1. HERO */}
+      {/* HERO */}
       <section className="relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[75vh] text-center text-white flex flex-col">
         <div className="relative w-full h-[220px] sm:h-[260px] md:h-[300px] overflow-hidden bg-black">
           <img
@@ -202,154 +202,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. CALCULADORA DE PRESUPUESTO */}
-      <section className="bg-gradient-to-b from-gray-900 to-black py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-white mb-2">
-            Calculadora de Presupuesto
-          </h2>
-          <p className="text-gray-300 mb-8">
-            Obtén una estimación aproximada de tu evento
-          </p>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Panel izquierdo: Selección de materiales */}
-            <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
-              <h3 className="text-lg font-semibold text-white mb-4">
-                Selecciona tus materiales
-              </h3>
-              <div className="space-y-3 max-h-96 overflow-y-auto">
-                {products.slice(0, 8).map((product) => (
-                  <label
-                    key={product.id}
-                    className="flex items-center gap-3 cursor-pointer hover:bg-gray-700/50 p-2 rounded transition"
-                  >
-                    <input type="checkbox" className="w-4 h-4 rounded" />
-                    <div className="flex-1">
-                      <p className="text-white font-medium text-sm">
-                        {product.name}
-                      </p>
-                      <p className="text-xs text-green-400">
-                        desde €{product.minPrice ?? 10} - €
-                        {product.maxPrice ?? 50}
-                      </p>
-                    </div>
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            {/* Panel derecho: Resumen estimado */}
-            <div className="bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-lg p-6 border border-green-600/30 flex flex-col justify-between">
-              <div>
-                <h3 className="text-lg font-semibold text-white mb-6">
-                  Resumen Estimado
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center pb-3 border-b border-green-600/20">
-                    <span className="text-gray-300">
-                      Materiales seleccionados:
-                    </span>
-                    <span className="text-2xl font-bold text-green-400">
-                      0
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center pb-3 border-b border-green-600/20">
-                    <span className="text-gray-300">Rango estimado:</span>
-                    <span className="text-xl font-bold text-green-400">
-                      €0 - €0
-                    </span>
-                  </div>
-                  <div className="bg-green-600/10 rounded p-3 mt-4">
-                    <p className="text-xs text-gray-300">
-                      💡 Este es un rango aproximado. El precio final dependerá
-                      de la cantidad, fecha y customizaciones.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <a
-                href="https://wa.me/34640651851?text=Quiero%20un%20presupuesto%20personalizado%20basado%20en%20mi%20selecci%C3%B3n%20de%20materiales"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex h-12 w-full items-center justify-center rounded-full bg-green-500 hover:bg-green-600 text-white font-semibold transition-colors"
-              >
-                Solicitar Presupuesto Personalizado
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. POR QUÉ NUESTROS PRECIOS */}
-      <section className="bg-black py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-white mb-2 text-center">
-            ¿Por qué nuestros precios?
-          </h2>
-          <p className="text-gray-400 text-center mb-12">
-            Cada evento es único y merece atención personalizada
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {[
-              {
-                icon: "📅",
-                title: "Fecha del Evento",
-                description:
-                  "Los precios varían según disponibilidad y temporada. Fin de semana tiene diferentes tarifas.",
-              },
-              {
-                icon: "📊",
-                title: "Cantidad de Materiales",
-                description:
-                  "Ofrecemos descuentos por volumen. Cuantos más materiales, mejor precio por unidad.",
-              },
-              {
-                icon: "🎨",
-                title: "Customización",
-                description:
-                  "Servicios adicionales como instalación y decoración personalizada tienen costos específicos.",
-              },
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-gray-900 rounded-lg p-6 border border-gray-700"
-              >
-                <div className="text-4xl mb-3">{item.icon}</div>
-                <h3 className="text-lg font-bold text-white mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-gray-400 text-sm">{item.description}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="bg-gradient-to-r from-blue-900/30 to-blue-800/20 rounded-lg p-8 border border-blue-600/30">
-            <div className="flex items-start gap-4">
-              <div className="text-3xl">🎯</div>
-              <div>
-                <h3 className="text-xl font-bold text-white mb-2">
-                  Nuestra Estrategia: Contacto Directo
-                </h3>
-                <p className="text-gray-300 mb-2">
-                  No mostramos precios exactos porque cada evento es diferente.
-                  Nuestro equipo de especialistas contactará contigo para
-                  entender exactamente qué necesitas, ofrecerte opciones
-                  personalizadas y darte un presupuesto justo.
-                </p>
-                <p className="text-green-400 font-semibold">
-                  ✓ Presupuestos sin compromiso • ✓ Asesoramiento profesional •
-                  ✓ Flexibilidad total
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. PRODUCTOS DESTACADOS */}
+      {/* PRODUCTOS DESTACADOS */}
       <section id="products" className="bg-gray-50 py-16 md:py-24">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-bold mb-6 text-black">
@@ -492,7 +345,154 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. AGENTES ESPECIALIZADOS */}
+      {/* CALCULADORA DE PRESUPUESTO */}
+      <section className="bg-gradient-to-b from-gray-900 to-black py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-white mb-2">
+            Calculadora de Presupuesto
+          </h2>
+          <p className="text-gray-300 mb-8">
+            Obtén una estimación aproximada de tu evento
+          </p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Panel izquierdo: Selección de materiales */}
+            <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
+              <h3 className="text-lg font-semibold text-white mb-4">
+                Selecciona tus materiales
+              </h3>
+              <div className="space-y-3 max-h-96 overflow-y-auto">
+                {products.slice(0, 8).map((product) => (
+                  <label
+                    key={product.id}
+                    className="flex items-center gap-3 cursor-pointer hover:bg-gray-700/50 p-2 rounded transition"
+                  >
+                    <input type="checkbox" className="w-4 h-4 rounded" />
+                    <div className="flex-1">
+                      <p className="text-white font-medium text-sm">
+                        {product.name}
+                      </p>
+                      <p className="text-xs text-green-400">
+                        desde €{product.minPrice ?? 10} - €
+                        {product.maxPrice ?? 50}
+                      </p>
+                    </div>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            {/* Panel derecho: Resumen estimado */}
+            <div className="bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-lg p-6 border border-green-600/30 flex flex-col justify-between">
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-6">
+                  Resumen Estimado
+                </h3>
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center pb-3 border-b border-green-600/20">
+                    <span className="text-gray-300">
+                      Materiales seleccionados:
+                    </span>
+                    <span className="text-2xl font-bold text-green-400">
+                      0
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center pb-3 border-b border-green-600/20">
+                    <span className="text-gray-300">Rango estimado:</span>
+                    <span className="text-xl font-bold text-green-400">
+                      €0 - €0
+                    </span>
+                  </div>
+                  <div className="bg-green-600/10 rounded p-3 mt-4">
+                    <p className="text-xs text-gray-300">
+                      💡 Este es un rango aproximado. El precio final dependerá
+                      de la cantidad, fecha y customizaciones.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                href="https://wa.me/34640651851?text=Quiero%20un%20presupuesto%20personalizado%20basado%20en%20mi%20selecci%C3%B3n%20de%20materiales"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex h-12 w-full items-center justify-center rounded-full bg-green-500 hover:bg-green-600 text-white font-semibold transition-colors"
+              >
+                Solicitar Presupuesto Personalizado
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* POR QUÉ NUESTROS PRECIOS */}
+      <section className="bg-black py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-white mb-2 text-center">
+            ¿Por qué nuestros precios?
+          </h2>
+          <p className="text-gray-400 text-center mb-12">
+            Cada evento es único y merece atención personalizada
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {[
+              {
+                icon: "📅",
+                title: "Fecha del Evento",
+                description:
+                  "Los precios varían según disponibilidad y temporada. Fin de semana tiene diferentes tarifas.",
+              },
+              {
+                icon: "📊",
+                title: "Cantidad de Materiales",
+                description:
+                  "Ofrecemos descuentos por volumen. Cuantos más materiales, mejor precio por unidad.",
+              },
+              {
+                icon: "🎨",
+                title: "Customización",
+                description:
+                  "Servicios adicionales como instalación y decoración personalizada tienen costos específicos.",
+              },
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-gray-900 rounded-lg p-6 border border-gray-700"
+              >
+                <div className="text-4xl mb-3">{item.icon}</div>
+                <h3 className="text-lg font-bold text-white mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-gray-400 text-sm">{item.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="bg-gradient-to-r from-blue-900/30 to-blue-800/20 rounded-lg p-8 border border-blue-600/30">
+            <div className="flex items-start gap-4">
+              <div className="text-3xl">🎯</div>
+              <div>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  Nuestra Estrategia: Contacto Directo
+                </h3>
+                <p className="text-gray-300 mb-2">
+                  No mostramos precios exactos porque cada evento es diferente.
+                  Nuestro equipo de especialistas contactará contigo para
+                  entender exactamente qué necesitas, ofrecerte opciones
+                  personalizadas y darte un presupuesto justo.
+                </p>
+                <p className="text-green-400 font-semibold">
+                  ✓ Presupuestos sin compromiso • ✓ Asesoramiento profesional •
+                  ✓ Flexibilidad total
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AGENTES ESPECIALIZADOS */}
       <section className="bg-black py-16">
         <div className="container mx-auto px-4">
           <h2 className="mb-8 text-center text-3xl font-bold text-white">
@@ -578,7 +578,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. ¿EN QUÉ TE PODEMOS AYUDAR? */}
+      {/* ¿EN QUÉ TE PODEMOS AYUDAR? */}
       <section id="how-it-works" className="bg-gray-50 py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center">
@@ -631,7 +631,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. VIDEO SECTION – ÚLTIMA */}
+      {/* VIDEO SECTION – ÚLTIMA */}
       <section id="video-gallery" className="py-16 md:py-24 bg-black">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
