@@ -1,6 +1,5 @@
 "use client";
 
-
 import React, { useState } from "react";
 import { VideoThumbnail } from "@/components/video-thumbnail";
 import { MessageSquare } from "lucide-react";
@@ -8,541 +7,670 @@ import { products, type Product } from "@/lib/products";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 
-
 export default function Home() {
-  const { addItem } = useCart();
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [flash, setFlash] = useState("");
-  const [lastAddedId, setLastAddedId] = useState<string | null>(null);
-  const [openMenu, setOpenMenu] = useState(false);
-  const [activeCategory, setActiveCategory] = useState<
-    "todos" | "sillas" | "mesas" | "carpas"
-  >("todos");
-  const [quantities, setQuantities] = useState<Record<string, number>>({});
-
-
-  const featuredProductIds = [
-    "estufa-gas",
-    "silla-blanca-resina",
-    "sillas-plegables",
-    "tarimas-escenario",
-    "carpa-3x3m",
-    "mesa-180",
-    "mesa-alta-cocktail",
-    "mesa-baja",
-    "atril-metraquilato",
-    "Arcon-congelador",
-    "sombrillas",
-    "Expositor",
-    "Sonido",
-    "Ventilador-nebulizador",
-    "Cantenaria-dorada",
-    "Perchero-burrito",
-    "Manteleria-vajilla"
-  ];
-
-
-  const featuredProducts = products
-    .filter((p) => featuredProductIds.includes(p.id))
-    .sort(
-      (a, b) =>
-        featuredProductIds.indexOf(a.id) - featuredProductIds.indexOf(b.id)
-    );
-
-
-  const visibleProducts = products.filter((p) => {
-    if (activeCategory === "todos") {
-      return featuredProductIds.includes(p.id);
-    }
-    if (activeCategory === "sillas") {
-      return p.id.includes("silla");
-    }
-    if (activeCategory === "mesas") {
-      return p.id.includes("mesa");
-    }
-    if (activeCategory === "carpas") {
-      return p.id.includes("carpa");
-    }
-    return true;
-  });
-
-
-  return (
-    <main className="flex-1 bg-black">
-      {/* MENÚ DESPLEGABLE SUPERIOR */}
-      <nav className="w-full bg-black border-b border-white/10">
-        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-          <span className="text-white font-semibold text-sm sm:text-base">
-            Hola Eventos
-          </span>
-
-
-          <div className="relative">
-            <button
-              type="button"
-              onClick={() => setOpenMenu((o) => !o)}
-              className="inline-flex items-center justify-center rounded-full border border-white/40 px-4 py-2 text-sm text-white hover:bg-white/10"
-            >
-              {activeCategory === "todos" && "Material"}
-              {activeCategory === "sillas" && "Sillas"}
-              {activeCategory === "mesas" && "Mesas"}
-              {activeCategory === "carpas" && "Carpas"}
-              <span className="ml-2 text-xs">{openMenu ? "▲" : "▼"}</span>
-            </button>
-
-
-            {openMenu && (
-              <div className="absolute right-0 mt-2 w-40 rounded-md bg-white shadow-lg ring-1 ring-black/5 z-50">
-                <ul className="py-1 text-sm text-gray-800">
-                  <li>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setActiveCategory("todos");
-                        setOpenMenu(false);
-                      }}
-                      className="block w-full text-left px-4 py-2 hover:bg-gray-100"
-                    >
-                      Todo el material
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setActiveCategory("sillas");
-                        setOpenMenu(false);
-                      }}
-                      className="block w-full text-left px-4 py-2 hover:bg-gray-100"
-                    >
-                      Sillas
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setActiveCategory("mesas");
-                        setOpenMenu(false);
-                      }}
-                      className="block w-full text-left px-4 py-2 hover:bg-gray-100"
-                    >
-                      Mesas
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setActiveCategory("carpas");
-                        setOpenMenu(false);
-                      }}
-                      className="block w-full text-left px-4 py-2 hover:bg-gray-100"
-                    >
-                      Carpas
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            )}
-          </div>
-        </div>
-      </nav>
-
-
-      {/* 1. HERO */}
-      <section className="relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[75vh] text-center text-white flex flex-col">
-        <div className="relative w-full h-[220px] sm:h-[260px] md:h-[300px] overflow-hidden bg-black">
-          <img
-            src="https://misquince.es/fotos/cropped-banner-carlos.jpg"
-            alt="Banner Hola Eventos"
-            className="w-full h-full object-cover object-[40%_50%]"
-          />
-          <div className="absolute inset-0 bg-black/40" />
-
-
-          {/* Teléfono siempre visible en el banner */}
-          <div className="absolute right-4 top-4 flex flex-col items-end space-y-1">
-            <span className="text-xs sm:text-sm font-semibold">Teléfono:</span>
-            <a
-              href="tel:+34640651851"
-              className="rounded-full bg-black/70 px-3 py-1 text-sm sm:text-base font-bold border border-white"
-            >
-              640 65 18 51
-            </a>
-          </div>
-        </div>
-
-
-        <div className="bg-black px-4 pt-6">
-          <h1 className="mx-auto max-w-3xl text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
-            Alquiler y organización de eventos en Madrid
-          </h1>
-        </div>
-
-
-        <div className="bg-black px-4 pb-8 flex flex-col items-center">
-          <p className="mt-3 max-w-xl text-sm sm:text-base text-gray-100">
-            Material, decoración y asesoramiento profesional para que tu evento
-            salga perfecto.
-          </p>
-
-
-          <div className="mt-6 w-full max-w-md flex flex-col gap-3">
-            <Link href="#products">
-              <button className="inline-flex h-12 w-full items-center justify-center rounded-full bg-white text-black text-sm font-semibold">
-                Ver material destacado
-              </button>
-            </Link>
-
-
-            {/* Botón de llamada solo en móvil */}
-            <a
-              href="tel:+34640651851"
-              className="inline-flex h-12 w-full items-center justify-center rounded-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold transition-colors sm:hidden"
-            >
-              Llamar ahora
-            </a>
-
-
-            <a
-              href="https://wa.me/34640651851?text=Hola!%20Me%20gustaría%20pedir%20presupuesto%20para%20un%20evento."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-12 w-full items-center justify-center rounded-full bg-green-500 hover:bg-green-600 text-white text-sm font-semibold transition-colors"
-            >
-              Hablar por WhatsApp
-            </a>
-          </div>
-        </div>
-      </section>
-
-
-      {/* 2. PRODUCTOS DESTACADOS */}
-      <section id="products" className="bg-gray-50 py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold mb-6 text-black">
-            {activeCategory === "todos" && "Material destacado"}
-            {activeCategory === "sillas" && "Sillas"}
-            {activeCategory === "mesas" && "Mesas"}
-            {activeCategory === "carpas" && "Carpas"}
-          </h2>
-
-
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {visibleProducts.map((item) => {
-              const quantity = quantities[item.id] ?? 1;
-
-
-              const increase = (e: React.MouseEvent) => {
-                e.stopPropagation();
-                setQuantities((prev) => ({
-                  ...prev,
-                  [item.id]: (prev[item.id] ?? 1) + 1,
-                }));
-              };
-
-
-              const decrease = (e: React.MouseEvent) => {
-                e.stopPropagation();
-                setQuantities((prev) => {
-                  const current = prev[item.id] ?? 1;
-                  const next = current > 1 ? current - 1 : 1;
-                  return { ...prev, [item.id]: next };
-                });
-              };
-
-
-              const handleAddToCart = (e: React.MouseEvent) => {
-                e.stopPropagation();
-                addItem({
-                  id: item.id,
-                  name: item.name,
-                  price: item.price,
-                  image: { src: item.image.src },
-                  quantity,
-                });
-
-
-                setLastAddedId(item.id);
-                setFlash("Producto añadido a tu pedido");
-
-
-                setTimeout(() => {
-                  setFlash("");
-                  setLastAddedId(null);
-                }, 2000);
-              };
-
-
-              const isLastAdded = lastAddedId === item.id;
-
-
-              return (
-                <div
-                  key={item.id}
-                  className="group overflow-hidden rounded-lg border bg-white shadow-sm cursor-pointer"
-                  onClick={() => setSelectedProduct(item)}
-                >
-                  <div className="relative h-64 w-full">
-                    <img
-                      src={item.image.src}
-                      alt={item.name}
-                      className={`h-full w-full ${
-                        item.id === "estufa-gas"
-                          ? "object-contain"
-                          : "object-cover"
-                      } transition-transform duration-300 group-hover:scale-105`}
-                    />
-                  </div>
-                  <div className="p-4">
-                    <div className="mb-2 flex items-center justify-center text-sm text-black font-semibold">
-                      <MessageSquare className="mr-2 h-4 w-4 text-black" />
-                      ¿Necesitas asesoramiento?
-                    </div>
-                    <h3 className="text-lg font-semibold text-center text-black">
-                      {item.name}
-                    </h3>
-
-
-                    <div className="mt-3 flex items-center justify-center gap-3">
-                      <button
-                        onClick={decrease}
-                        className="h-8 w-8 rounded-full border border-black flex items-center justify-center text-lg leading-none text-black"
-                      >
-                        −
-                      </button>
-                      <span className="min-w-[2rem] text-center text-sm font-medium text-black">
-                        {quantity}
-                      </span>
-                      <button
-                        onClick={increase}
-                        className="h-8 w-8 rounded-full border border-black flex items-center justify-center text-lg leading-none text-black"
-                      >
-                        +
-                      </button>
-                    </div>
-
-
-                    <button
-                      onClick={handleAddToCart}
-                      className={`mt-4 w-full rounded-full px-4 py-2 text-sm font-medium text-white ${
-                        isLastAdded
-                          ? "bg-green-600 hover:bg-green-700"
-                          : "bg-blue-600 hover:bg-blue-700"
-                      }`}
-                    >
-                      {isLastAdded ? "Añadido al carrito" : "Añadir al carrito"}
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-
-          {flash && (
-            <p className="mt-4 text-center text-sm text-green-600">{flash}</p>
-          )}
-
-
-          <div className="mt-12 text-center">
-            <Link href="/products">
-              <button className="inline-flex h-11 items-center justify-center rounded-md border border-gray-300 bg-white px-8 text-sm font-medium transition-colors hover:bg-gray-100">
-                Ver Catálogo Completo {"->"}
-              </button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-
-      {/* 3. AGENTES ESPECIALIZADOS */}
-      <section className="bg-black py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="mb-8 text-center text-3xl font-bold text-white">
-            Habla con nuestros especialistas
-          </h2>
-
-
-          <div className="flex flex-col items-center gap-8 md:flex-row md:justify-center">
-            {/* Agente Decoración */}
-            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg-white/10 text-center shadow-lg">
-              <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border-white">
-                <img
-                  src="https://misquince.es/fotos/decoracion.png"
-                  alt="Agente de decoración"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <p className="text-sm font-semibold uppercase tracking-wide text-white">
-                Decoración
-              </p>
-              <p className="mt-1 px-4 text-xs text-gray-200">
-                Especialista en decoración y ambientación de eventos.
-              </p>
-              <a
-                href="https://wa.me/34649330612?text=Hola,%20me%20gustaría%20hablar%20con%20decoración%20sobre%20mi%20evento."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-flex items-center justify-center rounded-full border border-green-500 px-4 py-1.5 text-xs font-medium text-green-400 hover:bg-green-500 hover:text-white"
-              >
-                WhatsApp
-              </a>
-            </div>
-
-
-            {/* Agente Sonido y Vídeo */}
-            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg-white/10 text-center shadow-lg">
-              <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border-white">
-                <img
-                  src="https://misquince.es/fotos/sonido%20y%20video.jpg"
-                  alt="Agente de sonido y vídeo"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <p className="text-sm font-semibold uppercase tracking-wide text_white">
-                Sonido y vídeo
-              </p>
-              <p className="mt-1 px-4 text-xs text-gray-200">
-                Técnico en sonido, iluminación y proyección.
-              </p>
-              <a
-                href="https://wa.me/34640658864?text=Hola,%20me%20gustaría%20hablar%20sobre%20sonido%20y%20vídeo%20para%20mi%20evento."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-flex items-center justify-center rounded-full border border-green-500 px-4 py-1.5 text-xs font-medium text-green-400 hover:bg-green-500 hover:text-white"
-              >
-                WhatsApp
-              </a>
-            </div>
-
-
-            {/* Agente Mobiliario */}
-            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg.white/10 text-center shadow-lg">
-              <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border-white">
-                <img
-                  src="https://misquince.es/fotos/mobiliario.jpg"
-                  alt="Agente de mobiliario"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <p className="text-sm font-semibold uppercase tracking-wide text-white">
-                Mobiliario
-              </p>
-              <p className="mt-1 px-4 text-xs text-gray-200">
-                Especialista en sillas, mesas, tarimas y estructuras.
-              </p>
-              <a
-                href="https://wa.me/34640651851?text=Hola,%20me%20gustaría%20hablar%20sobre%20mobiliario%20para%20mi%20evento."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-flex items-center justify-center rounded-full border border-green-500 px-4 py-1.5 text-xs font-medium text-green-400 hover:bg-green-500 hover:text-white"
-              >
-                WhatsApp
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* 4. ¿EN QUÉ TE PODEMOS AYUDAR? */}
-      <section id="how-it-works" className="bg-gray-50 py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <h2 className="text-4xl font-bold text-black">
-              ¿En qué te podemos ayudar?
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-gray-600">
-              Organizar tu evento nunca fue tan fácil. Sigue estos simples pasos
-              y cuéntanos qué necesitas.
-            </p>
-          </div>
-          <div className="relative mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
-            <div
-              className="absolute top-1/2 left-0 hidden h-px w-full -translate-y-1/2 bg-gray-300 md:block"
-              aria-hidden="true"
-            />
-            {[
-              {
-                number: "1",
-                title: "Elige tu material",
-                desc: "Explora nuestro catálogo y añade todo lo que necesites a tu carrito de presupuesto.",
-              },
-              {
-                number: "2",
-                title: "Pide tu presupuesto",
-                desc: "Envíanos tu selección y te prepararemos una propuesta a medida, sin compromiso.",
-              },
-              {
-                number: "3",
-                title: "Asesoramiento directo",
-                desc: "Contactaremos contigo para afinar detalles de logística, decoración y técnica.",
-              },
-            ].map((step) => (
-              <div key={step.title} className="relative z-10 text-center">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-blue-500 bg-white text-2xl font-bold text-blue-500">
-                  {step.number}
-                </div>
-                <h3 className="mt-6 text-xl font-bold text-black">
-                  {step.title}
-                </h3>
-                <p className="mt-2 text-gray-600">{step.desc}</p>
-                {step.number === "3" && (
-                  <p className="mt-2 font-semibold text-black">
-                    ¿Necesitas asesoramiento ahora mismo?
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
-      {/* 5. VIDEO SECTION – ÚLTIMA */}
-      <section id="video-gallery" className="py-16 md:py-24 bg-black">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white">
-              porque tus sueños son nuestra realidad
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-gray-400">
-              asesoramiento personalizado
-            </p>
-          </div>
-
-
-          <div className="mb-8 overflow-hidden rounded-lg border border-gray-800 shadow-lg">
-            <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
-              <video
-                src="/videos/Decoracion%20para%20empresas%20madrid.mp4"
-                controls
-                autoPlay
-                muted
-                loop
-                className="absolute inset-0 h-full w-full object-cover"
-              >
-                Tu navegador no soporta la etiqueta de vídeo.
-              </video>
-            </div>
-          </div>
-
-
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-            {[
-              "/videos/Decoracion%20para%20empresas%20madrid.mp4",
-              "https://videos.pexels.com/video-files/8098020/8098020-sd_640_360_25fps.mp4",
-              "https://videos.pexels.com/video-files/5699313/5699313-sd_640_360_25fps.mp4",
-            ].map((videoSrc, index) => (
-              <div key={index} className="mx-auto" style={{ maxWidth: 220 }}>
-                <VideoThumbnail src={videoSrc} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    </main>
-  );
+  const { addItem } = useCart();
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [flash, setFlash] = useState("");
+  const [lastAddedId, setLastAddedId] = useState<string | null>(null);
+  const [openMenu, setOpenMenu] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<
+    "todos" | "sillas" | "mesas" | "carpas"
+  >("todos");
+  const [quantities, setQuantities] = useState<Record<string, number>>({});
+
+  const featuredProductIds = [
+    "estufa-gas",
+    "silla-blanca-resina",
+    "sillas-plegables",
+    "tarimas-escenario",
+    "carpa-3x3m",
+    "mesa-180",
+    "mesa-alta-cocktail",
+    "mesa-baja",
+    "atril-metraquilato",
+    "Arcon-congelador",
+    "sombrillas",
+    "Expositor",
+    "Sonido",
+    "Ventilador-nebulizador",
+    "Cantenaria-dorada",
+    "Perchero-burrito",
+    "Manteleria-vajilla",
+  ];
+
+  const featuredProducts = products
+    .filter((p) => featuredProductIds.includes(p.id))
+    .sort(
+      (a, b) =>
+        featuredProductIds.indexOf(a.id) - featuredProductIds.indexOf(b.id)
+    );
+
+  const visibleProducts = products.filter((p) => {
+    if (activeCategory === "todos") {
+      return featuredProductIds.includes(p.id);
+    }
+    if (activeCategory === "sillas") {
+      return p.id.includes("silla");
+    }
+    if (activeCategory === "mesas") {
+      return p.id.includes("mesa");
+    }
+    if (activeCategory === "carpas") {
+      return p.id.includes("carpa");
+    }
+    return true;
+  });
+
+  return (
+    <main className="flex-1 bg-black">
+      {/* MENÚ DESPLEGABLE SUPERIOR */}
+      <nav className="w-full bg-black border-b border-white/10">
+        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+          <span className="text-white font-semibold text-sm sm:text-base">
+            Hola Eventos
+          </span>
+
+          <div className="relative">
+            <button
+              type="button"
+              onClick={() => setOpenMenu((o) => !o)}
+              className="inline-flex items-center justify-center rounded-full border border-white/40 px-4 py-2 text-sm text-white hover:bg-white/10"
+            >
+              {activeCategory === "todos" && "Material"}
+              {activeCategory === "sillas" && "Sillas"}
+              {activeCategory === "mesas" && "Mesas"}
+              {activeCategory === "carpas" && "Carpas"}
+              <span className="ml-2 text-xs">{openMenu ? "▲" : "▼"}</span>
+            </button>
+
+            {openMenu && (
+              <div className="absolute right-0 mt-2 w-40 rounded-md bg-white shadow-lg ring-1 ring-black/5 z-50">
+                <ul className="py-1 text-sm text-gray-800">
+                  <li>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setActiveCategory("todos");
+                        setOpenMenu(false);
+                      }}
+                      className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                    >
+                      Todo el material
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setActiveCategory("sillas");
+                        setOpenMenu(false);
+                      }}
+                      className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                    >
+                      Sillas
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setActiveCategory("mesas");
+                        setOpenMenu(false);
+                      }}
+                      className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                    >
+                      Mesas
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setActiveCategory("carpas");
+                        setOpenMenu(false);
+                      }}
+                      className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                    >
+                      Carpas
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
+      </nav>
+
+      {/* 1. HERO */}
+      <section className="relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[75vh] text-center text-white flex flex-col">
+        <div className="relative w-full h-[220px] sm:h-[260px] md:h-[300px] overflow-hidden bg-black">
+          <img
+            src="https://misquince.es/fotos/cropped-banner-carlos.jpg"
+            alt="Banner Hola Eventos"
+            className="w-full h-full object-cover object-[40%_50%]"
+          />
+          <div className="absolute inset-0 bg-black/40" />
+
+          {/* Teléfono siempre visible en el banner */}
+          <div className="absolute right-4 top-4 flex flex-col items-end space-y-1">
+            <span className="text-xs sm:text-sm font-semibold">Teléfono:</span>
+            <a
+              href="tel:+34640651851"
+              className="rounded-full bg-black/70 px-3 py-1 text-sm sm:text-base font-bold border border-white"
+            >
+              640 65 18 51
+            </a>
+          </div>
+        </div>
+
+        <div className="bg-black px-4 pt-6">
+          <h1 className="mx-auto max-w-3xl text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
+            Alquiler y organización de eventos en Madrid
+          </h1>
+        </div>
+
+        <div className="bg-black px-4 pb-8 flex flex-col items-center">
+          <p className="mt-3 max-w-xl text-sm sm:text-base text-gray-100">
+            Material, decoración y asesoramiento profesional para que tu evento
+            salga perfecto.
+          </p>
+
+          <div className="mt-6 w-full max-w-md flex flex-col gap-3">
+            <Link href="#products">
+              <button className="inline-flex h-12 w-full items-center justify-center rounded-full bg-white text-black text-sm font-semibold">
+                Ver material destacado
+              </button>
+            </Link>
+
+            {/* Botón de llamada solo en móvil */}
+            <a
+              href="tel:+34640651851"
+              className="inline-flex h-12 w-full items-center justify-center rounded-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold transition-colors sm:hidden"
+            >
+              Llamar ahora
+            </a>
+
+            <a
+              href="https://wa.me/34640651851?text=Hola!%20Me%20gustaría%20pedir%20presupuesto%20para%20un%20evento."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-12 w-full items-center justify-center rounded-full bg-green-500 hover:bg-green-600 text-white text-sm font-semibold transition-colors"
+            >
+              Hablar por WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. CALCULADORA DE PRESUPUESTO */}
+      <section className="bg-gradient-to-b from-gray-900 to-black py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-white mb-2">
+            Calculadora de Presupuesto
+          </h2>
+          <p className="text-gray-300 mb-8">
+            Obtén una estimación aproximada de tu evento
+          </p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Panel izquierdo: Selección de materiales */}
+            <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
+              <h3 className="text-lg font-semibold text-white mb-4">
+                Selecciona tus materiales
+              </h3>
+              <div className="space-y-3 max-h-96 overflow-y-auto">
+                {products.slice(0, 8).map((product) => (
+                  <label
+                    key={product.id}
+                    className="flex items-center gap-3 cursor-pointer hover:bg-gray-700/50 p-2 rounded transition"
+                  >
+                    <input type="checkbox" className="w-4 h-4 rounded" />
+                    <div className="flex-1">
+                      <p className="text-white font-medium text-sm">
+                        {product.name}
+                      </p>
+                      <p className="text-xs text-green-400">
+                        desde €{product.minPrice ?? 10} - €
+                        {product.maxPrice ?? 50}
+                      </p>
+                    </div>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            {/* Panel derecho: Resumen estimado */}
+            <div className="bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-lg p-6 border border-green-600/30 flex flex-col justify-between">
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-6">
+                  Resumen Estimado
+                </h3>
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center pb-3 border-b border-green-600/20">
+                    <span className="text-gray-300">
+                      Materiales seleccionados:
+                    </span>
+                    <span className="text-2xl font-bold text-green-400">
+                      0
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center pb-3 border-b border-green-600/20">
+                    <span className="text-gray-300">Rango estimado:</span>
+                    <span className="text-xl font-bold text-green-400">
+                      €0 - €0
+                    </span>
+                  </div>
+                  <div className="bg-green-600/10 rounded p-3 mt-4">
+                    <p className="text-xs text-gray-300">
+                      💡 Este es un rango aproximado. El precio final dependerá
+                      de la cantidad, fecha y customizaciones.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                href="https://wa.me/34640651851?text=Quiero%20un%20presupuesto%20personalizado%20basado%20en%20mi%20selecci%C3%B3n%20de%20materiales"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex h-12 w-full items-center justify-center rounded-full bg-green-500 hover:bg-green-600 text-white font-semibold transition-colors"
+              >
+                Solicitar Presupuesto Personalizado
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. POR QUÉ NUESTROS PRECIOS */}
+      <section className="bg-black py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-white mb-2 text-center">
+            ¿Por qué nuestros precios?
+          </h2>
+          <p className="text-gray-400 text-center mb-12">
+            Cada evento es único y merece atención personalizada
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {[
+              {
+                icon: "📅",
+                title: "Fecha del Evento",
+                description:
+                  "Los precios varían según disponibilidad y temporada. Fin de semana tiene diferentes tarifas.",
+              },
+              {
+                icon: "📊",
+                title: "Cantidad de Materiales",
+                description:
+                  "Ofrecemos descuentos por volumen. Cuantos más materiales, mejor precio por unidad.",
+              },
+              {
+                icon: "🎨",
+                title: "Customización",
+                description:
+                  "Servicios adicionales como instalación y decoración personalizada tienen costos específicos.",
+              },
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-gray-900 rounded-lg p-6 border border-gray-700"
+              >
+                <div className="text-4xl mb-3">{item.icon}</div>
+                <h3 className="text-lg font-bold text-white mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-gray-400 text-sm">{item.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="bg-gradient-to-r from-blue-900/30 to-blue-800/20 rounded-lg p-8 border border-blue-600/30">
+            <div className="flex items-start gap-4">
+              <div className="text-3xl">🎯</div>
+              <div>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  Nuestra Estrategia: Contacto Directo
+                </h3>
+                <p className="text-gray-300 mb-2">
+                  No mostramos precios exactos porque cada evento es diferente.
+                  Nuestro equipo de especialistas contactará contigo para
+                  entender exactamente qué necesitas, ofrecerte opciones
+                  personalizadas y darte un presupuesto justo.
+                </p>
+                <p className="text-green-400 font-semibold">
+                  ✓ Presupuestos sin compromiso • ✓ Asesoramiento profesional •
+                  ✓ Flexibilidad total
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. PRODUCTOS DESTACADOS */}
+      <section id="products" className="bg-gray-50 py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl font-bold mb-6 text-black">
+            {activeCategory === "todos" && "Material destacado"}
+            {activeCategory === "sillas" && "Sillas"}
+            {activeCategory === "mesas" && "Mesas"}
+            {activeCategory === "carpas" && "Carpas"}
+          </h2>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {visibleProducts.map((item) => {
+              const quantity = quantities[item.id] ?? 1;
+
+              const increase = (e: React.MouseEvent) => {
+                e.stopPropagation();
+                setQuantities((prev) => ({
+                  ...prev,
+                  [item.id]: (prev[item.id] ?? 1) + 1,
+                }));
+              };
+
+              const decrease = (e: React.MouseEvent) => {
+                e.stopPropagation();
+                setQuantities((prev) => {
+                  const current = prev[item.id] ?? 1;
+                  const next = current > 1 ? current - 1 : 1;
+                  return { ...prev, [item.id]: next };
+                });
+              };
+
+              const handleAddToCart = (e: React.MouseEvent) => {
+                e.stopPropagation();
+                addItem({
+                  id: item.id,
+                  name: item.name,
+                  price: item.price,
+                  image: { src: item.image.src },
+                  quantity,
+                });
+
+                setLastAddedId(item.id);
+                setFlash("Producto añadido a tu pedido");
+
+                setTimeout(() => {
+                  setFlash("");
+                  setLastAddedId(null);
+                }, 2000);
+              };
+
+              const isLastAdded = lastAddedId === item.id;
+
+              return (
+                <div
+                  key={item.id}
+                  className="group overflow-hidden rounded-lg border bg-white shadow-sm cursor-pointer"
+                  onClick={() => setSelectedProduct(item)}
+                >
+                  <div className="relative h-64 w-full">
+                    <img
+                      src={item.image.src}
+                      alt={item.name}
+                      className={`h-full w-full ${
+                        item.id === "estufa-gas"
+                          ? "object-contain"
+                          : "object-cover"
+                      } transition-transform duration-300 group-hover:scale-105`}
+                    />
+                  </div>
+                  <div className="p-4">
+                    <div className="mb-2 flex items-center justify-center text-sm text-black font-semibold">
+                      <MessageSquare className="mr-2 h-4 w-4 text-black" />
+                      ¿Necesitas asesoramiento?
+                    </div>
+                    <h3 className="text-lg font-semibold text-center text-black">
+                      {item.name}
+                    </h3>
+
+                    {item.minPrice && item.maxPrice && (
+                      <p className="text-xs text-green-600 font-semibold mt-1 text-center">
+                        desde €{item.minPrice} - €{item.maxPrice}
+                      </p>
+                    )}
+
+                    <div className="mt-3 flex items-center justify-center gap-3">
+                      <button
+                        onClick={decrease}
+                        className="h-8 w-8 rounded-full border border-black flex items-center justify-center text-lg leading-none text-black"
+                      >
+                        −
+                      </button>
+                      <span className="min-w-[2rem] text-center text-sm font-medium text-black">
+                        {quantity}
+                      </span>
+                      <button
+                        onClick={increase}
+                        className="h-8 w-8 rounded-full border border-black flex items-center justify-center text-lg leading-none text-black"
+                      >
+                        +
+                      </button>
+                    </div>
+
+                    <button
+                      onClick={handleAddToCart}
+                      className={`mt-4 w-full rounded-full px-4 py-2 text-sm font-medium text-white ${
+                        isLastAdded
+                          ? "bg-green-600 hover:bg-green-700"
+                          : "bg-blue-600 hover:bg-blue-700"
+                      }`}
+                    >
+                      {isLastAdded ? "Añadido al carrito" : "Añadir al carrito"}
+                    </button>
+
+                    <a
+                      href={`https://wa.me/34640651851?text=Me%20interesa%20este%20material:%20${encodeURIComponent(
+                        item.name
+                      )}.%20%C2%BFCu%C3%A1l%20es%20el%20presupuesto?`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 inline-flex h-10 w-full items-center justify-center rounded-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold transition-colors"
+                    >
+                      Solicitar Presupuesto
+                    </a>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {flash && (
+            <p className="mt-4 text-center text-sm text-green-600">{flash}</p>
+          )}
+
+          <div className="mt-12 text-center">
+            <Link href="/products">
+              <button className="inline-flex h-11 items-center justify-center rounded-md border border-gray-300 bg-white px-8 text-sm font-medium transition-colors hover:bg-gray-100">
+                Ver Catálogo Completo {"->"}
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. AGENTES ESPECIALIZADOS */}
+      <section className="bg-black py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="mb-8 text-center text-3xl font-bold text-white">
+            Habla con nuestros especialistas
+          </h2>
+
+          <div className="flex flex-col items-center gap-8 md:flex-row md:justify-center">
+            {/* Agente Decoración */}
+            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg-white/10 text-center shadow-lg">
+              <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border-white">
+                <img
+                  src="https://misquince.es/fotos/decoracion.png"
+                  alt="Agente de decoración"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <p className="text-sm font-semibold uppercase tracking-wide text-white">
+                Decoración
+              </p>
+              <p className="mt-1 px-4 text-xs text-gray-200">
+                Especialista en decoración y ambientación de eventos.
+              </p>
+              <a
+                href="https://wa.me/34649330612?text=Hola,%20me%20gustaría%20hablar%20con%20decoración%20sobre%20mi%20evento."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center justify-center rounded-full border border-green-500 px-4 py-1.5 text-xs font-medium text-green-400 hover:bg-green-500 hover:text-white"
+              >
+                WhatsApp
+              </a>
+            </div>
+
+            {/* Agente Sonido y Vídeo */}
+            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg-white/10 text-center shadow-lg">
+              <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border-white">
+                <img
+                  src="https://misquince.es/fotos/sonido%20y%20video.jpg"
+                  alt="Agente de sonido y vídeo"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <p className="text-sm font-semibold uppercase tracking-wide text_white">
+                Sonido y vídeo
+              </p>
+              <p className="mt-1 px-4 text-xs text-gray-200">
+                Técnico en sonido, iluminación y proyección.
+              </p>
+              <a
+                href="https://wa.me/34640658864?text=Hola,%20me%20gustaría%20hablar%20sobre%20sonido%20y%20vídeo%20para%20mi%20evento."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center justify-center rounded-full border border-green-500 px-4 py-1.5 text-xs font-medium text-green-400 hover:bg-green-500 hover:text-white"
+              >
+                WhatsApp
+              </a>
+            </div>
+
+            {/* Agente Mobiliario */}
+            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg.white/10 text-center shadow-lg">
+              <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border-white">
+                <img
+                  src="https://misquince.es/fotos/mobiliario.jpg"
+                  alt="Agente de mobiliario"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <p className="text-sm font-semibold uppercase tracking-wide text-white">
+                Mobiliario
+              </p>
+              <p className="mt-1 px-4 text-xs text-gray-200">
+                Especialista en sillas, mesas, tarimas y estructuras.
+              </p>
+              <a
+                href="https://wa.me/34640651851?text=Hola,%20me%20gustaría%20hablar%20sobre%20mobiliario%20para%20mi%20evento."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center justify-center rounded-full border border-green-500 px-4 py-1.5 text-xs font-medium text-green-400 hover:bg-green-500 hover:text-white"
+              >
+                WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. ¿EN QUÉ TE PODEMOS AYUDAR? */}
+      <section id="how-it-works" className="bg-gray-50 py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h2 className="text-4xl font-bold text-black">
+              ¿En qué te podemos ayudar?
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-gray-600">
+              Organizar tu evento nunca fue tan fácil. Sigue estos simples pasos
+              y cuéntanos qué necesitas.
+            </p>
+          </div>
+          <div className="relative mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
+            <div
+              className="absolute top-1/2 left-0 hidden h-px w-full -translate-y-1/2 bg-gray-300 md:block"
+              aria-hidden="true"
+            />
+            {[
+              {
+                number: "1",
+                title: "Elige tu material",
+                desc: "Explora nuestro catálogo y añade todo lo que necesites a tu carrito de presupuesto.",
+              },
+              {
+                number: "2",
+                title: "Pide tu presupuesto",
+                desc: "Envíanos tu selección y te prepararemos una propuesta a medida, sin compromiso.",
+              },
+              {
+                number: "3",
+                title: "Asesoramiento directo",
+                desc: "Contactaremos contigo para afinar detalles de logística, decoración y técnica.",
+              },
+            ].map((step) => (
+              <div key={step.title} className="relative z-10 text-center">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-blue-500 bg-white text-2xl font-bold text-blue-500">
+                  {step.number}
+                </div>
+                <h3 className="mt-6 text-xl font-bold text-black">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-gray-600">{step.desc}</p>
+                {step.number === "3" && (
+                  <p className="mt-2 font-semibold text-black">
+                    ¿Necesitas asesoramiento ahora mismo?
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. VIDEO SECTION – ÚLTIMA */}
+      <section id="video-gallery" className="py-16 md:py-24 bg-black">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white">
+              porque tus sueños son nuestra realidad
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-gray-400">
+              asesoramiento personalizado
+            </p>
+          </div>
+
+          <div className="mb-8 overflow-hidden rounded-lg border border-gray-800 shadow-lg">
+            <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+              <video
+                src="/videos/Decoracion%20para%20empresas%20madrid.mp4"
+                controls
+                autoPlay
+                muted
+                loop
+                className="absolute inset-0 h-full w-full object-cover"
+              >
+                Tu navegador no soporta la etiqueta de vídeo.
+              </video>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+            {[
+              "/videos/Decoracion%20para%20empresas%20madrid.mp4",
+              "https://videos.pexels.com/video-files/8098020/8098020-sd_640_360_25fps.mp4",
+              "https://videos.pexels.com/video-files/5699313/5699313-sd_640_360_25fps.mp4",
+            ].map((videoSrc, index) => (
+              <div key={index} className="mx-auto" style={{ maxWidth: 220 }}>
+                <VideoThumbnail src={videoSrc} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+  );
 }
