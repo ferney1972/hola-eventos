@@ -214,7 +214,17 @@ export const products: Product[] = [
     description:
       "Poste de acero dorado con medidas 1m Altura,30cm Ancho", 
        },
-];
+  {
+    id: "Perchero-burrito",
+    name: "Perchero burrito",
+    image: {
+      src: "https://misquince.es/fotos/perchero.jpg", // pon aquí la URL real que vayas a usar
+    },
+    price: 20, // ajusta al precio real de alquiler
+    description:
+      "Soportes portátiles para colgar ropa, con barra ajustable en altura y ruedas de desplazamiento, más 50 perchas y 50 comprobantes de servicio de guardarropa", 
+       },    
+      ];
 
 
 
