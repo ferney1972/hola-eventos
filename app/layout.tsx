@@ -52,18 +52,19 @@ export default function RootLayout({
           <HeaderClient />
           <main>{children}</main>
 
-          {/* Bloque flotante: Llamada inmediata + carrito */}
-          <div className="fixed bottom-60 right-4 z-50 flex flex-col items-center gap-1">
+          {/* Bloque flotante: Llamada inmediata */}
+          <div className="fixed bottom-80 right-4 z-50 flex flex-col items-center gap-1">
             <span className="text-[10px] font-semibold uppercase tracking-wide text-white bg-black/70 px-2 py-1 rounded-full">
               Llamada inmediata
             </span>
 
-            <Link
-              href="/cart"
-              className="flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700"
+            {/* Botón que realiza llamada telefónica */}
+            <a
+              href="tel:+34640651851"
+              className="flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-lg hover:bg-green-600"
             >
-              <span className="text-xl">🛒</span>
-            </Link>
+              <span className="text-2xl">📞</span>
+            </a>
           </div>
         </CartProvider>
 
