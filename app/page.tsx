@@ -35,6 +35,7 @@ export default function Home() {
     "Ventilador-nebulizador",
     "Cantenaria-dorada",
     "Perchero-burrito",
+    "Manteleria-vajilla"
   ];
 
   const featuredProducts = products
