@@ -71,73 +71,90 @@ export default function Home() {
             Hola Eventos
           </span>
 
-          <div className="relative">
-            <button
-              type="button"
-              onClick={() => setOpenMenu((o) => !o)}
-              className="inline-flex items-center justify-center rounded-full border border-white/40 px-4 py-2 text-sm text-white hover:bg-white/10"
-            >
-              {activeCategory === "todos" && "Material"}
-              {activeCategory === "sillas" && "Sillas"}
-              {activeCategory === "mesas" && "Mesas"}
-              {activeCategory === "carpas" && "Carpas"}
-              <span className="ml-2 text-xs">{openMenu ? "▲" : "▼"}</span>
-            </button>
+          {/* Zona derecha: selector + llamada inmediata (y aquí también puedes tener carrito) */}
+          <div className="flex items-center gap-6">
+            {/* Selector de categoría */}
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() => setOpenMenu((o) => !o)}
+                className="inline-flex items-center justify-center rounded-full border border-white/40 px-4 py-2 text-sm text-white hover:bg-white/10"
+              >
+                {activeCategory === "todos" && "Material"}
+                {activeCategory === "sillas" && "Sillas"}
+                {activeCategory === "mesas" && "Mesas"}
+                {activeCategory === "carpas" && "Carpas"}
+                <span className="ml-2 text-xs">{openMenu ? "▲" : "▼"}</span>
+              </button>
 
-            {openMenu && (
-              <div className="absolute right-0 mt-2 w-40 rounded-md bg-white shadow-lg ring-1 ring-black/5 z-50">
-                <ul className="py-1 text-sm text-gray-800">
-                  <li>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setActiveCategory("todos");
-                        setOpenMenu(false);
-                      }}
-                      className="block w-full text-left px-4 py-2 hover:bg-gray-100"
-                    >
-                      Todo el material
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setActiveCategory("sillas");
-                        setOpenMenu(false);
-                      }}
-                      className="block w-full text-left px-4 py-2 hover:bg-gray-100"
-                    >
-                      Sillas
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setActiveCategory("mesas");
-                        setOpenMenu(false);
-                      }}
-                      className="block w-full text-left px-4 py-2 hover:bg-gray-100"
-                    >
-                      Mesas
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setActiveCategory("carpas");
-                        setOpenMenu(false);
-                      }}
-                      className="block w-full text-left px-4 py-2 hover:bg-gray-100"
-                    >
-                      Carpas
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            )}
+              {openMenu && (
+                <div className="absolute right-0 mt-2 w-40 rounded-md bg-white shadow-lg ring-1 ring-black/5 z-50">
+                  <ul className="py-1 text-sm text-gray-800">
+                    <li>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setActiveCategory("todos");
+                          setOpenMenu(false);
+                        }}
+                        className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                      >
+                        Todo el material
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setActiveCategory("sillas");
+                          setOpenMenu(false);
+                        }}
+                        className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                      >
+                        Sillas
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setActiveCategory("mesas");
+                          setOpenMenu(false);
+                        }}
+                        className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                      >
+                        Mesas
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setActiveCategory("carpas");
+                          setOpenMenu(false);
+                        }}
+                        className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                      >
+                        Carpas
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            {/* Llamada inmediata (alineado a la altura del carrito) */}
+            <div className="flex flex-col items-center">
+              <span className="text-[10px] uppercase tracking-wide text-white/70">
+                Llamada inmediata
+              </span>
+              <a
+                href="tel:+34640651851"
+                className="mt-1 inline-flex items-center justify-center rounded-full bg-green-500 hover:bg-green-600 text-white text-xs font-semibold px-3 py-1.5"
+              >
+                📞 640 65 18 51
+              </a>
+            </div>
           </div>
         </div>
       </nav>
@@ -621,7 +638,7 @@ export default function Home() {
             </div>
 
             {/* Agente Mobiliario */}
-            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg.white/10 text-center shadow-lg">
+            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full bg-white/10 text-center shadow-lg">
               <div className="mb-3 h-20 w-20 overflow-hidden rounded-full border-2 border-white">
                 <img
                   src="https://misquince.es/fotos/mobiliario.jpg"
@@ -741,41 +758,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* BOTÓN FLOTANTE CONTACTO RÁPIDO */}
-      <div className="fixed bottom-4 right-4 z-50">
-        <div className="flex flex-col items-end gap-2">
-          {openQuickContact && (
-            <div className="bg-white rounded-xl shadow-lg border border-gray-200 px-3 py-2 flex flex-col gap-2">
-              <a
-                href="https://wa.me/34640651851?text=Hola!%20Necesito%20información%20para%20un%20evento."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-gray-800 hover:text-green-600"
-              >
-                <span className="text-green-500 text-lg">🟢</span>
-                <span>WhatsApp inmediato</span>
-              </a>
-              <a
-                href="tel:+34640651851"
-                className="flex items-center gap-2 text-sm text-gray-800 hover:text-blue-600"
-              >
-                <span className="text-blue-500 text-lg">📞</span>
-                <span>Llamada urgente</span>
-              </a>
-            </div>
-          )}
-
-          <button
-            type="button"
-            onClick={() => setOpenQuickContact((prev) => !prev)}
-            className="w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 shadow-xl flex items-center justify-center text-white text-2xl"
-            aria-label="Contacto rápido"
-          >
-            🟢
-          </button>
-        </div>
-      </div>
     </main>
   );
 }
