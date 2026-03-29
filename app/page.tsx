@@ -168,17 +168,6 @@ export default function Home() {
             className="w-full h-full object-cover object-[40%_50%]"
           />
           <div className="absolute inset-0 bg-black/40" />
-
-          {/* Teléfono siempre visible en el banner */}
-          <div className="absolute right-4 top-4 flex flex-col items-end space-y-1">
-            <span className="text-xs sm:text-sm font-semibold">Teléfono:</span>
-            <a
-              href="tel:+34640651851"
-              className="rounded-full bg-black/70 px-3 py-1 text-sm sm:text-base font-bold border border-white"
-            >
-              640 65 18 51
-            </a>
-          </div>
         </div>
 
         <div className="bg-black px-4 pt-6">
