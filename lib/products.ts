@@ -222,8 +222,18 @@ export const products: Product[] = [
     },
     price: 20, // ajusta al precio real de alquiler
     description:
-      "Soportes portátiles para colgar ropa, con barra ajustable en altura y ruedas de desplazamiento, más 50 perchas y 50 comprobantes de servicio de guardarropa", 
-       },    
+      "Soportes portátiles para colgar ropa, con barra ajustable en altura y ruedas de desplazamiento, más 50 perchas y 50 comprobantes de servicio de guardarropa.", 
+       },   
+       {
+    id: "Manteleria-vajilla",
+    name: "Manteleria-vajilla",
+    image: {
+      src: "https://misquince.es/fotos/MANTELERIA.png", // pon aquí la URL real que vayas a usar
+    },
+    price: 20, // ajusta al precio real de alquiler
+    description:
+      "Ofrecemos mantelería a medida, perfectamente adaptada a nuestras mesas. Como complemento, ponemos a tu disposición todo tipo de vajilla. Así garantizamos que cada detalle de tu evento sea todo un éxito.", 
+       },   
       ];
 
 
