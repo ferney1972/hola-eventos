@@ -38,6 +38,7 @@ export default function Home() {
     "Perchero-burrito",
     "Manteleria-vajilla",
     "barra-retroiluminada"
+    "botellero-grande"
   ];
 
   const featuredProducts = products
