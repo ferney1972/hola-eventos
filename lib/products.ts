@@ -241,7 +241,7 @@ export const products: Product[] = [
   },
   {
     id: "barra-retroiluminada",
-    name: "Manteleria-vajilla",
+    name: "barra-retroiluminada",
     image: {
       src: "https://misquince.es/fotos/barra.png",
     },
@@ -249,4 +249,15 @@ export const products: Product[] = [
       "Medidas: 181 x 110 x 80 cm Protección solar contra los rayos UVA/UVB 100% reciclable Resistencia a grandes impactos Mando + Cable LED RGB",
     // sin price / minPrice / maxPrice
   },
+  {
+    id: "botellero-pequeño",
+    name: "botellero-pequeño",
+    image: {
+      src: "https://misquince.es/fotos/botellero.PNG",
+    },
+    description:
+      "Botellero de acero inoxidable refrigerado de 2000 mm",
+    // sin price / minPrice / maxPrice
+  },
+  
 ];
