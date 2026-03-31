@@ -250,8 +250,8 @@ export const products: Product[] = [
     // sin price / minPrice / maxPrice
   },
   {
-    id: "botellero-pequeño",
-    name: "botellero-pequeño",
+    id: "botellero-grande",
+    name: "botellero-grande",
     image: {
       src: "https://misquince.es/fotos/botellero.PNG",
     },
