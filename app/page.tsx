@@ -37,8 +37,8 @@ export default function Home() {
     "Cantenaria-dorada",
     "Perchero-burrito",
     "Manteleria-vajilla",
-    "barra-retroiluminada"
-    "botellero-grande"
+    "barra-retroiluminada",
+    "botellero-grande",
   ];
 
   const featuredProducts = products
