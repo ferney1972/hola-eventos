@@ -239,4 +239,14 @@ export const products: Product[] = [
       "Ofrecemos mantelería a medida, perfectamente adaptada a nuestras mesas. Como complemento, ponemos a tu disposición todo tipo de vajilla. Así garantizamos que cada detalle de tu evento sea todo un éxito.",
     // sin price / minPrice / maxPrice
   },
+  {
+    id: "barra-retroiluminada",
+    name: "Manteleria-vajilla",
+    image: {
+      src: "https://misquince.es/fotos/barra.png",
+    },
+    description:
+      "Medidas: 181 x 110 x 80 cm Protección solar contra los rayos UVA/UVB 100% reciclable Resistencia a grandes impactos Mando + Cable LED RGB",
+    // sin price / minPrice / maxPrice
+  },
 ];
