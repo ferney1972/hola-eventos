@@ -25,6 +25,9 @@ export default function Home() {
     "sillas-plegables",
     "tarimas-escenario",
     "carpa-3x3m",
+    "carpa-plegable-3x3",
+    "carpa-plegable-45x3",
+    "carpa-plegable-6x3",
     "mesa-180",
     "mesa-alta-cocktail",
     "mesa-baja",
@@ -747,6 +750,75 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* MODAL DETALLE DE PRODUCTO */}
+      {selectedProduct && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 p-4"
+          onClick={() => setSelectedProduct(null)}
+        >
+          <div
+            className="relative max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl bg-white shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedProduct(null)}
+              aria-label="Cerrar"
+              className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black"
+            >
+              ✕
+            </button>
+
+            <div className="h-64 w-full bg-gray-100 sm:h-80">
+              <img
+                src={selectedProduct.image.src}
+                alt={selectedProduct.name}
+                className="h-full w-full object-cover"
+              />
+            </div>
+
+            <div className="p-6">
+              <h3 className="text-2xl font-bold text-hola-navy">
+                {selectedProduct.name}
+              </h3>
+
+              {selectedProduct.description && (
+                <p className="mt-3 text-sm leading-relaxed text-gray-700">
+                  {selectedProduct.description}
+                </p>
+              )}
+
+              <div className="mt-6 flex flex-col gap-3">
+                <button
+                  onClick={() => {
+                    addItem({
+                      id: selectedProduct.id,
+                      name: selectedProduct.name,
+                      price: selectedProduct.price,
+                      image: { src: selectedProduct.image.src },
+                      quantity: quantities[selectedProduct.id] ?? 1,
+                    });
+                    setSelectedProduct(null);
+                  }}
+                  className="w-full rounded-full bg-hola-blue px-4 py-3 text-sm font-semibold text-white hover:brightness-110"
+                >
+                  Añadir al carrito
+                </button>
+
+                <a
+                  href={`https://wa.me/34640651851?text=Me%20interesa%20este%20material:%20${encodeURIComponent(
+                    selectedProduct.name
+                  )}.%20%C2%BFCu%C3%A1l%20es%20el%20presupuesto?`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full rounded-full bg-green-500 px-4 py-3 text-center text-sm font-semibold text-white hover:bg-green-600"
+                >
+                  Solicitar presupuesto por WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

@@ -259,5 +259,34 @@ export const products: Product[] = [
       "Botellero de acero inoxidable refrigerado de 2000 mm",
     // sin price / minPrice / maxPrice
   },
-  
+  {
+    id: "carpa-plegable-3x3",
+    name: "Carpa plegable 3x3 m",
+    image: {
+      src: "https://www.mundoflexible.es/wp-content/uploads/go-x/u/96883cec-71a6-4fc6-932d-07d2397ce2db/l0,t0,w1184,h864/image-768x560.jpg",
+    },
+    description:
+      "Carpa plegable de 3x3 m (9 m²) que se monta en minutos. Estructura blanca resistente y techo a elegir en blanco, beige, verde oliva o crema. Perfecta para ferias, mercadillos, barras o para dar sombra en cualquier rincón de tu evento.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "carpa-plegable-45x3",
+    name: "Carpa plegable 4,5x3 m",
+    image: {
+      src: "https://www.mundoflexible.es/wp-content/uploads/go-x/u/57ce780d-e7b0-42a7-8ce0-ea13de66d276/l0,t0,w1184,h864/image-768x560.jpg",
+    },
+    description:
+      "Carpa plegable de 4,5x3 m (13,5 m²), un punto más de espacio para cubrir mesas, catering o zonas de invitados. Estructura blanca y techo en blanco o beige. Montaje rápido y sin complicaciones.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "carpa-plegable-6x3",
+    name: "Carpa plegable 6x3 m",
+    image: {
+      src: "https://www.mundoflexible.es/wp-content/uploads/go-x/u/bcbfebed-3835-4502-80e9-c01154669960/l0,t0,w1184,h864/image-768x560.jpg",
+    },
+    description:
+      "Carpa plegable de 6x3 m (18 m²), la más amplia de la gama. Estructura en blanco o negro y techo en blanco, beige o negro. Ideal para dar cobijo a grupos grandes con un montaje rapidísimo.",
+    // sin price / minPrice / maxPrice
+  },
 ];
