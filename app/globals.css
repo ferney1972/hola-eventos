@@ -10,6 +10,12 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Colores de marca Hola Eventos */
+  --color-hola-blue: #254C9A;
+  --color-hola-yellow: #FDDC00;
+  --color-hola-navy: #1A2E5A;
+  --color-hola-pink: #E24A8B;
 }
 
 @media (prefers-color-scheme: dark) {

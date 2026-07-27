@@ -34,7 +34,7 @@ export default function Home() {
     "Expositor",
     "Sonido",
     "Ventilador-nebulizador",
-    "Cantenaria-dorada",
+    "Catenaria-dorada",
     "Perchero-burrito",
     "Manteleria-vajilla",
     "barra-retroiluminada",
@@ -67,7 +67,7 @@ export default function Home() {
   return (
     <main className="flex-1 bg-black">
       {/* MENÚ DESPLEGABLE SUPERIOR */}
-      <nav className="w-full bg-black border-b border-white/10">
+      <nav className="w-full bg-hola-navy border-b border-white/10">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <span className="text-white font-semibold text-sm sm:text-base">
             Hola Eventos
@@ -172,21 +172,25 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/40" />
         </div>
 
-        <div className="bg-black px-4 pt-6">
+        <div className="bg-hola-navy px-4 pt-6">
           <h1 className="mx-auto max-w-3xl text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
             Alquiler y organización de eventos en Madrid
           </h1>
         </div>
 
-        <div className="bg-black px-4 pb-8 flex flex-col items-center">
+        <div className="bg-hola-navy px-4 pb-8 flex flex-col items-center">
           <p className="mt-3 max-w-xl text-sm sm:text-base text-gray-100">
             Material, decoración y asesoramiento profesional para que tu evento
             salga perfecto.
           </p>
 
+          <p className="mt-4 max-w-xl text-base sm:text-lg font-semibold text-hola-yellow">
+            Si no lo tengo, te lo consigo. Y si no, te lo construimos.
+          </p>
+
           <div className="mt-6 w-full max-w-md flex flex-col gap-3">
             <Link href="#products">
-              <button className="inline-flex h-12 w-full items-center justify-center rounded-full bg-white text-black text-sm font-semibold">
+              <button className="inline-flex h-12 w-full items-center justify-center rounded-full bg-hola-yellow text-hola-navy text-sm font-bold hover:brightness-95 transition">
                 Ver material destacado
               </button>
             </Link>
@@ -194,7 +198,7 @@ export default function Home() {
             {/* Botón de llamada solo en móvil */}
             <a
               href="tel:+34640651851"
-              className="inline-flex h-12 w-full items-center justify-center rounded-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold transition-colors sm:hidden"
+              className="inline-flex h-12 w-full items-center justify-center rounded-full bg-hola-blue hover:brightness-110 text-white text-sm font-semibold transition-colors sm:hidden"
             >
               Llamar ahora
             </a>
@@ -289,12 +293,6 @@ export default function Home() {
                       {item.name}
                     </h3>
 
-                    {item.minPrice && item.maxPrice && (
-                      <p className="text-xs text-green-600 font-semibold mt-1 text-center">
-                        desde €{item.minPrice} - €{item.maxPrice}
-                      </p>
-                    )}
-
                     <div className="mt-3 flex items-center justify-center gap-3">
                       <button
                         onClick={decrease}
@@ -318,7 +316,7 @@ export default function Home() {
                       className={`mt-4 w-full rounded-full px-4 py-2 text-sm font-medium text-white ${
                         isLastAdded
                           ? "bg-green-600 hover:bg-green-700"
-                          : "bg-blue-600 hover:bg-blue-700"
+                          : "bg-hola-blue hover:brightness-110"
                       }`}
                     >
                       {isLastAdded ? "Añadido al carrito" : "Añadir al carrito"}
@@ -330,7 +328,7 @@ export default function Home() {
                       )}.%20%C2%BFCu%C3%A1l%20es%20el%20presupuesto?`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-2 inline-flex h-10 w-full items-center justify-center rounded-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold transition-colors"
+                      className="mt-2 inline-flex h-10 w-full items-center justify-center rounded-full bg-hola-blue hover:brightness-110 text-white text-xs font-semibold transition-colors"
                     >
                       Solicitar Presupuesto
                     </a>
@@ -691,7 +689,7 @@ export default function Home() {
               },
             ].map((step) => (
               <div key={step.title} className="relative z-10 text-center">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-blue-500 bg-white text-2xl font-bold text-blue-500">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-hola-blue bg-white text-2xl font-bold text-hola-blue">
                   {step.number}
                 </div>
                 <h3 className="mt-6 text-xl font-bold text-black">
