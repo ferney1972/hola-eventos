@@ -188,7 +188,7 @@ export default function Home() {
           </p>
 
           <p className="mt-4 max-w-xl text-base sm:text-lg font-semibold text-hola-yellow">
-            Si no lo tengo, te lo consigo. Y si no, te lo construimos.
+            Si no lo tengo, te lo consigo. Y si no lo tengo, te lo construyo.
           </p>
 
           <div className="mt-6 w-full max-w-md flex flex-col gap-3">
