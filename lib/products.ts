@@ -289,4 +289,80 @@ export const products: Product[] = [
       "Carpa plegable de 6x3 m (18 m²), la más amplia de la gama. Estructura en blanco o negro y techo en blanco, beige o negro. Ideal para dar cobijo a grupos grandes con un montaje rapidísimo.",
     // sin price / minPrice / maxPrice
   },
+  {
+    id: "poste-cinta-retractil-negra",
+    name: "Poste separador con cinta retráctil negra",
+    image: {
+      src: "https://constansl.com/wp-content/uploads/2018/11/A060106_posteaceroycintaretractilnegra.jpg",
+    },
+    description:
+      "Poste de acero con cinta retráctil negra extensible. Perfecto para organizar colas, delimitar zonas y dar un aire ordenado y profesional a accesos, ferias y congresos. Se coloca en segundos.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "poste-acero-catenaria",
+    name: "Poste separador de acero (catenaria)",
+    image: {
+      src: "https://constansl.com/wp-content/uploads/2018/11/A060107_060108_04-400x400.jpg",
+    },
+    description:
+      "Poste de acero tipo catenaria para usar con cordón. Estable y elegante, ideal para separar filas y crear recorridos en accesos VIP, photocall o entradas de eventos.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "mesa-dinner-180x80-blanca",
+    name: "Mesa banquete Dinner 180 × 80 cm blanca",
+    image: { src: "/productos/prod-dinner-blanca.png" },
+    description:
+      "Mesa rectangular plegable de 180 × 80 cm en blanco, línea Dinner. Amplia y elegante, con patas cromadas plegables. Da cabida cómoda a 8 comensales: perfecta para banquetes, bodas y cenas de gala.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "mesa-dinner-180x80-haya",
+    name: "Mesa banquete Dinner 180 × 80 cm haya",
+    image: { src: "/productos/prod-dinner-haya.png" },
+    description:
+      "Mesa rectangular plegable de 180 × 80 cm con acabado en madera de haya y patas cromadas. Cálida y resistente, ideal para bodas, eventos rústicos y celebraciones con encanto.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "mesa-outdoor-70x70",
+    name: "Mesa de exterior 70 × 70 cm",
+    image: { src: "/productos/prod-mesa-outdoor.png" },
+    description:
+      "Mesa cuadrada de exterior de 70 × 70 cm con tablero resistente y base de aluminio con pie central. Pensada para terrazas, cócteles y zonas al aire libre; aguanta bien la intemperie.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "mesa-alta-konic-60-cristal",
+    name: "Mesa alta cóctel Konic 60 cristal",
+    image: { src: "/productos/prod-konic-cristal.png" },
+    description:
+      "Mesa alta de cóctel modelo Konic con tablero de cristal de 60 cm y columna cromada. Elegante y luminosa, perfecta para recepciones de pie, aperitivos y zonas de networking.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "mesa-alta-konic-60-negra",
+    name: "Mesa alta cóctel Konic 60 negra",
+    image: { src: "/productos/prod-konic-negra.png" },
+    description:
+      "Mesa alta de cóctel modelo Konic con tablero negro de 60 cm y columna cromada. Sobria y versátil, ideal para cócteles, presentaciones y eventos de empresa.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "mesa-catering-redonda-150",
+    name: "Mesa redonda banquete 150 cm",
+    image: { src: "/productos/prod-catering-150.png" },
+    description:
+      "Mesa redonda plegable de 150 cm de diámetro con patas de acero. Un clásico del banquete: sienta cómodamente a 8-10 comensales. Ligera, resistente y fácil de montar y transportar.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "mesa-catering-redonda-180",
+    name: "Mesa redonda banquete 180 cm",
+    image: { src: "/productos/prod-catering-180.png" },
+    description:
+      "Mesa redonda plegable de 180 cm de diámetro con patas de acero. La grande del banquete: da cabida a 10-12 comensales. Perfecta para bodas y grandes celebraciones.",
+    // sin price / minPrice / maxPrice
+  },
 ];

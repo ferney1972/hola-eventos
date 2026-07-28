@@ -28,6 +28,15 @@ export default function Home() {
     "carpa-plegable-3x3",
     "carpa-plegable-45x3",
     "carpa-plegable-6x3",
+    "poste-cinta-retractil-negra",
+    "poste-acero-catenaria",
+    "mesa-dinner-180x80-blanca",
+    "mesa-dinner-180x80-haya",
+    "mesa-outdoor-70x70",
+    "mesa-alta-konic-60-cristal",
+    "mesa-alta-konic-60-negra",
+    "mesa-catering-redonda-150",
+    "mesa-catering-redonda-180",
     "mesa-180",
     "mesa-alta-cocktail",
     "mesa-baja",
@@ -276,15 +285,11 @@ export default function Home() {
                   className="group overflow-hidden rounded-lg border bg-white shadow-sm cursor-pointer"
                   onClick={() => setSelectedProduct(item)}
                 >
-                  <div className="relative h-64 w-full">
+                  <div className="relative aspect-square w-full flex items-center justify-center bg-white p-3 border-b border-gray-100">
                     <img
                       src={item.image.src}
                       alt={item.name}
-                      className={`h-full w-full ${
-                        item.id === "estufa-gas"
-                          ? "object-contain"
-                          : "object-cover"
-                      } transition-transform duration-300 group-hover:scale-105`}
+                      className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
                   <div className="p-4">
@@ -768,11 +773,11 @@ export default function Home() {
               ✕
             </button>
 
-            <div className="h-64 w-full bg-gray-100 sm:h-80">
+            <div className="flex aspect-square w-full items-center justify-center bg-white p-4">
               <img
                 src={selectedProduct.image.src}
                 alt={selectedProduct.name}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-contain"
               />
             </div>
 
