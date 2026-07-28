@@ -14,8 +14,9 @@ export default function Home() {
   const [lastAddedId, setLastAddedId] = useState<string | null>(null);
   const [openMenu, setOpenMenu] = useState(false);
   const [activeCategory, setActiveCategory] = useState<
-    "todos" | "sillas" | "mesas" | "carpas"
+    "todos" | "sillas" | "mesas" | "carpas" | "altas" | "separadores"
   >("todos");
+  const [query, setQuery] = useState("");
   const [quantities, setQuantities] = useState<Record<string, number>>({});
   const [openQuickContact, setOpenQuickContact] = useState(false);
 
@@ -60,21 +61,42 @@ export default function Home() {
         featuredProductIds.indexOf(a.id) - featuredProductIds.indexOf(b.id)
     );
 
-  const visibleProducts = products.filter((p) => {
-    if (activeCategory === "todos") {
-      return featuredProductIds.includes(p.id);
-    }
-    if (activeCategory === "sillas") {
-      return p.id.includes("silla");
-    }
-    if (activeCategory === "mesas") {
-      return p.id.includes("mesa");
-    }
-    if (activeCategory === "carpas") {
-      return p.id.includes("carpa");
-    }
+  const matchesCategory = (p: Product) => {
+    if (activeCategory === "todos") return featuredProductIds.includes(p.id);
+    if (activeCategory === "sillas") return p.id.includes("silla");
+    if (activeCategory === "altas")
+      return p.id.includes("konic") || p.id.includes("alta");
+    if (activeCategory === "mesas")
+      return p.id.includes("mesa") && !p.id.includes("konic");
+    if (activeCategory === "carpas") return p.id.includes("carpa");
+    if (activeCategory === "separadores")
+      return p.id.includes("poste") || p.id.includes("catenaria");
     return true;
+  };
+
+  const q = query.trim().toLowerCase();
+  const visibleProducts = products.filter((p) => {
+    if (q !== "") {
+      // Con búsqueda activa, buscamos en TODO el catálogo
+      return (
+        p.name.toLowerCase().includes(q) ||
+        (p.description ?? "").toLowerCase().includes(q)
+      );
+    }
+    return matchesCategory(p);
   });
+
+  const categorias: {
+    key: typeof activeCategory;
+    label: string;
+  }[] = [
+    { key: "todos", label: "Todo" },
+    { key: "mesas", label: "Mesas" },
+    { key: "altas", label: "Mesas altas" },
+    { key: "sillas", label: "Sillas" },
+    { key: "carpas", label: "Carpas" },
+    { key: "separadores", label: "Separadores" },
+  ];
 
   return (
     <main className="flex-1 bg-black">
@@ -230,12 +252,59 @@ export default function Home() {
       {/* PRODUCTOS DESTACADOS */}
       <section id="products" className="bg-gray-50 py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold mb-6 text-black">
-            {activeCategory === "todos" && "Material destacado"}
-            {activeCategory === "sillas" && "Sillas"}
-            {activeCategory === "mesas" && "Mesas"}
-            {activeCategory === "carpas" && "Carpas"}
+          <h2 className="text-2xl font-bold mb-4 text-hola-navy">
+            {query
+              ? `Resultados para “${query}”`
+              : activeCategory === "todos"
+              ? "Nuestro material"
+              : categorias.find((c) => c.key === activeCategory)?.label}
           </h2>
+
+          {/* BUSCADOR + CATEGORÍAS */}
+          <div className="mb-8">
+            <div className="relative w-full sm:max-w-md">
+              <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                🔍
+              </span>
+              <input
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Busca: mesa, silla, carpa, konic…"
+                className="w-full rounded-full border border-gray-300 bg-white py-3 pl-11 pr-10 text-sm text-black focus:border-hola-blue focus:outline-none"
+              />
+              {query && (
+                <button
+                  type="button"
+                  onClick={() => setQuery("")}
+                  aria-label="Borrar búsqueda"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-black"
+                >
+                  ✕
+                </button>
+              )}
+            </div>
+
+            <div className="mt-4 flex flex-wrap gap-2">
+              {categorias.map((c) => (
+                <button
+                  key={c.key}
+                  type="button"
+                  onClick={() => {
+                    setActiveCategory(c.key);
+                    setQuery("");
+                  }}
+                  className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+                    activeCategory === c.key && !query
+                      ? "bg-hola-blue text-white"
+                      : "border border-gray-300 bg-white text-hola-navy hover:border-hola-blue"
+                  }`}
+                >
+                  {c.label}
+                </button>
+              ))}
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {visibleProducts.map((item) => {
@@ -345,6 +414,26 @@ export default function Home() {
               );
             })}
           </div>
+
+          {visibleProducts.length === 0 && (
+            <div className="py-12 text-center text-gray-500">
+              <p className="text-lg font-semibold text-hola-navy">
+                No encontramos “{query}”.
+              </p>
+              <p className="mt-1 text-sm">
+                Prueba con otra palabra o escríbenos por WhatsApp: si no lo
+                tenemos, te lo conseguimos.
+              </p>
+              <a
+                href="https://wa.me/34640651851?text=Hola!%20Busco%20material%20para%20un%20evento%20y%20no%20lo%20encuentro%20en%20la%20web."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex h-11 items-center justify-center rounded-full bg-green-500 px-6 text-sm font-semibold text-white hover:bg-green-600"
+              >
+                Preguntar por WhatsApp
+              </a>
+            </div>
+          )}
 
           {flash && (
             <p className="mt-4 text-center text-sm text-green-600">{flash}</p>
