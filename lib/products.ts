@@ -365,4 +365,44 @@ export const products: Product[] = [
       "Mesa redonda plegable de 180 cm de diámetro con patas de acero. La grande del banquete: da cabida a 10-12 comensales. Perfecta para bodas y grandes celebraciones.",
     // sin price / minPrice / maxPrice
   },
+  {
+    id: "mesa-alta-stand",
+    name: "Mesa alta de stand",
+    image: { src: "/productos/proximamente.png" },
+    description:
+      "Mesa alta tipo stand, de aproximadamente 110 cm de altura. Ideal para ferias, congresos y cócteles de pie, donde la gente se acerca a hablar, tomar algo y hacer negocio. Estable y de línea sobria. (Medidas orientativas.)",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "mesa-alta-coctel-blanca",
+    name: "Mesa alta de cóctel tapa blanca",
+    image: { src: "/productos/proximamente.png" },
+    description:
+      "Mesa alta de cóctel con tapa blanca, de aproximadamente 110 cm de altura y tablero de unos 60-70 cm. El clásico para recepciones de pie, aperitivos y zonas de bar. Limpia y combinable con cualquier decoración. (Medidas orientativas.)",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "mesa-redonda-cristal-reunion",
+    name: "Mesa redonda de cristal para reunión",
+    image: { src: "/productos/proximamente.png" },
+    description:
+      "Mesa redonda con tablero de cristal y altura de reunión (unos 75 cm), de aproximadamente 90 cm de diámetro. Elegante y luminosa, perfecta para reuniones, mesas de firmas o rincones con estilo. (Medidas orientativas.)",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "mesa-baja-cuadrada-negra",
+    name: "Mesa baja cuadrada negra (lounge)",
+    image: { src: "/productos/proximamente.png" },
+    description:
+      "Mesa baja cuadrada en negro, tipo lounge (unos 45 cm de alto y 55 cm de lado). Perfecta para zonas chill-out con sofás y puffs, para apoyar copas y crear ambiente. (Medidas orientativas.)",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "mesa-baja-cuadrada-blanca",
+    name: "Mesa baja cuadrada blanca (lounge)",
+    image: { src: "/productos/proximamente.png" },
+    description:
+      "Mesa baja cuadrada en blanco, tipo lounge (unos 45 cm de alto y 55 cm de lado). Ideal para zonas lounge, candy bar o rincones de descanso en cualquier evento. (Medidas orientativas.)",
+    // sin price / minPrice / maxPrice
+  },
 ];

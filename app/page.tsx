@@ -38,6 +38,11 @@ export default function Home() {
     "mesa-alta-konic-60-negra",
     "mesa-catering-redonda-150",
     "mesa-catering-redonda-180",
+    "mesa-alta-stand",
+    "mesa-alta-coctel-blanca",
+    "mesa-redonda-cristal-reunion",
+    "mesa-baja-cuadrada-negra",
+    "mesa-baja-cuadrada-blanca",
     "mesa-180",
     "mesa-alta-cocktail",
     "mesa-baja",
@@ -67,7 +72,11 @@ export default function Home() {
     if (activeCategory === "altas")
       return p.id.includes("konic") || p.id.includes("alta");
     if (activeCategory === "mesas")
-      return p.id.includes("mesa") && !p.id.includes("konic");
+      return (
+        p.id.includes("mesa") &&
+        !p.id.includes("konic") &&
+        !p.id.includes("alta")
+      );
     if (activeCategory === "carpas") return p.id.includes("carpa");
     if (activeCategory === "separadores")
       return p.id.includes("poste") || p.id.includes("catenaria");
