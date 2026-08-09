@@ -405,4 +405,100 @@ export const products: Product[] = [
       "Mesa baja cuadrada en blanco, tipo lounge (unos 45 cm de alto y 55 cm de lado). Ideal para zonas lounge, candy bar o rincones de descanso en cualquier evento. (Medidas orientativas.)",
     // sin price / minPrice / maxPrice
   },
+  {
+    id: "silla-nordica-tulip",
+    name: "Silla Nórdica Tulip",
+    image: { src: "/productos/prod-silla-tulip.jpg" },
+    description:
+      "Silla de estilo nórdico con carcasa envolvente y asiento acolchado en polipiel, sobre patas de madera de haya maciza. Cómoda y elegante, viste cualquier mesa de boda, comunión o comida de empresa sin necesidad de funda. Medidas aprox. 49 × 54 × 83 cm y altura de asiento 43 cm.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "butaca-retro-reposabrazos",
+    name: "Butaca Retro con Reposabrazos",
+    image: { src: "/productos/prod-butaca-retro.jpg" },
+    description:
+      "Butaca de diseño retro con reposabrazos y patas de madera. El toque de color que da personalidad a un photocall, una zona chill-out o una mesa presidencial. Ligera, apilable y disponible en varios colores. Medidas aprox. 62 × 63 × 83 cm y altura de asiento 43 cm.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "butaca-aro",
+    name: "Butaca de Diseño Aro",
+    image: { src: "/productos/prod-butaca-aro.jpg" },
+    description:
+      "Butaca de una sola pieza en polipropileno, con respaldo abierto en forma de aro. Resistente al agua y al sol, va igual de bien en una terraza que en un salón moderno. Se apila para transportar y montar en un momento. Medidas aprox. 54 × 55 × 77 cm y altura de asiento 45 cm.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "silla-nido-celosia",
+    name: "Silla Nido de Celosía",
+    image: { src: "/productos/prod-silla-nido.jpg" },
+    description:
+      "Silla tipo nido con respaldo calado en celosía y asiento acolchado, sobre patas de madera. Diseño actual que llama la atención en cualquier montaje y resulta comodísima para eventos largos. Medidas aprox. 60 × 60 × 80 cm y altura de asiento 45 cm.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "taburete-nordico-tulip",
+    name: "Taburete Nórdico Tulip",
+    image: { src: "/productos/prod-taburete-tulip.png" },
+    description:
+      "La versión alta de nuestra silla nórdica: taburete con asiento acolchado y patas de haya. Ideal para barras, cócteles y mesas altas donde quieras mantener un estilo cuidado. Altura total aprox. 105 cm y altura de asiento 74 cm.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "taburete-regulable-curvo",
+    name: "Taburete Regulable Curvo",
+    image: { src: "/productos/prod-taburete-curvo.png" },
+    description:
+      "Taburete moderno de altura regulable con giro de 360°, respaldo envolvente y base cromada con reposapiés. Práctico para barras y zonas de bar: se adapta a la altura de cada mostrador. Altura de asiento regulable aprox. 60–82 cm y base de 40 cm de diámetro.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "taburete-industrial-metal",
+    name: "Taburete Industrial de Metal",
+    image: { src: "/productos/prod-taburete-industrial.png" },
+    description:
+      "Taburete alto de metal en acabado negro, estilo industrial. Robusto, apilable y con mucha personalidad para barras, food-trucks y ambientes urbanos. Aguanta el uso intensivo sin despeinarse. Altura de asiento aprox. 76 cm.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "carpa-beduina",
+    name: "Carpa Beduina (elástica)",
+    image: { src: "/productos/prod-carpa-beduina.jpg" },
+    description:
+      "Carpa elástica tensada que se adapta a la forma del espacio: cuadrada, rectangular o en L. Aporta un aire elegante y desenfadado a bodas y eventos al aire libre, y cubre desde un rincón íntimo hasta cientos de metros uniendo módulos. Sistema modular desde 4 × 4 m hasta grandes superficies.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "carpa-dos-aguas-transparente",
+    name: "Carpa a Dos Aguas Transparente",
+    image: { src: "/productos/prod-carpa-dosaguas.png" },
+    description:
+      "Carpa pabellón de estructura de aluminio y cubierta a dos aguas con techo y laterales transparentes. Da sensación de amplitud y conexión con el exterior, con lona de PVC ignífuga homologada. Se modula en tramos de 5 m para el largo que necesites, en anchos de 5 y 10 m.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "funda-silla",
+    name: "Funda de Silla",
+    image: { src: "/productos/prod-funda-silla.png" },
+    description:
+      "Funda de tela blanca que transforma una silla plegable o de banquete en una silla vestida de gala. Lavable y reutilizable, es la forma más económica de dar un salto de categoría al montaje. Universal para silla plegable o de banquete, disponible con lazo a juego.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "mampara-separadora",
+    name: "Mampara Separadora",
+    image: { src: "/productos/prod-mampara.png" },
+    description:
+      "Panel divisorio autoportante para crear ambientes, pasillos o zonas privadas en ferias, congresos y eventos. Montaje rápido y estable gracias a sus pies; se combinan varias para el largo que haga falta. Medidas aprox. 100–120 cm de ancho × 180 cm de alto.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "suelo-modular-carpa",
+    name: "Suelo Modular para Carpa",
+    image: { src: "/productos/prod-suelo-modular.jpg" },
+    description:
+      "Suelo técnico desmontable que nivela el terreno y crea una superficie firme y antideslizante bajo la carpa o al aire libre. Protege a los invitados del barro y la hierba, y sirve de base para escenarios y pistas de baile. Sistema modular por placas para cubrir la superficie que necesites.",
+    // sin price / minPrice / maxPrice
+  },
 ];
