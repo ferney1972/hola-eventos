@@ -13,9 +13,7 @@ export default function Home() {
   const [flash, setFlash] = useState("");
   const [lastAddedId, setLastAddedId] = useState<string | null>(null);
   const [openMenu, setOpenMenu] = useState(false);
-  const [activeCategory, setActiveCategory] = useState<
-    "todos" | "sillas" | "mesas" | "carpas" | "altas" | "separadores"
-  >("todos");
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const [quantities, setQuantities] = useState<Record<string, number>>({});
   const [openQuickContact, setOpenQuickContact] = useState(false);
@@ -78,21 +76,73 @@ export default function Home() {
         featuredProductIds.indexOf(a.id) - featuredProductIds.indexOf(b.id)
     );
 
+  const categoryById: Record<string, string> = {
+    // Sillas
+    "silla-blanca-resina": "sillas",
+    "sillas-plegables": "sillas",
+    "silla-plegabledemadera": "sillas",
+    "silla-blanca-acolchada": "sillas",
+    "silla-bambú-acolchada": "sillas",
+    "silla-mono-casco": "sillas",
+    "silla-tiffany-blanca": "sillas",
+    // Butacas y diseño
+    "silla-nordica-tulip": "butacas",
+    "butaca-retro-reposabrazos": "butacas",
+    "butaca-aro": "butacas",
+    "silla-nido-celosia": "butacas",
+    // Taburetes
+    "taburete-nordico-tulip": "taburetes",
+    "taburete-regulable-curvo": "taburetes",
+    "taburete-industrial-metal": "taburetes",
+    // Mesas
+    "mesa-180": "mesas",
+    "mesa-baja": "mesas",
+    "mesa-dinner-180x80-blanca": "mesas",
+    "mesa-dinner-180x80-haya": "mesas",
+    "mesa-outdoor-70x70": "mesas",
+    "mesa-catering-redonda-150": "mesas",
+    "mesa-catering-redonda-180": "mesas",
+    "mesa-redonda-cristal-reunion": "mesas",
+    "mesa-baja-cuadrada-negra": "mesas",
+    "mesa-baja-cuadrada-blanca": "mesas",
+    // Mesas altas / cóctel
+    "mesa-alta-cocktail": "altas",
+    "mesa-alta-konic-60-cristal": "altas",
+    "mesa-alta-konic-60-negra": "altas",
+    "mesa-alta-stand": "altas",
+    "mesa-alta-coctel-blanca": "altas",
+    // Carpas
+    "carpa-3x3m": "carpas",
+    "carpa-plegable-3x3": "carpas",
+    "carpa-plegable-45x3": "carpas",
+    "carpa-plegable-6x3": "carpas",
+    "carpa-beduina": "carpas",
+    "carpa-dos-aguas-transparente": "carpas",
+    // Barras y catering
+    "barra-retroiluminada": "catering",
+    "botellero-grande": "catering",
+    "Arcon-congelador": "catering",
+    "Manteleria-vajilla": "catering",
+    // Complementos y mobiliario
+    "estufa-gas": "complementos",
+    "tarimas-escenario": "complementos",
+    "atril-metraquilato": "complementos",
+    sombrillas: "complementos",
+    Expositor: "complementos",
+    Sonido: "complementos",
+    "Ventilador-nebulizador": "complementos",
+    "Catenaria-dorada": "complementos",
+    "Perchero-burrito": "complementos",
+    "poste-cinta-retractil-negra": "complementos",
+    "poste-acero-catenaria": "complementos",
+    "funda-silla": "complementos",
+    "mampara-separadora": "complementos",
+    "suelo-modular-carpa": "complementos",
+  };
+
   const matchesCategory = (p: Product) => {
-    if (activeCategory === "todos") return featuredProductIds.includes(p.id);
-    if (activeCategory === "sillas") return p.id.includes("silla");
-    if (activeCategory === "altas")
-      return p.id.includes("konic") || p.id.includes("alta");
-    if (activeCategory === "mesas")
-      return (
-        p.id.includes("mesa") &&
-        !p.id.includes("konic") &&
-        !p.id.includes("alta")
-      );
-    if (activeCategory === "carpas") return p.id.includes("carpa");
-    if (activeCategory === "separadores")
-      return p.id.includes("poste") || p.id.includes("catenaria");
-    return true;
+    if (activeCategory === "todos") return true;
+    return categoryById[p.id] === activeCategory;
   };
 
   const q = query.trim().toLowerCase();
@@ -104,19 +154,24 @@ export default function Home() {
         (p.description ?? "").toLowerCase().includes(q)
       );
     }
+    if (activeCategory === null) return false;
     return matchesCategory(p);
   });
 
   const categorias: {
-    key: typeof activeCategory;
+    key: string;
     label: string;
+    icon: string;
   }[] = [
-    { key: "todos", label: "Todo" },
-    { key: "mesas", label: "Mesas" },
-    { key: "altas", label: "Mesas altas" },
-    { key: "sillas", label: "Sillas" },
-    { key: "carpas", label: "Carpas" },
-    { key: "separadores", label: "Separadores" },
+    { key: "mesas", label: "Mesas", icon: "🍽️" },
+    { key: "altas", label: "Mesas altas y cóctel", icon: "🍸" },
+    { key: "sillas", label: "Sillas", icon: "🪑" },
+    { key: "butacas", label: "Butacas y diseño", icon: "💺" },
+    { key: "taburetes", label: "Taburetes", icon: "🥂" },
+    { key: "carpas", label: "Carpas", icon: "⛺" },
+    { key: "catering", label: "Barras y catering", icon: "🍷" },
+    { key: "complementos", label: "Complementos", icon: "✨" },
+    { key: "todos", label: "Todo el material", icon: "📋" },
   ];
 
   return (
@@ -137,10 +192,10 @@ export default function Home() {
                 onClick={() => setOpenMenu((o) => !o)}
                 className="inline-flex items-center justify-center rounded-full border border-white/40 px-4 py-2 text-sm text-white hover:bg-white/10"
               >
-                {activeCategory === "todos" && "Material"}
-                {activeCategory === "sillas" && "Sillas"}
-                {activeCategory === "mesas" && "Mesas"}
-                {activeCategory === "carpas" && "Carpas"}
+                {activeCategory
+                  ? categorias.find((c) => c.key === activeCategory)?.label ??
+                    "Categorías"
+                  : "Categorías"}
                 <span className="ml-2 text-xs">{openMenu ? "▲" : "▼"}</span>
               </button>
 
@@ -276,6 +331,8 @@ export default function Home() {
           <h2 className="text-2xl font-bold mb-4 text-hola-navy">
             {query
               ? `Resultados para “${query}”`
+              : activeCategory === null
+              ? "¿Qué material necesitas?"
               : activeCategory === "todos"
               ? "Nuestro material"
               : categorias.find((c) => c.key === activeCategory)?.label}
@@ -306,26 +363,39 @@ export default function Home() {
               )}
             </div>
 
-            <div className="mt-4 flex flex-wrap gap-2">
-              {categorias.map((c) => (
-                <button
-                  key={c.key}
-                  type="button"
-                  onClick={() => {
-                    setActiveCategory(c.key);
-                    setQuery("");
-                  }}
-                  className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
-                    activeCategory === c.key && !query
-                      ? "bg-hola-blue text-white"
-                      : "border border-gray-300 bg-white text-hola-navy hover:border-hola-blue"
-                  }`}
-                >
-                  {c.label}
-                </button>
-              ))}
-            </div>
+            {!query && (
+              <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+                {categorias.map((c) => (
+                  <button
+                    key={c.key}
+                    type="button"
+                    onClick={() => {
+                      setActiveCategory(c.key);
+                      setQuery("");
+                    }}
+                    className={`flex flex-col items-center justify-center gap-1 rounded-xl border px-3 py-4 text-center text-sm font-semibold transition-colors ${
+                      activeCategory === c.key
+                        ? "border-hola-blue bg-hola-blue text-white"
+                        : "border-gray-200 bg-white text-hola-navy hover:border-hola-blue"
+                    }`}
+                  >
+                    <span className="text-2xl">{c.icon}</span>
+                    {c.label}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
+
+          {activeCategory && !query && (
+            <button
+              type="button"
+              onClick={() => setActiveCategory(null)}
+              className="mb-4 inline-flex items-center gap-1 text-sm font-semibold text-hola-blue hover:underline"
+            >
+              ‹ Ver todas las categorías
+            </button>
+          )}
 
           <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
             {visibleProducts.map((item) => {
@@ -436,7 +506,7 @@ export default function Home() {
             })}
           </div>
 
-          {visibleProducts.length === 0 && (
+          {query && visibleProducts.length === 0 && (
             <div className="py-12 text-center text-gray-500">
               <p className="text-lg font-semibold text-hola-navy">
                 No encontramos “{query}”.
