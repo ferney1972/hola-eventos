@@ -57,6 +57,18 @@ export default function Home() {
     "Manteleria-vajilla",
     "barra-retroiluminada",
     "botellero-grande",
+    "silla-nordica-tulip",
+    "butaca-retro-reposabrazos",
+    "butaca-aro",
+    "silla-nido-celosia",
+    "taburete-nordico-tulip",
+    "taburete-regulable-curvo",
+    "taburete-industrial-metal",
+    "carpa-beduina",
+    "carpa-dos-aguas-transparente",
+    "funda-silla",
+    "mampara-separadora",
+    "suelo-modular-carpa",
   ];
 
   const featuredProducts = products
