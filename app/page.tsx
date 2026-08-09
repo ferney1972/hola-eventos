@@ -327,7 +327,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
             {visibleProducts.map((item) => {
               const quantity = quantities[item.id] ?? 1;
 
@@ -382,12 +382,12 @@ export default function Home() {
                       className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
-                  <div className="p-4">
-                    <div className="mb-2 flex items-center justify-center text-sm text-black font-semibold">
+                  <div className="p-3 sm:p-4">
+                    <div className="mb-2 hidden sm:flex items-center justify-center text-sm text-black font-semibold">
                       <MessageSquare className="mr-2 h-4 w-4 text-black" />
                       ¿Necesitas asesoramiento?
                     </div>
-                    <h3 className="text-lg font-semibold text-center text-black">
+                    <h3 className="text-sm sm:text-lg font-semibold text-center text-black">
                       {item.name}
                     </h3>
 
