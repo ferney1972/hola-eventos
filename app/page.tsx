@@ -39,8 +39,6 @@ export default function Home() {
     "mesa-alta-stand",
     "mesa-alta-coctel-blanca",
     "mesa-redonda-cristal-reunion",
-    "mesa-baja-cuadrada-negra",
-    "mesa-baja-cuadrada-blanca",
     "mesa-180",
     "mesa-alta-cocktail",
     "mesa-baja",
@@ -103,8 +101,6 @@ export default function Home() {
     "mesa-catering-redonda-150": "mesas",
     "mesa-catering-redonda-180": "mesas",
     "mesa-redonda-cristal-reunion": "mesas",
-    "mesa-baja-cuadrada-negra": "mesas",
-    "mesa-baja-cuadrada-blanca": "mesas",
     // Mesas altas / cóctel
     "mesa-alta-cocktail": "altas",
     "mesa-alta-konic-60-cristal": "altas",
@@ -142,7 +138,10 @@ export default function Home() {
 
   const matchesCategory = (p: Product) => {
     if (activeCategory === "todos") return true;
-    return categoryById[p.id] === activeCategory;
+    const c = categoryById[p.id];
+    if (activeCategory === "sillas")
+      return c === "sillas" || c === "butacas" || c === "taburetes";
+    return c === activeCategory;
   };
 
   const q = query.trim().toLowerCase();
@@ -295,13 +294,13 @@ export default function Home() {
           </p>
 
           <p className="mt-4 max-w-xl text-base sm:text-lg font-semibold text-hola-yellow">
-            Si no lo tengo, te lo consigo. Y si no lo tengo, te lo construyo.
+            Si no lo tengo, te lo consigo. Y si no lo consigo, te lo construyo.
           </p>
 
           <div className="mt-6 w-full max-w-md flex flex-col gap-3">
             <Link href="#products">
               <button className="inline-flex h-12 w-full items-center justify-center rounded-full bg-hola-yellow text-hola-navy text-sm font-bold hover:brightness-95 transition">
-                Ver material destacado
+                Ver el material
               </button>
             </Link>
 

@@ -145,7 +145,7 @@ export const products: Product[] = [
   },
   {
     id: "mesa-baja",
-    name: "Mesa baja  45×50 cm",
+    name: "Mesa baja 45×50 cm",
     image: {
       src: "https://misquince.es/fotos/mesabaja.jpeg",
     },
@@ -165,21 +165,22 @@ export const products: Product[] = [
   },
   {
     id: "Arcon-congelador",
-    name: "Arcon",
+    name: "Arcón congelador",
     image: {
       src: "https://misquince.es/fotos/ARCON 302.PNG",
     },
-    description: "Arcon congelador para eventos,",
+    description:
+      "Arcón congelador de gran capacidad para eventos. Perfecto para mantener bebidas, hielo y comida bien fríos durante toda la celebración.",
     // sin price / minPrice / maxPrice
   },
   {
     id: "sombrillas",
-    name: "Sombrilla 2x3m",
+    name: "Sombrilla 2×3 m",
     image: {
       src: "https://misquince.es/fotos/sombrillas.jpg",
     },
     description:
-      "Sombrilla de 3x3m mastil tubular de alumino blanco de una pieza y un sistema de doble polea,",
+      "Sombrilla de 2×3 m con mástil tubular de aluminio blanco de una pieza y sistema de doble polea. Ideal para dar sombra en terrazas, jardines y zonas de exterior.",
     // sin price / minPrice / maxPrice
   },
   {
@@ -193,21 +194,22 @@ export const products: Product[] = [
   },
   {
     id: "Sonido",
-    name: "Alquilerdesonido",
+    name: "Equipo de sonido",
     image: {
       src: "https://misquince.es/fotos/Alquiler de sonido.png",
     },
-    description: "Alquiler de sonido",
+    description:
+      "Equipo de sonido para eventos: altavoces y microfonía para que la música y los discursos se escuchen perfectos en tu celebración. Montaje y ajuste incluidos.",
     // sin price / minPrice / maxPrice
   },
   {
     id: "Ventilador-nebulizador",
-    name: "Ventilador",
+    name: "Ventilador nebulizador",
     image: {
       src: "https://misquince.es/fotos/ventilador nebulizador.png",
     },
     description:
-      " Mide aproximadamente 20 cm de alto por 15 cm de ancho en la base. Cuenta con tanque de agua de 500 ml, tres velocidades de aire y nebulización continua o intermitente.",
+      "Ventilador nebulizador para refrescar eventos al aire libre en verano. Cuenta con tanque de agua, tres velocidades de aire y nebulización continua o intermitente.",
     // sin price / minPrice / maxPrice
   },
   {
@@ -231,7 +233,7 @@ export const products: Product[] = [
   },
   {
     id: "Manteleria-vajilla",
-    name: "Manteleria-vajilla",
+    name: "Mantelería y vajilla",
     image: {
       src: "https://misquince.es/fotos/MANTELERIA.png",
     },
@@ -241,22 +243,22 @@ export const products: Product[] = [
   },
   {
     id: "barra-retroiluminada",
-    name: "barra-retroiluminada",
+    name: "Barra retroiluminada",
     image: {
       src: "https://misquince.es/fotos/barra.png",
     },
     description:
-      "Medidas: 181 x 110 x 80 cm Protección solar contra los rayos UVA/UVB 100% reciclable Resistencia a grandes impactos Mando + Cable LED RGB",
+      "Barra retroiluminada con luz LED RGB (mando incluido) para dar un toque espectacular a tu evento. Medidas 181 × 110 × 80 cm, resistente a impactos y 100% reciclable.",
     // sin price / minPrice / maxPrice
   },
   {
     id: "botellero-grande",
-    name: "botellero-grande",
+    name: "Botellero grande",
     image: {
       src: "https://misquince.es/fotos/botellero.PNG",
     },
     description:
-      "Botellero de acero inoxidable refrigerado de 2000 mm",
+      "Botellero refrigerado de acero inoxidable de 2000 mm. Gran capacidad para mantener frías las bebidas de toda tu celebración.",
     // sin price / minPrice / maxPrice
   },
   {
@@ -387,22 +389,6 @@ export const products: Product[] = [
     image: { src: "https://sillasdealquiler.es/wp-content/uploads/2019/06/184395215_0.jpg.jpg" },
     description:
       "Mesa redonda con tablero de cristal y altura de reunión (unos 75 cm), de aproximadamente 90 cm de diámetro. Elegante y luminosa, perfecta para reuniones, mesas de firmas o rincones con estilo. (Medidas orientativas.)",
-    // sin price / minPrice / maxPrice
-  },
-  {
-    id: "mesa-baja-cuadrada-negra",
-    name: "Mesa baja cuadrada negra (lounge)",
-    image: { src: "https://sillasdealquiler.es/wp-content/uploads/2019/11/31CLfEJtHPL.jpg" },
-    description:
-      "Mesa baja cuadrada en negro, tipo lounge (unos 45 cm de alto y 55 cm de lado). Perfecta para zonas chill-out con sofás y puffs, para apoyar copas y crear ambiente. (Medidas orientativas.)",
-    // sin price / minPrice / maxPrice
-  },
-  {
-    id: "mesa-baja-cuadrada-blanca",
-    name: "Mesa baja cuadrada blanca (lounge)",
-    image: { src: "https://sillasdealquiler.es/wp-content/uploads/2019/11/31oRKNIxxL._SY355_.jpg" },
-    description:
-      "Mesa baja cuadrada en blanco, tipo lounge (unos 45 cm de alto y 55 cm de lado). Ideal para zonas lounge, candy bar o rincones de descanso en cualquier evento. (Medidas orientativas.)",
     // sin price / minPrice / maxPrice
   },
   {
