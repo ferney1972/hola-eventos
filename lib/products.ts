@@ -15,7 +15,7 @@ export const products: Product[] = [
     id: "estufa-gas",
     name: "Estufa de gas exterior",
     image: {
-      src: "https://misquince.es/fotos/estufa-gas.jpg",
+      src: "/productos/prod-estufa.jpg",
     },
     price: 25,
     description:
@@ -28,7 +28,7 @@ export const products: Product[] = [
     name: "Silla blanca de resina",
     image: {
       // Mejor sin espacios en el nombre del archivo
-      src: "https://misquince.es/fotos/Silla blanca de resina.jpg",
+      src: "/productos/prod-silla-resina.jpg",
     },
     price: 1.4,
     description:
@@ -40,7 +40,7 @@ export const products: Product[] = [
     id: "sillas-plegables",
     name: "Silla plegable",
     image: {
-      src: "https://misquince.es/fotos/sillas negras.PNG",
+      src: "/productos/prod-silla-plegable-negra.png",
     },
     price: 1.4,
     description:
@@ -52,7 +52,7 @@ export const products: Product[] = [
     id: "silla-plegabledemadera",
     name: "Silla plegable de madera",
     image: {
-      src: "https://misquince.es/fotos/sillas plegables /sillaplegabledemadera.jpg",
+      src: "/productos/prod-silla-plegable-madera.jpg",
     },
     price: 1.3,
     description: "Silla plegable de madera ideal eventos masivos",
@@ -63,7 +63,7 @@ export const products: Product[] = [
     id: "silla-blanca-acolchada",
     name: "Silla blanca acolchada",
     image: {
-      src: "https://misquince.es/fotos/sillas plegables /sillablanca.jpg",
+      src: "/productos/prod-silla-blanca-acolchada.jpg",
     },
     price: 4,
     description:
@@ -75,7 +75,7 @@ export const products: Product[] = [
     id: "silla-bambú-acolchada",
     name: "Silla bambú acolchada",
     image: {
-      src: "https://misquince.es/fotos/silla bambu.png",
+      src: "/productos/prod-silla-bambu.webp",
     },
     description: "Silla plegable bambú acolchada",
     // sin price / minPrice / maxPrice de momento
@@ -84,7 +84,7 @@ export const products: Product[] = [
     id: "silla-mono-casco",
     name: "Silla casco",
     image: {
-      src: "https://misquince.es/fotos/silla casco .png",
+      src: "/productos/prod-silla-casco.jpg",
     },
     description: "Silla mono casco en blanco y negro",
     // sin price / minPrice / maxPrice
@@ -93,7 +93,7 @@ export const products: Product[] = [
     id: "silla-tiffany-blanca",
     name: "Silla tiffany blanca",
     image: {
-      src: "https://misquince.es/fotos/sillatifany.png",
+      src: "/productos/prod-tiffany.jpg",
     },
     description: "Silla tiffany blanca y otros colores",
     // sin price / minPrice / maxPrice
@@ -102,7 +102,7 @@ export const products: Product[] = [
     id: "tarimas-escenario",
     name: "Tarimas para escenario",
     image: {
-      src: "https://misquince.es/fotos/Alquiler de escenario.png",
+      src: "/productos/prod-tarima.png",
     },
     price: 50,
     description:
@@ -114,7 +114,7 @@ export const products: Product[] = [
     id: "carpa-3x3m",
     name: "Carpa de 3x3m",
     image: {
-      src: "https://misquince.es/fotos/alquiler carpa de 3x3m.jpg",
+      src: "/productos/prod-carpa-3x3.jpg",
     },
     price: 180,
     description: "Alquiler de carpa de 3x3m con laterales y contrapesos.",
@@ -125,7 +125,7 @@ export const products: Product[] = [
     id: "mesa-180",
     name: "Mesa plegable 1,80 m",
     image: {
-      src: "https://misquince.es/fotos/mesade1.80",
+      src: "/productos/prod-mesa-180.jpg",
     },
     price: 9,
     description:
@@ -137,7 +137,7 @@ export const products: Product[] = [
     id: "mesa-alta-cocktail",
     name: "Mesa alta para cocktail",
     image: {
-      src: "https://misquince.es/fotos/mesaalta.jpeg",
+      src: "/productos/prod-mesa-alta-cocktail.jpg",
     },
     description:
       "Mesa alta para cocktail y recepciones, perfecta para eventos de pie y zonas de bebida.",
@@ -147,7 +147,7 @@ export const products: Product[] = [
     id: "mesa-baja",
     name: "Mesa baja 45×50 cm",
     image: {
-      src: "https://misquince.es/fotos/mesabaja.jpeg",
+      src: "/productos/proximamente.png",
     },
     description:
       "Mesa baja blanca perfecta para crear zonas lounge, apoyar decoración o candy bar. Tablero fácil de limpiar y estructura resistente.",
@@ -157,7 +157,7 @@ export const products: Product[] = [
     id: "atril-metraquilato",
     name: "Atril alto 118",
     image: {
-      src: "https://misquince.es/fotos/atril.PNG",
+      src: "/productos/prod-atril.png",
     },
     description:
       "Conferencia estándar desarmable, con medidas de 500 x 400 x 1100 mm de alto. Cuenta con un espesor de 10 mm, una tapa superior de 500 x 400, un frontal de 350 x 600 mm (alto) para colocar el logotipo, y una base de 500 x 350. Los cantos están pulidos. La separación interna entre las patas es de 35 cm, mientras que la externa es de 37 cm.",
@@ -167,7 +167,7 @@ export const products: Product[] = [
     id: "Arcon-congelador",
     name: "Arcón congelador",
     image: {
-      src: "https://misquince.es/fotos/ARCON 302.PNG",
+      src: "/productos/prod-arcon.png",
     },
     description:
       "Arcón congelador de gran capacidad para eventos. Perfecto para mantener bebidas, hielo y comida bien fríos durante toda la celebración.",
@@ -177,7 +177,7 @@ export const products: Product[] = [
     id: "sombrillas",
     name: "Sombrilla 2×3 m",
     image: {
-      src: "https://misquince.es/fotos/sombrillas.jpg",
+      src: "/productos/prod-sombrilla.jpg",
     },
     description:
       "Sombrilla de 2×3 m con mástil tubular de aluminio blanco de una pieza y sistema de doble polea. Ideal para dar sombra en terrazas, jardines y zonas de exterior.",
@@ -187,7 +187,7 @@ export const products: Product[] = [
     id: "Expositor",
     name: "Expositor A4",
     image: {
-      src: "https://misquince.es/fotos/Expositor.jpg",
+      src: "/productos/prod-expositor.jpg",
     },
     description: "Expositor A4 con medidas 297x210mm",
     // sin price / minPrice / maxPrice
@@ -196,7 +196,7 @@ export const products: Product[] = [
     id: "Sonido",
     name: "Equipo de sonido",
     image: {
-      src: "https://misquince.es/fotos/Alquiler de sonido.png",
+      src: "/productos/prod-sonido.png",
     },
     description:
       "Equipo de sonido para eventos: altavoces y microfonía para que la música y los discursos se escuchen perfectos en tu celebración. Montaje y ajuste incluidos.",
@@ -206,7 +206,7 @@ export const products: Product[] = [
     id: "Ventilador-nebulizador",
     name: "Ventilador nebulizador",
     image: {
-      src: "https://misquince.es/fotos/ventilador nebulizador.png",
+      src: "/productos/prod-ventilador.jpg",
     },
     description:
       "Ventilador nebulizador para refrescar eventos al aire libre en verano. Cuenta con tanque de agua, tres velocidades de aire y nebulización continua o intermitente.",
@@ -216,7 +216,7 @@ export const products: Product[] = [
     id: "Catenaria-dorada",
     name: "Catenaria dorada",
     image: {
-      src: "https://misquince.es/fotos/Catenaria.PNG",
+      src: "/productos/prod-catenaria.jpg",
     },
     description: "Poste de acero dorado con medidas 1m Altura,30cm Ancho",
     // sin price / minPrice / maxPrice
@@ -225,7 +225,7 @@ export const products: Product[] = [
     id: "Perchero-burrito",
     name: "Perchero burrito",
     image: {
-      src: "https://misquince.es/fotos/perchero.jpg",
+      src: "/productos/prod-perchero.png",
     },
     description:
       "Soportes portátiles para colgar ropa, con barra ajustable en altura y ruedas de desplazamiento, más 50 perchas y 50 comprobantes de servicio de guardarropa.",
@@ -235,7 +235,7 @@ export const products: Product[] = [
     id: "Manteleria-vajilla",
     name: "Mantelería y vajilla",
     image: {
-      src: "https://misquince.es/fotos/MANTELERIA.png",
+      src: "/productos/prod-manteleria.jpg",
     },
     description:
       "Ofrecemos mantelería a medida, perfectamente adaptada a nuestras mesas. Como complemento, ponemos a tu disposición todo tipo de vajilla. Así garantizamos que cada detalle de tu evento sea todo un éxito.",
@@ -245,7 +245,7 @@ export const products: Product[] = [
     id: "barra-retroiluminada",
     name: "Barra retroiluminada",
     image: {
-      src: "https://misquince.es/fotos/barra.png",
+      src: "/productos/prod-barra.png",
     },
     description:
       "Barra retroiluminada con luz LED RGB (mando incluido) para dar un toque espectacular a tu evento. Medidas 181 × 110 × 80 cm, resistente a impactos y 100% reciclable.",
@@ -255,7 +255,7 @@ export const products: Product[] = [
     id: "botellero-grande",
     name: "Botellero grande",
     image: {
-      src: "https://misquince.es/fotos/botellero.PNG",
+      src: "/productos/prod-botellero.png",
     },
     description:
       "Botellero refrigerado de acero inoxidable de 2000 mm. Gran capacidad para mantener frías las bebidas de toda tu celebración.",
@@ -265,7 +265,7 @@ export const products: Product[] = [
     id: "carpa-plegable-3x3",
     name: "Carpa plegable 3x3 m",
     image: {
-      src: "https://www.mundoflexible.es/wp-content/uploads/go-x/u/96883cec-71a6-4fc6-932d-07d2397ce2db/l0,t0,w1184,h864/image-768x560.jpg",
+      src: "/productos/prod-carpa-plegable-3x3.jpg",
     },
     description:
       "Carpa plegable de 3x3 m (9 m²) que se monta en minutos. Estructura blanca resistente y techo a elegir en blanco, beige, verde oliva o crema. Perfecta para ferias, mercadillos, barras o para dar sombra en cualquier rincón de tu evento.",
@@ -275,7 +275,7 @@ export const products: Product[] = [
     id: "carpa-plegable-45x3",
     name: "Carpa plegable 4,5x3 m",
     image: {
-      src: "https://www.mundoflexible.es/wp-content/uploads/go-x/u/57ce780d-e7b0-42a7-8ce0-ea13de66d276/l0,t0,w1184,h864/image-768x560.jpg",
+      src: "/productos/prod-carpa-plegable-45x3.jpg",
     },
     description:
       "Carpa plegable de 4,5x3 m (13,5 m²), un punto más de espacio para cubrir mesas, catering o zonas de invitados. Estructura blanca y techo en blanco o beige. Montaje rápido y sin complicaciones.",
@@ -285,7 +285,7 @@ export const products: Product[] = [
     id: "carpa-plegable-6x3",
     name: "Carpa plegable 6x3 m",
     image: {
-      src: "https://www.mundoflexible.es/wp-content/uploads/go-x/u/bcbfebed-3835-4502-80e9-c01154669960/l0,t0,w1184,h864/image-768x560.jpg",
+      src: "/productos/prod-carpa-plegable-6x3.jpg",
     },
     description:
       "Carpa plegable de 6x3 m (18 m²), la más amplia de la gama. Estructura en blanco o negro y techo en blanco, beige o negro. Ideal para dar cobijo a grupos grandes con un montaje rapidísimo.",
@@ -295,7 +295,7 @@ export const products: Product[] = [
     id: "poste-cinta-retractil-negra",
     name: "Poste separador con cinta retráctil negra",
     image: {
-      src: "https://constansl.com/wp-content/uploads/2018/11/A060106_posteaceroycintaretractilnegra.jpg",
+      src: "/productos/proximamente.png",
     },
     description:
       "Poste de acero con cinta retráctil negra extensible. Perfecto para organizar colas, delimitar zonas y dar un aire ordenado y profesional a accesos, ferias y congresos. Se coloca en segundos.",
@@ -305,7 +305,7 @@ export const products: Product[] = [
     id: "poste-acero-catenaria",
     name: "Poste separador de acero (catenaria)",
     image: {
-      src: "https://constansl.com/wp-content/uploads/2018/11/A060107_060108_04-400x400.jpg",
+      src: "/productos/prod-poste-catenaria.png",
     },
     description:
       "Poste de acero tipo catenaria para usar con cordón. Estable y elegante, ideal para separar filas y crear recorridos en accesos VIP, photocall o entradas de eventos.",
@@ -370,7 +370,7 @@ export const products: Product[] = [
   {
     id: "mesa-alta-stand",
     name: "Mesa alta de stand",
-    image: { src: "https://sillasdealquiler.es/wp-content/uploads/2019/06/mesa_alta_stand.jpg" },
+    image: { src: "/productos/proximamente.png" },
     description:
       "Mesa alta tipo stand, de aproximadamente 110 cm de altura. Ideal para ferias, congresos y cócteles de pie, donde la gente se acerca a hablar, tomar algo y hacer negocio. Estable y de línea sobria. (Medidas orientativas.)",
     // sin price / minPrice / maxPrice
@@ -378,7 +378,7 @@ export const products: Product[] = [
   {
     id: "mesa-alta-coctel-blanca",
     name: "Mesa alta de cóctel tapa blanca",
-    image: { src: "https://sillasdealquiler.es/wp-content/uploads/2019/11/MESA_ALTA_COCTEL_BLANCA.jpg" },
+    image: { src: "/productos/prod-mesa-coctel.jpg" },
     description:
       "Mesa alta de cóctel con tapa blanca, de aproximadamente 110 cm de altura y tablero de unos 60-70 cm. El clásico para recepciones de pie, aperitivos y zonas de bar. Limpia y combinable con cualquier decoración. (Medidas orientativas.)",
     // sin price / minPrice / maxPrice
@@ -386,7 +386,7 @@ export const products: Product[] = [
   {
     id: "mesa-redonda-cristal-reunion",
     name: "Mesa redonda de cristal para reunión",
-    image: { src: "https://sillasdealquiler.es/wp-content/uploads/2019/06/184395215_0.jpg.jpg" },
+    image: { src: "/productos/prod-mesa-cristal.jpg" },
     description:
       "Mesa redonda con tablero de cristal y altura de reunión (unos 75 cm), de aproximadamente 90 cm de diámetro. Elegante y luminosa, perfecta para reuniones, mesas de firmas o rincones con estilo. (Medidas orientativas.)",
     // sin price / minPrice / maxPrice
