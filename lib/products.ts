@@ -487,4 +487,140 @@ export const products: Product[] = [
       "Suelo técnico desmontable que nivela el terreno y crea una superficie firme y antideslizante bajo la carpa o al aire libre. Protege a los invitados del barro y la hierba, y sirve de base para escenarios y pistas de baile. Sistema modular por placas para cubrir la superficie que necesites.",
     // sin price / minPrice / maxPrice
   },
+  {
+    id: "sillon-auditorio",
+    name: "Sillón de auditorio",
+    image: { src: "/productos/prod-sillon-auditorio.png" },
+    description:
+      "Silla de congreso acolchada en negro, apilable y con estructura cromada. Cómoda y resistente, perfecta para conferencias, formaciones, salas de espera y eventos de empresa. Medidas aprox. 53 × 57 × 76 cm.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "silla-pala",
+    name: "Silla de pala",
+    image: { src: "/productos/prod-silla-pala.jpg" },
+    description:
+      "Silla con pala de escritorio abatible, carcasa blanca y patas cromadas. Ideal para congresos, cursos y formaciones donde los asistentes necesitan escribir o apoyar el portátil. Apilable y fácil de montar.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "mesa-plegable-madera-110",
+    name: "Mesa plegable de madera 1,10 m",
+    image: { src: "/productos/prod-mesa-110.jpg" },
+    description:
+      "Mesa plegable con tablero de madera de aproximadamente 1,10 m. Ligera y práctica para catering, mercadillos, mesas de apoyo o puestos. Se pliega para transportar y guardar en cualquier sitio.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "mesa-plegable-resina-120",
+    name: "Mesa plegable de resina 1,20 m",
+    image: { src: "/productos/prod-mesa-resina.jpg" },
+    description:
+      "Mesa plegable de resina resistente en color gris, de aproximadamente 1,20 m. Fácil de limpiar y muy resistente, ideal para exteriores, catering y eventos con mucho uso. Se pliega para un transporte cómodo.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "carpa-estructural-10x20",
+    name: "Carpa estructural (pabellón)",
+    image: { src: "/productos/prod-carpa-estructural.jpg" },
+    description:
+      "Carpa estructural tipo pabellón, de aluminio y lona blanca, con laterales y cortinas. Perfecta para grandes eventos, bodas, ferias y actos de empresa. Estructura homologada y modulable en tramos: se adapta a la superficie que necesites (en la foto, un montaje de 10 × 20 m).",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "silla-cruz",
+    name: "Silla Cruz (crossback)",
+    image: { src: "/productos/proximamente.png" },
+    description:
+      "Silla crossback de madera con respaldo en aspa, estilo rústico-chic. Ideal para bodas y eventos con encanto en madera natural. Medidas aprox. 46 × 54 × 88 cm.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "silla-pantone-negra",
+    name: "Silla Pantone negra",
+    image: { src: "/productos/proximamente.png" },
+    description:
+      "Silla de diseño de una sola pieza (tipo Panton), curva y elegante, en negro. Aporta un toque moderno y llamativo a cualquier montaje. Medidas aprox. 40 × 49 × 86 cm.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "silla-goya-transparente",
+    name: "Sillón Goya transparente",
+    image: { src: "/productos/proximamente.png" },
+    description:
+      "Sillón tipo huevo giratorio con carcasa transparente y base cromada. Diseño espectacular para zonas VIP, photocall o lounge. Medidas aprox. 44 × 61 × 80 cm.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "silla-queen",
+    name: "Silla Queen transparente",
+    image: { src: "/productos/proximamente.png" },
+    description:
+      "Silla transparente estilo Queen Anne, elegante y ligera. Perfecta para bodas y eventos de gala con un aire sofisticado. Medidas aprox. 52 × 47,5 × 90 cm.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "silla-box-negra",
+    name: "Silla Box negra",
+    image: { src: "/productos/proximamente.png" },
+    description:
+      "Silla apilable en negro, compacta y resistente. Práctica para eventos con mucho aforo y montajes rápidos. Medidas aprox. 36 × 46 × 84 cm.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "silla-forja-vintage",
+    name: "Silla Forja Vintage",
+    image: { src: "/productos/proximamente.png" },
+    description:
+      "Silla de forja de hierro estilo vintage, con cojín. Romántica y con carácter para bodas y celebraciones al aire libre. Medidas aprox. 41 × 48 × 95 cm.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "taburete-orlando",
+    name: "Taburete Orlando",
+    image: { src: "/productos/proximamente.png" },
+    description:
+      "Taburete alto blanco con asiento capitoné, regulable en altura, giratorio y con base cromada y reposapiés. Para barras y cócteles con estilo. Altura de asiento 86–106 cm.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "taburete-rimini",
+    name: "Taburete Rímini negro",
+    image: { src: "/productos/proximamente.png" },
+    description:
+      "Taburete alto negro regulable en altura, giratorio, con base cromada y reposapiés. Cómodo y moderno para zonas de bar. Altura de asiento 84–105 cm.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "taburete-aran",
+    name: "Taburete Arán negro",
+    image: { src: "/productos/proximamente.png" },
+    description:
+      "Taburete alto nórdico con asiento negro y patas de madera de haya. Diseño actual para barras y mesas altas. Altura de asiento 74–96 cm.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "taburete-lennon",
+    name: "Taburete Lennon blanco",
+    image: { src: "/productos/proximamente.png" },
+    description:
+      "Taburete alto blanco de líneas modernas. Ligero y combinable para barras y cócteles. Altura de asiento 70–92 cm.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "taburete-martin",
+    name: "Taburete Martín",
+    image: { src: "/productos/proximamente.png" },
+    description:
+      "Taburete alto cromado con tapa, de estilo clásico de bar. Robusto y elegante. Altura aprox. 79 cm.",
+    // sin price / minPrice / maxPrice
+  },
+  {
+    id: "taburete-san-juan",
+    name: "Taburete San Juan",
+    image: { src: "/productos/proximamente.png" },
+    description:
+      "Taburete alto cromado con respaldo y asiento acolchado. Cómodo y estable para barras de bar. Altura de asiento 75–98 cm.",
+    // sin price / minPrice / maxPrice
+  },
 ];
