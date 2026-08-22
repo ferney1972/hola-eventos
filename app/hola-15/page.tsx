@@ -9,15 +9,16 @@ export const metadata: Metadata = {
     "Organización y alquiler de material para fiestas de 15 años en Madrid: trono, pista de baile LED, pantallas LED, humo bajo, chispas frías, sonido, mariachis, hora loca, decoración y mucho más. Pide tu presupuesto sin compromiso.",
 };
 
-// Material propio de Hola Eventos
-const material: { icon: string; title: string; desc: string }[] = [
-  { icon: "🪑", title: "Sillas", desc: "Cómodas y elegantes para todos tus invitados." },
-  { icon: "🍽️", title: "Mesas", desc: "Redondas o rectangulares, para banquete y cóctel." },
-  { icon: "🎀", title: "Fundas y lazos", desc: "Visten las sillas al color de tu fiesta." },
-  { icon: "🍴", title: "Kit de vajillas", desc: "Vajilla, cristalería y cubertería completa." },
-  { icon: "👑", title: "Trono de honor", desc: "El sillón estrella para la quinceañera. La foto del año." },
-  { icon: "⛺", title: "Carpas", desc: "Cubre tu evento llueva o haga sol." },
-  { icon: "🎭", title: "Escenario y tarima", desc: "Para el vals, el show y la banda." },
+// Material propio de Hola Eventos (con foto real)
+const material: { img: string; title: string; desc: string }[] = [
+  { img: "/productos/prod-butaca-retro.jpg", title: "Trono de honor", desc: "El sillón estrella para la quinceañera. La foto del año." },
+  { img: "/productos/prod-silla-blanca-acolchada.jpg", title: "Sillas", desc: "Cómodas y elegantes para todos tus invitados." },
+  { img: "/productos/prod-funda-silla.png", title: "Fundas y lazos", desc: "Visten las sillas al color de tu fiesta." },
+  { img: "/productos/prod-mesa-180.jpg", title: "Mesas", desc: "Para banquete y cóctel, del tamaño que necesites." },
+  { img: "/productos/prod-manteleria.jpg", title: "Kit de vajillas", desc: "Mantelería, vajilla, cristalería y cubertería." },
+  { img: "/productos/prod-carpa-beduina.jpg", title: "Carpas", desc: "Cubre tu evento llueva o haga sol." },
+  { img: "/productos/prod-tarima.png", title: "Escenario y tarima", desc: "Para el vals, el show y la banda." },
+  { img: "/productos/prod-mesa-alta-cocktail.jpg", title: "Mesas de cóctel", desc: "Zona de recibimiento y aperitivo con estilo." },
 ];
 
 // Efectos, show y servicios
@@ -31,6 +32,41 @@ const show: { icon: string; title: string; desc: string }[] = [
   { icon: "🔊", title: "Sonido e iluminación", desc: "Equipo profesional de sonido y luces." },
   { icon: "🎺", title: "Mariachis", desc: "La sorpresa musical que emociona a toda la familia." },
   { icon: "🎉", title: "Hora loca", desc: "Animación, atrezzo y energía para reventar la pista." },
+];
+
+// Packs orientativos
+const packs: { name: string; tag: string; includes: string[]; highlight?: boolean }[] = [
+  {
+    name: "Pack Esencial",
+    tag: "El mobiliario listo",
+    includes: [
+      "Mesas y sillas para tus invitados",
+      "Fundas y lazos a tu color",
+      "Kit de vajilla y mantelería",
+      "Trono de honor para las fotos",
+    ],
+  },
+  {
+    name: "Pack Fiesta",
+    tag: "El más pedido",
+    highlight: true,
+    includes: [
+      "Todo lo del Pack Esencial",
+      "Pista de baile LED",
+      "Sonido e iluminación",
+      "Máquina de humo bajo para el vals",
+    ],
+  },
+  {
+    name: "Pack Todo Incluido",
+    tag: "La fiesta completa",
+    includes: [
+      "Todo lo del Pack Fiesta",
+      "Pantallas LED + chispas frías",
+      "Decoración y ambientación",
+      "Mariachis y hora loca",
+    ],
+  },
 ];
 
 const WA =
@@ -89,11 +125,20 @@ export default function Hola15() {
             {material.map((m) => (
               <div
                 key={m.title}
-                className="rounded-2xl border border-gray-200 bg-white p-5 text-center shadow-sm transition hover:border-hola-pink hover:shadow-md"
+                className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition hover:border-hola-pink hover:shadow-md"
               >
-                <div className="text-4xl">{m.icon}</div>
-                <h3 className="mt-3 font-bold text-hola-navy">{m.title}</h3>
-                <p className="mt-1 text-xs text-gray-500">{m.desc}</p>
+                <div className="aspect-square w-full overflow-hidden bg-gray-100">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={m.img}
+                    alt={m.title}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="p-4 text-center">
+                  <h3 className="font-bold text-hola-navy">{m.title}</h3>
+                  <p className="mt-1 text-xs text-gray-500">{m.desc}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -124,6 +169,69 @@ export default function Hola15() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* PACKS */}
+      <section className="bg-gray-50 py-14 sm:py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-hola-navy">
+            Elige tu pack
+          </h2>
+          <p className="mt-2 max-w-2xl text-gray-600">
+            Tres formas de montar tu fiesta. Los adaptamos a tu presupuesto y a
+            tu número de invitados.
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+            {packs.map((p) => (
+              <div
+                key={p.name}
+                className={`flex flex-col rounded-2xl border-2 bg-white p-6 shadow-sm ${
+                  p.highlight
+                    ? "border-hola-pink shadow-md"
+                    : "border-gray-200"
+                }`}
+              >
+                {p.highlight && (
+                  <span className="mb-3 self-start rounded-full bg-hola-pink px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
+                    ⭐ {p.tag}
+                  </span>
+                )}
+                {!p.highlight && (
+                  <span className="mb-3 self-start rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gray-500">
+                    {p.tag}
+                  </span>
+                )}
+                <h3 className="text-xl font-extrabold text-hola-navy">
+                  {p.name}
+                </h3>
+                <ul className="mt-4 flex-1 space-y-2 text-sm text-gray-600">
+                  {p.includes.map((i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-hola-pink">✓</span>
+                      <span>{i}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={WA}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`mt-6 inline-flex h-11 w-full items-center justify-center rounded-full text-sm font-bold transition ${
+                    p.highlight
+                      ? "bg-hola-pink text-white hover:brightness-95"
+                      : "bg-hola-navy text-white hover:brightness-110"
+                  }`}
+                >
+                  Pedir este pack
+                </a>
+              </div>
+            ))}
+          </div>
+          <p className="mt-4 text-center text-xs text-gray-400">
+            * Packs orientativos. El presupuesto final se ajusta a tu evento.
+          </p>
         </div>
       </section>
 
