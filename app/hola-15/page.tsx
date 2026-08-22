@@ -6,29 +6,28 @@ export const metadata: Metadata = {
   title:
     "Hola 15 | Fiestas de 15 años y quinceañeras en Madrid — Hola Eventos",
   description:
-    "Organización y alquiler de material para fiestas de 15 años en Madrid: trono, pista de baile LED, pantallas LED, humo bajo, chispas frías, sonido, mariachis, hora loca, decoración y mucho más. Pide tu presupuesto sin compromiso.",
+    "Organización y alquiler de material para fiestas de 15 años en Madrid: trono, pista de baile LED, humo bajo, chispas frías, mesas montadas, vajilla, carpas, decoración, sonido, mariachis y hora loca. Pide tu presupuesto sin compromiso.",
 };
 
 // Material propio de Hola Eventos (con foto real)
 const material: { img: string; title: string; desc: string }[] = [
-  { img: "/productos/prod-butaca-retro.jpg", title: "Trono de honor", desc: "El sillón estrella para la quinceañera. La foto del año." },
+  { img: "/productos/hola15-trono.jpg", title: "Trono de honor", desc: "El sillón estrella para la quinceañera. La foto del año." },
+  { img: "/productos/hola15-mesa.jpg", title: "Mesas montadas", desc: "Mesas plegables vestidas y listas para el banquete." },
+  { img: "/productos/hola15-vajilla.jpg", title: "Vajilla y centros de mesa", desc: "Bajoplatos, cristalería, cubertería y centros florales." },
+  { img: "/productos/hola15-escenario.jpg", title: "Escenario y decoración", desc: "Photocall, letras gigantes, globos y ambientación." },
   { img: "/productos/prod-silla-blanca-acolchada.jpg", title: "Sillas", desc: "Cómodas y elegantes para todos tus invitados." },
   { img: "/productos/prod-funda-silla.png", title: "Fundas y lazos", desc: "Visten las sillas al color de tu fiesta." },
-  { img: "/productos/prod-mesa-180.jpg", title: "Mesas", desc: "Para banquete y cóctel, del tamaño que necesites." },
-  { img: "/productos/prod-manteleria.jpg", title: "Kit de vajillas", desc: "Mantelería, vajilla, cristalería y cubertería." },
   { img: "/productos/prod-carpa-beduina.jpg", title: "Carpas", desc: "Cubre tu evento llueva o haga sol." },
-  { img: "/productos/prod-tarima.png", title: "Escenario y tarima", desc: "Para el vals, el show y la banda." },
   { img: "/productos/prod-mesa-alta-cocktail.jpg", title: "Mesas de cóctel", desc: "Zona de recibimiento y aperitivo con estilo." },
 ];
 
-// Efectos, show y servicios
-const show: { icon: string; title: string; desc: string }[] = [
-  { icon: "🕺", title: "Pista de baile LED", desc: "Suelo iluminado que enciende la fiesta." },
-  { icon: "🌫️", title: "Máquina de humo bajo", desc: "El vals soñado bailando sobre una nube." },
-  { icon: "🎆", title: "Máquina de chispas", desc: "Chispas frías para las entradas más espectaculares." },
+// Efectos, show y servicios (con foto donde la hay)
+const show: { icon: string; img?: string; title: string; desc: string }[] = [
+  { icon: "🕺", img: "/productos/hola15-pista.jpg", title: "Pista de baile LED", desc: "Suelo iluminado que enciende la fiesta." },
+  { icon: "🌫️", img: "/productos/hola15-hero.jpg", title: "Máquina de humo bajo", desc: "El vals soñado bailando sobre una nube." },
+  { icon: "🎆", img: "/productos/hola15-chispas.jpg", title: "Máquina de chispas", desc: "Chispas frías para las entradas más espectaculares." },
   { icon: "🌈", title: "Humo de colores", desc: "Efectos de color para las fotos más virales." },
   { icon: "📺", title: "Pantallas LED", desc: "Vídeos, fotos y el nombre de la quinceañera en grande." },
-  { icon: "✨", title: "Decoración", desc: "Ambientación completa a tu gusto y temática." },
   { icon: "🔊", title: "Sonido e iluminación", desc: "Equipo profesional de sonido y luces." },
   { icon: "🎺", title: "Mariachis", desc: "La sorpresa musical que emociona a toda la familia." },
   { icon: "🎉", title: "Hora loca", desc: "Animación, atrezzo y energía para reventar la pista." },
@@ -42,7 +41,7 @@ const packs: { name: string; tag: string; includes: string[]; highlight?: boolea
     includes: [
       "Mesas y sillas para tus invitados",
       "Fundas y lazos a tu color",
-      "Kit de vajilla y mantelería",
+      "Vajilla, cristalería y centros de mesa",
       "Trono de honor para las fotos",
     ],
   },
@@ -63,7 +62,7 @@ const packs: { name: string; tag: string; includes: string[]; highlight?: boolea
     includes: [
       "Todo lo del Pack Fiesta",
       "Pantallas LED + chispas frías",
-      "Decoración y ambientación",
+      "Decoración y escenario completo",
       "Mariachis y hora loca",
     ],
   },
@@ -76,19 +75,28 @@ export default function Hola15() {
   return (
     <main className="bg-white">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-hola-pink to-hola-navy text-center text-white">
-        <div className="container mx-auto px-4 py-16 sm:py-24 flex flex-col items-center">
-          <span className="mb-4 inline-block rounded-full bg-white/15 px-4 py-1 text-xs font-semibold uppercase tracking-widest">
+      <section className="relative overflow-hidden text-center text-white">
+        {/* Foto de fondo */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/productos/hola15-hero.jpg"
+          alt="Fiesta de 15 años con humo bajo y chispas"
+          className="absolute inset-0 h-full w-full object-cover object-top"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-hola-pink/70 via-hola-navy/70 to-hola-navy/90" />
+
+        <div className="relative container mx-auto px-4 py-20 sm:py-28 flex flex-col items-center">
+          <span className="mb-4 inline-block rounded-full bg-white/20 px-4 py-1 text-xs font-semibold uppercase tracking-widest">
             Fiestas de 15 años · Madrid
           </span>
-          <h1 className="mx-auto max-w-3xl text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
+          <h1 className="mx-auto max-w-3xl text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight drop-shadow-lg">
             Hola <span className="text-hola-yellow">15</span>
           </h1>
-          <p className="mt-4 max-w-xl text-base sm:text-lg text-white/90">
+          <p className="mt-4 max-w-xl text-base sm:text-lg text-white drop-shadow">
             Convertimos los 15 años en la fiesta que siempre soñó. Material,
             efectos y show: lo montamos todo por ti.
           </p>
-          <p className="mt-4 max-w-xl text-lg font-semibold text-hola-yellow">
+          <p className="mt-4 max-w-xl text-lg font-semibold text-hola-yellow drop-shadow">
             Si no lo tengo, te lo consigo. Y si no lo consigo, te lo construyo.
           </p>
 
@@ -155,15 +163,30 @@ export default function Hola15() {
             La parte que se hace viral: luces, humo, chispas y animación.
           </p>
 
-          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-3">
+          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
             {show.map((s) => (
               <div
                 key={s.title}
-                className="flex items-start gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-5 transition hover:border-hola-pink hover:bg-white hover:shadow-md"
+                className="overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 shadow-sm transition hover:border-hola-pink hover:bg-white hover:shadow-md"
               >
-                <div className="text-3xl">{s.icon}</div>
-                <div>
-                  <h3 className="font-bold text-hola-navy">{s.title}</h3>
+                {s.img ? (
+                  <div className="aspect-video w-full overflow-hidden bg-gray-100">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={s.img}
+                      alt={s.title}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex aspect-video w-full items-center justify-center bg-hola-navy text-4xl">
+                    {s.icon}
+                  </div>
+                )}
+                <div className="p-4">
+                  <h3 className="font-bold text-hola-navy">
+                    {s.icon} {s.title}
+                  </h3>
                   <p className="mt-1 text-xs text-gray-500">{s.desc}</p>
                 </div>
               </div>
@@ -188,17 +211,14 @@ export default function Hola15() {
               <div
                 key={p.name}
                 className={`flex flex-col rounded-2xl border-2 bg-white p-6 shadow-sm ${
-                  p.highlight
-                    ? "border-hola-pink shadow-md"
-                    : "border-gray-200"
+                  p.highlight ? "border-hola-pink shadow-md" : "border-gray-200"
                 }`}
               >
-                {p.highlight && (
+                {p.highlight ? (
                   <span className="mb-3 self-start rounded-full bg-hola-pink px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
                     ⭐ {p.tag}
                   </span>
-                )}
-                {!p.highlight && (
+                ) : (
                   <span className="mb-3 self-start rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gray-500">
                     {p.tag}
                   </span>
