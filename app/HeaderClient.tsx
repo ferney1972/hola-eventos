@@ -29,6 +29,13 @@ export function HeaderClient() {
           </span>
         </Link>
 
+        <div className="flex items-center gap-3">
+        <Link
+          href="/hola-15"
+          className="inline-flex items-center gap-1 rounded-full bg-hola-pink px-3 py-1 text-sm font-bold text-white hover:brightness-95 transition"
+        >
+          👑 Hola 15
+        </Link>
         <Link
           href="/cart"
           className="relative inline-flex items-center gap-2 rounded-full border border-hola-blue px-3 py-1 text-sm font-medium text-hola-blue hover:bg-hola-blue hover:text-white transition-colors"
@@ -39,6 +46,7 @@ export function HeaderClient() {
             {count}
           </span>
         </Link>
+        </div>
       </div>
     </header>
   );

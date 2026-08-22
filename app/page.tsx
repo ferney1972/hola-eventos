@@ -338,6 +338,12 @@ export default function Home() {
               </button>
             </Link>
 
+            <Link href="/hola-15">
+              <button className="inline-flex h-12 w-full items-center justify-center rounded-full bg-hola-pink text-white text-sm font-bold hover:brightness-95 transition">
+                👑 Fiestas de 15 años
+              </button>
+            </Link>
+
             {/* Botón de llamada solo en móvil */}
             <a
               href="tel:+34640651851"
