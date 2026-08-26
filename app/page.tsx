@@ -364,6 +364,32 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SEÑALES DE CONFIANZA */}
+      <section className="bg-white border-b border-gray-100 py-8">
+        <div className="container mx-auto px-4 grid grid-cols-2 gap-6 text-center md:grid-cols-4">
+          <div className="flex flex-col items-center gap-1">
+            <span className="text-3xl">🚚</span>
+            <p className="text-sm font-bold text-hola-navy">Envío y recogida</p>
+            <p className="text-xs text-gray-500">Lo llevamos y lo recogemos por ti</p>
+          </div>
+          <div className="flex flex-col items-center gap-1">
+            <span className="text-3xl">💬</span>
+            <p className="text-sm font-bold text-hola-navy">Asesoramiento gratis</p>
+            <p className="text-xs text-gray-500">Te ayudamos a elegir sin compromiso</p>
+          </div>
+          <div className="flex flex-col items-center gap-1">
+            <span className="text-3xl">⚡</span>
+            <p className="text-sm font-bold text-hola-navy">Respuesta inmediata</p>
+            <p className="text-xs text-gray-500">Por WhatsApp o teléfono al momento</p>
+          </div>
+          <div className="flex flex-col items-center gap-1">
+            <span className="text-3xl">🎉</span>
+            <p className="text-sm font-bold text-hola-navy">Montamos tu evento</p>
+            <p className="text-xs text-gray-500">Material, decoración y show completo</p>
+          </div>
+        </div>
+      </section>
+
       {/* PRODUCTOS DESTACADOS */}
       <section id="products" className="bg-gray-50 py-16 md:py-24">
         <div className="container mx-auto px-4">

@@ -31,6 +31,12 @@ export function HeaderClient() {
 
         <div className="flex items-center gap-3">
         <Link
+          href="/blog"
+          className="hidden sm:inline-flex items-center rounded-full px-3 py-1 text-sm font-medium text-hola-blue hover:bg-hola-blue/10 transition"
+        >
+          Blog
+        </Link>
+        <Link
           href="/hola-15"
           className="inline-flex items-center gap-1 rounded-full bg-hola-pink px-3 py-1 text-sm font-bold text-white hover:brightness-95 transition"
         >
