@@ -570,11 +570,18 @@ export default function Home() {
           )}
 
           <div className="mt-12 text-center">
-            <Link href="/products">
-              <button className="inline-flex h-11 items-center justify-center rounded-md border border-gray-300 bg-white px-8 text-sm font-medium transition-colors hover:bg-gray-100">
-                Ver Catálogo Completo {"->"}
-              </button>
-            </Link>
+            <button
+              onClick={() => {
+                setActiveCategory("todos");
+                setQuery("");
+                document
+                  .getElementById("products")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="inline-flex h-11 items-center justify-center rounded-md border border-gray-300 bg-white px-8 text-sm font-medium transition-colors hover:bg-gray-100"
+            >
+              Ver Catálogo Completo {"->"}
+            </button>
           </div>
         </div>
       </section>
