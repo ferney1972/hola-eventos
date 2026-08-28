@@ -738,78 +738,35 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Lo que dicen nuestros clientes
+              Tu evento en buenas manos
             </h2>
             <p className="text-gray-400 text-lg">
-              Miles de eventos exitosos hablan por nosotros
+              Material impecable, entrega puntual y trato cercano de principio a fin
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                name: "María García",
-                event: "Boda",
-                rating: 5,
-                comment:
-                  "Fue perfecto. El equipo de Hola Eventos fue profesional, puntual y muy atento. Mi boda fue exactamente como la imaginé. ¡Gracias!",
-              },
-              {
-                name: "Carlos López",
-                event: "Evento Corporativo",
-                rating: 5,
-                comment:
-                  "Excelente servicio. Necesitábamos material de última hora y lo consiguieron sin problema. Muy recomendable para eventos empresariales.",
-              },
-              {
-                name: "Ana Martínez",
-                event: "Cumpleaños",
-                rating: 5,
-                comment:
-                  "El mejor alquiler de Madrid. Buena calidad, precios justos y un asesoramiento increíble. Volveremos a confiar en ellos.",
-              },
-              {
-                name: "Roberto Fernández",
-                event: "Bautizo",
-                rating: 5,
-                comment:
-                  "Profesionales de verdad. Desde el primer contacto hasta la entrega, todo fue perfecto. Muy satisfecho con el servicio.",
-              },
-              {
-                name: "Sofía Rodríguez",
-                event: "Graduación",
-                rating: 5,
-                comment:
-                  "Recomendado 100%. Nos ayudaron a organizar todo. Material de calidad y equipo muy amable. ¡Gracias Hola Eventos!",
-              },
-              {
-                name: "Juan Sánchez",
-                event: "Fiesta Privada",
-                rating: 5,
-                comment:
-                  "Servicio impecable. Entrega rápida, material en perfecto estado y asesoramiento personalizado. Definitivamente volveremos.",
-              },
-            ].map((testimonial, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition"
-              >
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <span key={i} className="text-yellow-400 text-lg">
-                      ★
-                    </span>
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-4 text-sm italic">
-                  "{testimonial.comment}"
-                </p>
-                <div className="border-t border-gray-200 pt-4">
-                  <p className="font-bold text-black">{testimonial.name}</p>
-                  <p className="text-sm text-gray-600">{testimonial.event}</p>
-                </div>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="rounded-2xl bg-white/5 p-8 text-center">
+              <div className="text-4xl">⭐</div>
+              <p className="mt-3 font-bold text-white">Atención 100% personalizada</p>
+              <p className="mt-1 text-sm text-gray-400">
+                Te asesoramos y adaptamos cada detalle a tu evento.
+              </p>
+            </div>
+            <div className="rounded-2xl bg-white/5 p-8 text-center">
+              <div className="text-4xl">🚚</div>
+              <p className="mt-3 font-bold text-white">Envío y recogida en Madrid</p>
+              <p className="mt-1 text-sm text-gray-400">
+                Lo llevamos, lo montamos y lo recogemos por ti.
+              </p>
+            </div>
+            <div className="rounded-2xl bg-white/5 p-8 text-center">
+              <div className="text-4xl">🎉</div>
+              <p className="mt-3 font-bold text-white">15 años, bodas y empresa</p>
+              <p className="mt-1 text-sm text-gray-400">
+                Montamos todo tipo de celebraciones y eventos.
+              </p>
+            </div>
           </div>
 
           <div className="mt-12 text-center">
@@ -972,7 +929,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white">
-              porque tus sueños son nuestra realidad
+              Porque tus sueños son nuestra realidad
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-gray-400">
               asesoramiento personalizado
@@ -997,8 +954,8 @@ export default function Home() {
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
             {[
               "/videos/Decoracion%20para%20empresas%20madrid.mp4",
-              "https://videos.pexels.com/video-files/8098020/8098020-sd_640_360_25fps.mp4",
-              "https://videos.pexels.com/video-files/5699313/5699313-sd_640_360_25fps.mp4",
+              "/videos/Mis%20quince%20centro%20.mp4",
+              "/videos/PRODUCCION%20.mp4",
             ].map((videoSrc, index) => (
               <div key={index} className="mx-auto" style={{ maxWidth: 220 }}>
                 <VideoThumbnail src={videoSrc} />
