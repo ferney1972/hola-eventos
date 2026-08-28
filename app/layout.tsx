@@ -34,6 +34,31 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        {/* Datos estructurados: LocalBusiness (SEO local) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "Hola Eventos",
+              description:
+                "Alquiler de material y organización de eventos en Madrid: sillas, mesas, carpas, barras, sonido y decoración. Fiestas de 15 años, bodas y eventos de empresa.",
+              url: "https://holaeventos.es",
+              telephone: "+34640651851",
+              image: "https://holaeventos.es/logo-hola-eventos.png",
+              priceRange: "€€",
+              areaServed: { "@type": "City", name: "Madrid" },
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Alcorcón",
+                addressRegion: "Madrid",
+                addressCountry: "ES",
+              },
+            }),
+          }}
+        />
+
         {/* Google Analytics 4 */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { VideoThumbnail } from "@/components/video-thumbnail";
 import { MessageSquare } from "lucide-react";
 import { products, type Product } from "@/lib/products";
+import { categories } from "@/lib/categories";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 
@@ -608,6 +609,24 @@ export default function Home() {
             >
               Ver Catálogo Completo {"->"}
             </button>
+          </div>
+
+          {/* ENLACES SEO POR CATEGORÍA */}
+          <div className="mt-10 border-t border-gray-200 pt-8 text-center">
+            <p className="text-sm font-semibold text-hola-navy">
+              Alquiler por categoría en Madrid
+            </p>
+            <div className="mt-3 flex flex-wrap justify-center gap-2">
+              {categories.map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/alquiler/${c.slug}`}
+                  className="rounded-full border border-gray-200 px-4 py-2 text-sm font-medium text-hola-blue hover:border-hola-blue"
+                >
+                  {c.h1}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>
