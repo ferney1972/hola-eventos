@@ -345,6 +345,15 @@ export default function Home() {
               </button>
             </Link>
 
+            <a
+              href="/catalogo-hola-eventos.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-12 w-full items-center justify-center rounded-full border border-hola-yellow text-hola-yellow text-sm font-bold hover:bg-hola-yellow hover:text-hola-navy transition-colors"
+            >
+              📄 Descargar catálogo
+            </a>
+
             {/* Botón de llamada solo en móvil */}
             <a
               href="tel:+34640651851"
