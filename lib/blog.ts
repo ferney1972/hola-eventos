@@ -156,6 +156,166 @@ export const posts: Post[] = [
       },
     ],
   },
+  {
+    slug: "guia-comunion-aire-libre-madrid",
+    title: "Guía definitiva para organizar una comunión al aire libre en Madrid",
+    description:
+      "¿Planeas una comunión al aire libre en Madrid? Descarga nuestra checklist, evita errores con el clima y descubre el mobiliario perfecto para que salga todo bien.",
+    date: "2026-09-02",
+    cover: "/productos/prod-carpa-beduina.jpg",
+    readingMin: 6,
+    body: [
+      {
+        type: "p",
+        text: "Celebrar una comunión en un jardín o una finca de la Sierra de Madrid o alrededores es una tendencia en auge: espacio, luz natural y un ambiente relajado que encanta a mayores y pequeños. Pero la naturaleza es impredecible. Aquí te contamos, paso a paso, cómo blindar tu evento para que salga perfecto pase lo que pase.",
+      },
+      { type: "h2", text: "1. El clima no es tu enemigo si te anticipas" },
+      {
+        type: "p",
+        text: "La regla número uno de cualquier evento al aire libre es tener siempre un Plan B. En Madrid el tiempo cambia rápido: una mañana soleada de mayo puede acabar con una tormenta a mediodía. La solución no es cruzar los dedos, es anticiparse.",
+      },
+      {
+        type: "p",
+        text: "Una carpa lo resuelve todo sin renunciar a la estética. Las carpas transparentes o semirrígidas protegen del sol y de la lluvia dejando pasar la luz, así que sigues teniendo esa sensación de estar al aire libre pero con la tranquilidad de estar cubierto. ¿No sabes qué tamaño de carpa necesitas para 50 invitados? Nosotros te lo calculamos y te la montamos.",
+      },
+      { type: "h2", text: "2. El mobiliario marca la diferencia (y la comodidad)" },
+      {
+        type: "p",
+        text: "Olvídate de las sillas de plástico básicas: el mobiliario es lo que separa una comunión bonita de una inolvidable. La tendencia son las sillas tipo Tiffany, las mesas redondas vestidas con mantelería de lino y una zona de chill-out donde los abuelos y los invitados puedan descansar entre plato y plato.",
+      },
+      {
+        type: "p",
+        text: "Un montaje tipo para una comunión suele incluir:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Sillas para todos los invitados (una por persona, más un 5% extra).",
+          "Mesas redondas de banquete con su mantelería.",
+          "Una barra de catering para bebidas y aperitivo.",
+          "Una zona de juegos o chill-out para los niños y para descansar.",
+        ],
+      },
+      { type: "h2", text: "3. Checklist rápida para no olvidar nada" },
+      {
+        type: "ul",
+        items: [
+          "Reserva del espacio con 6-8 meses de antelación.",
+          "Presupuesto de alquiler de mobiliario y carpa (pídenos el nuestro sin compromiso).",
+          "Proveedor de catering y barra de bebidas.",
+          "Iluminación ambiental para cuando caiga el sol.",
+        ],
+      },
+      { type: "h2", text: "4. La promesa Hola Eventos" },
+      {
+        type: "p",
+        text: "Sabemos que cada familia es un mundo. Si tienes una idea loca para la decoración o necesitas un elemento especial que no ves en nuestro catálogo, recuerda nuestra regla de oro: si no lo tengo, te lo consigo; y si no lo consigo, te lo construyo.",
+      },
+      {
+        type: "p",
+        text: "¿Quieres un presupuesto a medida para la comunión de este año? Descarga nuestro catálogo de mobiliario o escríbenos por WhatsApp y te asesoramos gratis en menos de 15 minutos.",
+      },
+    ],
+  },
+  {
+    slug: "organizar-evento-empresa-100-personas-madrid",
+    title: "Cómo organizar un evento de empresa para 100 personas en Madrid",
+    description:
+      "Organizar un evento corporativo en Madrid no tiene por qué ser un dolor de cabeza. Te revelamos las 4 claves del éxito, qué mobiliario necesitas y cómo optimizar tu presupuesto.",
+    date: "2026-09-02",
+    cover: "/productos/prod-mesa-alta-cocktail.jpg",
+    readingMin: 6,
+    body: [
+      {
+        type: "p",
+        text: "Ya sea una presentación de producto, un team building o una cena de Navidad, un evento de 100 personas requiere precisión militar. Cada detalle cuenta y no hay margen para improvisar. Te damos la hoja de ruta para que salga impecable y proyecte la imagen que tu marca merece.",
+      },
+      { type: "h2", text: "1. Define el objetivo antes de alquilar una sola silla" },
+      {
+        type: "p",
+        text: "El tipo de evento determina todo el montaje. No es lo mismo un cóctel de networking que una jornada formativa:",
+      },
+      {
+        type: "ul",
+        items: [
+          "¿Es networking? Necesitas mesas altas de cóctel y zonas de pie que inviten a moverse y conversar.",
+          "¿Es formativo? Necesitas butacas cómodas, mesas de trabajo y un buen equipo de sonido y proyección.",
+        ],
+      },
+      { type: "h2", text: "2. El mobiliario que proyecta la imagen de tu marca" },
+      {
+        type: "p",
+        text: "No es lo mismo una reunión en una sala de juntas que el lanzamiento de un producto. El mobiliario habla de tu empresa antes de que empiece el evento. Apuesta por la versatilidad: mobiliario de diseño, zonas chill-out corporativas, barras de catering elegantes y detalles que refuercen tu identidad.",
+      },
+      {
+        type: "p",
+        text: "¿Tu empresa tiene colores corporativos específicos? Personalizamos la decoración (mantelería, iluminación, detalles) para que todo respire vuestra identidad de marca.",
+      },
+      { type: "h2", text: "3. Desglose orientativo de necesidades para 100 personas" },
+      {
+        type: "ul",
+        items: [
+          "Zona de registro: 1 mesa larga + 2 taburetes altos.",
+          "Zona principal: 10 mesas redondas (10 pax) o 15 mesas de cóctel.",
+          "100-120 sillas (ten siempre un 10-20% de margen).",
+          "1 barra de bebidas y 1 zona de coffee break.",
+        ],
+      },
+      { type: "h2", text: "4. Por qué las empresas en Madrid confían en Hola Eventos" },
+      {
+        type: "p",
+        text: "Porque eliminamos la logística de tu lista de preocupaciones. Nosotros llevamos, montamos, decoramos y recogemos. Tú solo te ocupas de tus invitados. Un único proveedor para todo, sin coordinar a diez empresas distintas.",
+      },
+      {
+        type: "p",
+        text: "No pierdas tiempo comparando proveedores fragmentados. Solicita tu presupuesto integral hoy mismo: respuesta inmediata por WhatsApp o teléfono.",
+      },
+    ],
+  },
+  {
+    slug: "errores-alquilar-mobiliario-eventos-madrid",
+    title: "5 errores al alquilar mobiliario para eventos en Madrid (y cómo evitarlos)",
+    description:
+      "Evita los fallos más comunes al organizar tu evento en Madrid. Descubre por qué elegir un proveedor integral te ahorra dinero, tiempo y disgustos el día D.",
+    date: "2026-09-02",
+    cover: "/productos/prod-silla-tulip.jpg",
+    readingMin: 5,
+    body: [
+      {
+        type: "p",
+        text: "Has visto eventos que parecen sacados de una revista y otros que son un caos logístico. La diferencia no siempre es el presupuesto: es la planificación y el proveedor. Estos son los 5 errores que más se repiten al alquilar mobiliario en Madrid, y cómo evitarlos.",
+      },
+      { type: "h2", text: "Error 1: Calcular mal el espacio y el aforo" },
+      {
+        type: "p",
+        text: "Meter 100 sillas en un espacio pensado para 80 genera incomodidad y hasta riesgo. Y al revés, un salón medio vacío resta ambiente. Solución: un buen proveedor visita el lugar o te pide un plano y te hace un croquis de distribución gratuito para que todo encaje.",
+      },
+      { type: "h2", text: "Error 2: Contratar proveedores separados para cada cosa" },
+      {
+        type: "p",
+        text: "Uno para las sillas, otro para la carpa, otro para el sonido. Resultado: tres facturas, tres horarios de entrega y tres personas a las que culpar si algo falla. Solución: busca un servicio integral. En Hola Eventos centralizamos todo — un solo interlocutor, una sola factura, cero dolores de cabeza.",
+      },
+      { type: "h2", text: "Error 3: No tener un plan para la meteorología" },
+      {
+        type: "p",
+        text: "El sol de Madrid en junio o una lluvia inesperada en octubre pueden arruinar un evento en el jardín. Solución: incluye siempre en tu presupuesto una carpa o toldo, aunque creas que no la vas a necesitar. Más vale tenerla y que sobre.",
+      },
+      { type: "h2", text: "Error 4: Elegir solo por el precio más bajo" },
+      {
+        type: "p",
+        text: "Mobiliario sucio, desparejo o con piezas rotas arruina la foto y la experiencia del invitado. Solución: exige ver fotos reales del material o pide un catálogo actualizado. Nosotros garantizamos material premium, limpio y en perfecto estado.",
+      },
+      { type: "h2", text: "Error 5: Pensar que \"todo está disponible\" a última hora" },
+      {
+        type: "p",
+        text: "Las buenas fechas (sábados de mayo, junio y diciembre) se agotan con meses de antelación. Solución: reserva tu fecha cuanto antes. Y si tienes una emergencia de última hora, recuerda nuestro lema: si no lo tengo, te lo consigo; y si no lo consigo, te lo construyo.",
+      },
+      {
+        type: "p",
+        text: "¿Quieres asegurar el éxito de tu próximo evento sin estrés? Habla con un especialista de Hola Eventos ahora. Te ayudamos a elegir sin compromiso y con respuesta inmediata por WhatsApp o teléfono.",
+      },
+    ],
+  },
 ];
 
 export function getPost(slug: string): Post | undefined {
