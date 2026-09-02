@@ -147,7 +147,7 @@ export const products: Product[] = [
     id: "mesa-baja",
     name: "Mesa baja 45×50 cm",
     image: {
-      src: "/productos/proximamente.png",
+      src: "/productos/prod-mesa-baja.jpg",
     },
     description:
       "Mesa baja blanca perfecta para crear zonas lounge, apoyar decoración o candy bar. Tablero fácil de limpiar y estructura resistente.",
@@ -295,7 +295,7 @@ export const products: Product[] = [
     id: "poste-cinta-retractil-negra",
     name: "Poste separador con cinta retráctil negra",
     image: {
-      src: "/productos/proximamente.png",
+      src: "/productos/prod-poste-retractil.jpg",
     },
     description:
       "Poste de acero con cinta retráctil negra extensible. Perfecto para organizar colas, delimitar zonas y dar un aire ordenado y profesional a accesos, ferias y congresos. Se coloca en segundos.",
@@ -370,7 +370,7 @@ export const products: Product[] = [
   {
     id: "mesa-alta-stand",
     name: "Mesa alta de stand",
-    image: { src: "/productos/proximamente.png" },
+    image: { src: "/productos/prod-mesa-alta-stand.jpg" },
     description:
       "Mesa alta tipo stand, de aproximadamente 110 cm de altura. Ideal para ferias, congresos y cócteles de pie, donde la gente se acerca a hablar, tomar algo y hacer negocio. Estable y de línea sobria. (Medidas orientativas.)",
     // sin price / minPrice / maxPrice
