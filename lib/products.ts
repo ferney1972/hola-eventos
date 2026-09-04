@@ -91,12 +91,57 @@ export const products: Product[] = [
   },
   {
     id: "silla-tiffany-blanca",
-    name: "Silla tiffany blanca",
+    name: "Silla Tiffany blanca",
     image: {
-      src: "/productos/prod-tiffany.jpg",
+      src: "/productos/prod-tiffany-blanca.jpg",
     },
-    description: "Silla tiffany blanca y otros colores",
-    // sin price / minPrice / maxPrice
+    description:
+      "Silla Tiffany (Chiavari) blanca, la favorita para bodas y fiestas de 15 años. Elegante, ligera y apilable. Disponible en varios colores.",
+  },
+  {
+    id: "silla-tiffany-vintage",
+    name: "Silla Tiffany blanca vintage",
+    image: {
+      src: "/productos/prod-tiffany-vintage.jpg",
+    },
+    description:
+      "Silla Tiffany en blanco envejecido (vintage) con cojín, perfecta para bodas y celebraciones con estilo romántico. Elegante y cómoda.",
+  },
+  {
+    id: "silla-tiffany-dorada",
+    name: "Silla Tiffany dorada",
+    image: {
+      src: "/productos/prod-tiffany-dorada.jpg",
+    },
+    description:
+      "Silla Tiffany en dorado champán con cojín, un clásico de lujo para bodas y fiestas de 15 años. Aporta un toque cálido y elegante.",
+  },
+  {
+    id: "silla-tiffany-plata",
+    name: "Silla Tiffany plata",
+    image: {
+      src: "/productos/prod-tiffany-plata.jpg",
+    },
+    description:
+      "Silla Tiffany en plata con cojín, ideal para eventos glamurosos y decoraciones modernas. Combina con cualquier paleta de colores.",
+  },
+  {
+    id: "silla-tiffany-transparente",
+    name: "Silla Tiffany transparente",
+    image: {
+      src: "/productos/prod-tiffany-transparente.jpg",
+    },
+    description:
+      "Silla Tiffany transparente de resina cristal, muy demandada para bodas y 15 años. Aporta ligereza visual y un aire elegante y actual.",
+  },
+  {
+    id: "silla-tiffany-negra",
+    name: "Silla Tiffany negra",
+    image: {
+      src: "/productos/prod-tiffany-negra.jpg",
+    },
+    description:
+      "Silla Tiffany negra con cojín, elegante y sofisticada. Perfecta para eventos de empresa, bodas y celebraciones de estilo moderno.",
   },
   {
     id: "tarimas-escenario",
