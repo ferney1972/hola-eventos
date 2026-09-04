@@ -77,18 +77,6 @@ export default function Home() {
     "mesa-plegable-madera-110",
     "mesa-plegable-resina-120",
     "carpa-estructural-10x20",
-    "silla-cruz",
-    "silla-pantone-negra",
-    "silla-goya-transparente",
-    "silla-queen",
-    "silla-box-negra",
-    "silla-forja-vintage",
-    "taburete-orlando",
-    "taburete-rimini",
-    "taburete-aran",
-    "taburete-lennon",
-    "taburete-martin",
-    "taburete-san-juan",
   ];
 
   const featuredProducts = products
@@ -168,18 +156,6 @@ export default function Home() {
     "mesa-plegable-madera-110": "mesas",
     "mesa-plegable-resina-120": "mesas",
     "carpa-estructural-10x20": "carpas",
-    "silla-cruz": "sillas",
-    "silla-pantone-negra": "sillas",
-    "silla-goya-transparente": "sillas",
-    "silla-queen": "sillas",
-    "silla-box-negra": "sillas",
-    "silla-forja-vintage": "sillas",
-    "taburete-orlando": "taburetes",
-    "taburete-rimini": "taburetes",
-    "taburete-aran": "taburetes",
-    "taburete-lennon": "taburetes",
-    "taburete-martin": "taburetes",
-    "taburete-san-juan": "taburetes",
   };
 
   const matchesCategory = (p: Product) => {
