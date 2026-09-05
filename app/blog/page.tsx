@@ -3,6 +3,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { posts } from "@/lib/blog";
 
+// Fuerza que el índice del blog se genere siempre con los artículos actuales
+// (evita que Vercel sirva una versión cacheada con menos artículos).
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Blog | Consejos para tu evento en Madrid — Hola Eventos",
   description:

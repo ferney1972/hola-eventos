@@ -17,9 +17,9 @@ export const categories: Category[] = [
   {
     slug: "alquiler-sillas-madrid",
     h1: "Alquiler de sillas en Madrid",
-    title: "Alquiler de sillas en Madrid | Hola Eventos",
+    title: "Alquiler de Sillas para Eventos en Madrid | Hola Eventos",
     description:
-      "Alquiler de sillas para eventos en Madrid: plegables, tiffany, cruz, resina, butacas y sillones. Envío, montaje y recogida. Pide presupuesto sin compromiso.",
+      "Alquiler de sillas para bodas, comuniones y eventos en Madrid. Sillas Tiffany, plegables, bambú y vestidas. Entrega, montaje y recogida a domicilio.",
     intro: [
       "En Hola Eventos alquilamos sillas para todo tipo de eventos en Madrid: bodas, fiestas de 15 años, comuniones, eventos de empresa y celebraciones privadas. Disponemos de un amplio stock de modelos para que elijas el estilo que mejor encaje con tu evento, desde la práctica silla plegable hasta la elegante silla tiffany, cruz o los sillones de diseño.",
       "Nos encargamos del envío, el montaje y la recogida en Madrid y alrededores, para que tú solo tengas que disfrutar. Si necesitas muchas unidades para un banquete o un congreso, consúltanos: trabajamos con grandes cantidades y te ofrecemos el mejor precio por volumen.",
@@ -43,9 +43,9 @@ export const categories: Category[] = [
   {
     slug: "alquiler-mesas-madrid",
     h1: "Alquiler de mesas en Madrid",
-    title: "Alquiler de mesas en Madrid | Hola Eventos",
+    title: "Alquiler de Mesas para Eventos y Bodas en Madrid | Hola Eventos",
     description:
-      "Alquiler de mesas para eventos en Madrid: redondas de banquete, rectangulares, altas de cóctel y de catering. Envío, montaje y recogida. Pide presupuesto.",
+      "Alquila mesas redondas, rectangulares y de cóctel para eventos en Madrid. Amplio catálogo con servicio de transporte y montaje. Pide presupuesto.",
     intro: [
       "Alquilamos mesas para eventos en Madrid en todos los formatos que puedas necesitar: mesas redondas de banquete para bodas y celebraciones, mesas rectangulares plegables, mesas altas de cóctel para el recibimiento y mesas de catering. Todo el material se entrega limpio y en perfecto estado.",
       "Elige el tamaño según tu número de invitados y nosotros te asesoramos para que no te sobre ni te falte nada. Nos ocupamos del transporte, el montaje y la recogida en Madrid y su comunidad.",
@@ -69,9 +69,9 @@ export const categories: Category[] = [
   {
     slug: "alquiler-carpas-madrid",
     h1: "Alquiler de carpas en Madrid",
-    title: "Alquiler de carpas para eventos en Madrid | Hola Eventos",
+    title: "Alquiler de Carpas en Madrid para Eventos y Jardines | Hola Eventos",
     description:
-      "Alquiler de carpas en Madrid: plegables, beduinas, estructurales y transparentes. Cubre tu evento llueva o haga sol. Montaje y recogida incluidos. Pide presupuesto.",
+      "Alquiler e instalación de carpas impermeables para bodas y fiestas en Madrid. Varias medidas y acabados. Protección total para tu evento exterior.",
     intro: [
       "Alquilamos carpas para eventos en Madrid de todos los tipos: carpas plegables para montajes rápidos, carpas beduinas elásticas de diseño, carpas estructurales tipo pabellón para grandes eventos y carpas transparentes para no perder las vistas. La carpa es la mejor inversión para no depender del tiempo.",
       "Nos encargamos del transporte, el montaje profesional y la recogida. Dinos el tamaño del espacio y el número de invitados y te recomendamos la carpa ideal, con su suelo y accesorios si los necesitas.",
@@ -95,9 +95,9 @@ export const categories: Category[] = [
   {
     slug: "alquiler-barras-catering-madrid",
     h1: "Alquiler de barras y material de catering en Madrid",
-    title: "Alquiler de barras y catering en Madrid | Hola Eventos",
+    title: "Alquiler de Barras de Bar y Material de Catering en Madrid",
     description:
-      "Alquiler de barras de bar, botelleros, mantelería y vajilla para eventos en Madrid. Todo para tu barra y tu banquete. Envío y recogida. Pide presupuesto.",
+      "Alquiler de barras de bar iluminadas y mobiliario de catering para fiestas y eventos en Madrid. Soluciones profesionales a medida. ¡Consulta precios!",
     intro: [
       "Montamos la barra y el servicio de tu evento en Madrid con todo lo necesario: barras de bar retroiluminadas, botelleros, arcones, mantelería y vajilla completa. Ideal para bodas, fiestas de 15 años, eventos de empresa y celebraciones donde quieres que la zona de bebida y el banquete luzcan impecables.",
       "Te preparamos el conjunto completo y nos encargamos del envío y la recogida en Madrid y alrededores. Cuéntanos cuántos invitados sois y qué tipo de servicio quieres, y te asesoramos sin compromiso.",
