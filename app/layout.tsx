@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://holaeventos.es"),
   title:
-    "Hola Eventos | Alquiler de Sillas, Mesas y Carpas en Madrid",
+    "Alquiler de Sillas, Mesas y Carpas en Madrid | Hola Eventos",
   description:
     "Alquiler de material para eventos, bodas y fiestas en Madrid. Sillas, mesas, carpas y vajilla. Pide tu presupuesto personalizado hoy por WhatsApp.",
 };
