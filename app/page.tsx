@@ -14,12 +14,13 @@ export default function Home() {
   const [flash, setFlash] = useState("");
   const [lastAddedId, setLastAddedId] = useState<string | null>(null);
   const [openMenu, setOpenMenu] = useState(false);
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string | null>("todos");
   const [query, setQuery] = useState("");
   const [quantities, setQuantities] = useState<Record<string, number>>({});
   const [openQuickContact, setOpenQuickContact] = useState(false);
 
   const featuredProductIds = [
+    "pista-baile-led",
     "estufa-gas",
     "silla-blanca-resina",
     "sillas-plegables",
@@ -151,6 +152,7 @@ export default function Home() {
     "funda-silla": "complementos",
     "mampara-separadora": "complementos",
     "suelo-modular-carpa": "complementos",
+    "pista-baile-led": "complementos",
     "sillon-auditorio": "sillas",
     "silla-pala": "sillas",
     "mesa-plegable-madera-110": "mesas",
@@ -449,13 +451,13 @@ export default function Home() {
             )}
           </div>
 
-          {activeCategory && !query && (
+          {activeCategory && activeCategory !== "todos" && !query && (
             <button
               type="button"
-              onClick={() => setActiveCategory(null)}
+              onClick={() => setActiveCategory("todos")}
               className="mb-4 inline-flex items-center gap-1 text-sm font-semibold text-hola-blue hover:underline"
             >
-              ‹ Ver todas las categorías
+              ‹ Ver todo el material
             </button>
           )}
 

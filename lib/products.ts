@@ -12,6 +12,15 @@ export type Product = {
 
 export const products: Product[] = [
   {
+    id: "pista-baile-led",
+    name: "Pista de baile LED",
+    image: {
+      src: "/productos/hola15-pista.jpg",
+    },
+    description:
+      "Pista de baile de suelo LED RGB que se ilumina y cambia de color al ritmo de la fiesta. Módulos antideslizantes y resistentes que montamos a la medida de tu espacio. El efecto estrella para fiestas de 15 años, bodas y eventos: convierte cualquier salón en una discoteca. Montaje y desmontaje incluidos.",
+  },
+  {
     id: "estufa-gas",
     name: "Estufa de gas exterior",
     image: {
