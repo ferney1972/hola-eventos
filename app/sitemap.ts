@@ -1,13 +1,14 @@
 import type { MetadataRoute } from "next";
 import { posts } from "@/lib/blog";
 import { postBarra } from "@/lib/post-barra";
+import { postCarpa } from "@/lib/post-carpa";
 import { categories } from "@/lib/categories";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://holaeventos.es";
   const now = new Date();
 
-  const blogPosts: MetadataRoute.Sitemap = [...posts, postBarra].map((p) => ({
+  const blogPosts: MetadataRoute.Sitemap = [...posts, postBarra, postCarpa].map((p) => ({
     url: `${base}/blog/${p.slug}`,
     lastModified: new Date(p.date),
     changeFrequency: "monthly",
