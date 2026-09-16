@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { posts } from "@/lib/blog";
 import { postBarra } from "@/lib/post-barra";
+import { postCarpa } from "@/lib/post-carpa";
 
 // Fuerza que el índice del blog se genere siempre con los artículos actuales
 // (evita que Vercel sirva una versión cacheada con menos artículos).
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 export default function BlogIndex() {
-  const ordered = [...posts, postBarra].sort((a, b) => b.date.localeCompare(a.date));
+  const ordered = [...posts, postBarra, postCarpa].sort((a, b) => b.date.localeCompare(a.date));
 
   return (
     <main className="bg-gray-50 min-h-screen">
