@@ -316,6 +316,56 @@ export const posts: Post[] = [
       },
     ],
   },
+  {
+    slug: "alquiler-sillas-mesas-bodas-comuniones-madrid",
+    title: "Alquiler de sillas y mesas para bodas y comuniones en Madrid",
+    description:
+      "Guía para alquilar sillas y mesas en Madrid para bodas y comuniones: cuánto material necesitas, qué modelos elegir y qué incluye el servicio de entrega, montaje y recogida de Hola Eventos.",
+    date: "2026-11-10",
+    cover: "/productos/prod-mesa-180.jpg",
+    readingMin: 4,
+    body: [
+      {
+        type: "p",
+        text: "Bodas y comuniones comparten una regla: si los invitados están cómodos, la fiesta funciona. Alquilar sillas y mesas en Madrid es la forma más sencilla de montar el banquete sin comprar nada y sin quedarte con material que no volverás a usar. Esta guía te ayuda a calcularlo y a elegirlo bien.",
+      },
+      { type: "h2", text: "Cuántas sillas y mesas necesitas" },
+      {
+        type: "ul",
+        items: [
+          "Una silla por invitado, más un pequeño margen (un 5 %) para imprevistos de última hora.",
+          "Mesas redondas: de 8 a 10 personas por mesa, según el tamaño. Favorecen la conversación y quedan muy bien en bodas.",
+          "Mesas rectangulares: aprovechan mejor el espacio en comuniones con jardín o salón alargado.",
+          "Mesas altas de cóctel para el aperitivo, para que los invitados se muevan y se mezclen.",
+        ],
+      },
+      { type: "h2", text: "Qué modelos elegir según el estilo del evento" },
+      {
+        type: "p",
+        text: "Para una boda elegante funcionan las sillas blancas acolchadas o las transparentes; para una comunión informal en el jardín, las plegables de madera o resina resultan prácticas y resistentes. Si dudas, en nuestro catálogo puedes ver todos los modelos con foto real, y te asesoramos gratis para combinar sillas, mesas y mantelería.",
+      },
+      { type: "h2", text: "Completa el montaje: carpa, barra y decoración" },
+      {
+        type: "p",
+        text: "Si el evento es al aire libre, no dejes la meteorología al azar: una carpa te protege del sol y de la lluvia. Y si quieres servir bebidas con estilo, añade una barra de bar. Al contratar todo con un único proveedor tienes un solo interlocutor, una sola factura y una sola entrega.",
+      },
+      { type: "h2", text: "Qué incluye nuestro servicio" },
+      {
+        type: "ul",
+        items: [
+          "Entrega, montaje y recogida en Madrid y alrededores.",
+          "Material limpio y en perfecto estado.",
+          "Croquis de distribución gratuito para que todo encaje en tu espacio.",
+          "Presupuesto a medida y sin compromiso.",
+        ],
+      },
+      { type: "h2", text: "Reserva con tiempo" },
+      {
+        type: "p",
+        text: "Los sábados de mayo, junio y septiembre se llenan con meses de antelación. Escríbenos por WhatsApp con la fecha, el lugar y el número de invitados y te respondemos enseguida con disponibilidad y presupuesto.",
+      },
+    ],
+  },
 ];
 
 export function getPost(slug: string): Post | undefined {
